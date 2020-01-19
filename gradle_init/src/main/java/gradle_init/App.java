@@ -8,7 +8,7 @@ import database.ScenariosTable;
 import database.SqliteDatabase;
 
 public class App {
-	private static String testFileLoc = "C:\\eclipse\\work_space\\gradle_init\\src\\main\\resources\\databases";
+	private static String testFileLoc = "C:\\eclipse\\work_space\\capstone\\capstone-project-conspicuous\\gradle_init\\src\\main\\resources\\databases";
 	private static String testFileName = "TestFile.rtf";
 
 	public static void main(String[] args) {
@@ -18,7 +18,8 @@ public class App {
 		ScenariosTable.insertScenarios(sqliteDB, sc);
 
 		String sql = "SELECT * FROM scenarios";
-		sqliteDB.selectDb(sql);
+		// ScenariosTable.selectDb(sqliteDB, sql);
 
+		sc.retrieveFile(sqliteDB, sql, testFileName);
 	}
 }
