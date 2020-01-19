@@ -9,13 +9,12 @@ import org.junit.Test;
 
 import Scenarios.Scenario;
 import database.AppSchemas.ScenariosTableSchema;
-import database.ScenariosTable;
 import database.SqliteDatabase;
 
 public class SqliteDatabseTest {
 	private String dbName = "gradleDb.sqlite";
 	private SqliteDatabase testDb;
-	private String testFileLoc = "C:\\eclipse\\work_space\\gradle_init\\src\\main\\resources\\databases";
+	private String testFileLoc = "C:\\eclipse\\work_space\\capstone\\capstone-project-conspicuous\\gradle_init\\src\\main\\resources\\databases";
 	private String testFileName = "TestFile.rtf";
 
 	@Test
@@ -32,12 +31,6 @@ public class SqliteDatabseTest {
 		assertEquals("TEST", sc.getName());
 		assertEquals("C:\\users", sc.getPath());
 
-		Scenario sc2 = new Scenario();
-		sc2.setName("TEST2");
-		sc2.setPath("C:\\TEST2");
-		assertEquals("TEST2", sc2.getName());
-		assertEquals("C:\\TEST2", sc2.getPath());
-
 	}
 
 	@Test
@@ -51,10 +44,11 @@ public class SqliteDatabseTest {
 	public void testScenariosTableCreated() {
 		testDb = new SqliteDatabase(dbName);
 		Scenario sc = new Scenario(testFileName, testFileLoc);
-		ScenariosTable.createScenariosTable(testDb);
-		ScenariosTable.insertScenarios(testDb, sc);
+		testDb.getScenarioTable().createScenariosTable();
+		testDb.getScenarioTable().insertScenarios(sc);
 
 		String sql = "SELECT * FROM scenarios";
+		testDb.getScenarioTable().selectDb(sql);
 
 	}
 

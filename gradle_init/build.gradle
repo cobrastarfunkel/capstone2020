@@ -38,3 +38,29 @@ application {
     // Define the main class for the application.
     mainClassName = 'gradle_init.App'
 }
+
+test {
+	testLogging {
+		showStandardStreams = true
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
