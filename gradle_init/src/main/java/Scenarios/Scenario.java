@@ -7,8 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Scenario {
-	private String filename, fileLoc;
+	// Path variable that can be called to get the list of Scenarios from this
+	// directory
 	public static final String PATH = new File("src\\main\\resources\\scenarioFiles\\").getAbsolutePath();
+
+	private String filename, fileLoc;
+
+	// Convert file to byte array for storage
 	private byte[] storableFile;
 
 	/**
@@ -46,6 +51,7 @@ public class Scenario {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}
+		// If bs not null return byte array else return null
 		return bs != null ? bs.toByteArray() : null;
 	}
 
