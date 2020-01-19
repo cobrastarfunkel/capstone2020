@@ -18,8 +18,8 @@ public class App {
 		ScenariosTable.insertScenarios(sqliteDB, sc);
 
 		String sql = "SELECT * FROM scenarios";
-		// ScenariosTable.selectDb(sqliteDB, sql);
+		ScenariosTable.selectDb(sqliteDB, sql);
 
-		sc.retrieveFile(sqliteDB, sql, testFileName);
+		// sc.retrieveFile(sqliteDB, sql, testFileName);
 	}
 }
