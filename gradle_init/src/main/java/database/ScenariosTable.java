@@ -49,7 +49,7 @@ public class ScenariosTable {
 		}
 	}
 
-	public void selectDb(String sql) {
+	public void selectAllScenario(String sql) {
 
 		try (Connection conn = db.connect();
 				Statement stmt = conn.createStatement();
