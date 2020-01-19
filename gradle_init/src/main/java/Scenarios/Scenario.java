@@ -17,10 +17,10 @@ public class Scenario {
 	 * @param name String: FileName of the scenario
 	 * @param path String: Path to where the file is stored
 	 */
-	public Scenario(String name, String path) {
+	public Scenario(String name) {
 		this.filename = name;
-		this.path = path;
-		storableFile = convertFiletoByteArray(path.concat("\\" + this.filename));
+		this.path = new File("src\\main\\resources\\scenarioFiles\\" + this.filename).getAbsolutePath();
+		storableFile = convertFiletoByteArray(path);
 	}
 
 	/**
