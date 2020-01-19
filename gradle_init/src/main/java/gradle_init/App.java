@@ -3,18 +3,30 @@
  */
 package gradle_init;
 
-import Scenarios.Scenario;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import database.SqliteDatabase;
 
 public class App {
 
-	private static String testFileName = "scenario1.txt";
-
 	public static void main(String[] args) {
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		Scenario sc = new Scenario(testFileName);
-		sqliteDB.getScenarioTable().createScenariosTable();
-		sqliteDB.getScenarioTable().insertScenarios(sc);
+
+		String sql = "SELECT * FROM scenarios";
+
+		try (Connection conn = sqliteDB.connect();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+
+			while (rs.next()) {
+				System.out.println(rs.getString("filename") + "\t" + rs.getString("content"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 }

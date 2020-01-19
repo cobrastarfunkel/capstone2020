@@ -31,8 +31,8 @@ public class SqliteDatabase {
 		this.dbName = dbName;
 		path = new File("src\\main\\resources\\databases\\" + this.dbName).getAbsolutePath();
 		url = "jdbc:sqlite:" + path;
-		scenarioTable = new ScenariosTable(this);
 		createDatabase();
+		scenarioTable = new ScenariosTable(this);
 	}
 
 	/*

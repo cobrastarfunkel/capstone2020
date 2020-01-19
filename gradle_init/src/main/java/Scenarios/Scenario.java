@@ -7,20 +7,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Scenario {
-	private String filename;
-	private String path;
+	private String filename, fileLoc;
+	public static final String PATH = new File("src\\main\\resources\\scenarioFiles\\").getAbsolutePath();
 	private byte[] storableFile;
 
 	/**
 	 * Constructor
 	 * 
 	 * @param name String: FileName of the scenario
-	 * @param path String: Path to where the file is stored
+	 * @param PATH String: Path to where the file is stored
 	 */
 	public Scenario(String name) {
 		this.filename = name;
-		this.path = new File("src\\main\\resources\\scenarioFiles\\" + this.filename).getAbsolutePath();
-		storableFile = convertFiletoByteArray(path);
+		this.fileLoc = PATH.concat("\\" + filename);
+		storableFile = convertFiletoByteArray(fileLoc);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class Scenario {
 	}
 
 	public String getPath() {
-		return path;
+		return PATH;
 	}
 
 	public byte[] getStorableFile() {

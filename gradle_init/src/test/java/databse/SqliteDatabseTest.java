@@ -49,9 +49,6 @@ public class SqliteDatabseTest {
 	@Test
 	public void testScenariosTableCreated() {
 		testDb = new SqliteDatabase(dbName);
-		Scenario sc = new Scenario(testFileName);
-		testDb.getScenarioTable().createScenariosTable();
-		testDb.getScenarioTable().insertScenarios(sc);
 
 		String sql = "SELECT filename FROM scenarios";
 
