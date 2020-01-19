@@ -7,18 +7,17 @@ import Scenarios.Scenario;
 import database.SqliteDatabase;
 
 public class App {
-	private static String testFileLoc = "C:\\eclipse\\work_space\\capstone\\capstone-project-conspicuous\\gradle_init\\src\\main\\resources\\databases";
-	private static String testFileName = "TestFile.rtf";
+
+	private static String testFileName = "scenario1.txt";
 
 	public static void main(String[] args) {
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		Scenario sc = new Scenario(testFileName, testFileLoc);
+		Scenario sc = new Scenario(testFileName);
 		sqliteDB.getScenarioTable().createScenariosTable();
 		sqliteDB.getScenarioTable().insertScenarios(sc);
 
 		String sql = "SELECT * FROM scenarios";
-		sqliteDB.getScenarioTable().selectDb(sql);
+		sqliteDB.getScenarioTable().selectAllScenario(sql);
 
-		// sc.retrieveFile(sqliteDB, sql, testFileName);
 	}
 }
