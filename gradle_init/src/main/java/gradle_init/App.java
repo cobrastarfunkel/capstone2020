@@ -4,7 +4,6 @@
 package gradle_init;
 
 import Scenarios.Scenario;
-import database.ScenariosTable;
 import database.SqliteDatabase;
 
 public class App {
@@ -14,11 +13,11 @@ public class App {
 	public static void main(String[] args) {
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
 		Scenario sc = new Scenario(testFileName, testFileLoc);
-		ScenariosTable.createScenariosTable(sqliteDB);
-		ScenariosTable.insertScenarios(sqliteDB, sc);
+		sqliteDB.getScenarioTable().createScenariosTable();
+		sqliteDB.getScenarioTable().insertScenarios(sc);
 
 		String sql = "SELECT * FROM scenarios";
-		ScenariosTable.selectDb(sqliteDB, sql);
+		sqliteDB.getScenarioTable().selectDb(sql);
 
 		// sc.retrieveFile(sqliteDB, sql, testFileName);
 	}

@@ -11,10 +11,16 @@ import database.AppSchemas.ScenariosTableSchema;
 
 public class ScenariosTable {
 
+	private SqliteDatabase db;
+
+	public ScenariosTable(SqliteDatabase db) {
+		this.db = db;
+	}
+
 	/**
 	 * Create a scenarios Table Stores files for future use
 	 */
-	public static void createScenariosTable(SqliteDatabase db) {
+	public void createScenariosTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS " + ScenariosTableSchema.NAME + "(\n"
 				+ ScenariosTableSchema.Cols.filename + " TEXT,\n" + ScenariosTableSchema.Cols.contentCol + " BLOB"
 				+ ", UNIQUE(" + ScenariosTableSchema.Cols.filename + "," + ScenariosTableSchema.Cols.contentCol + "));";
@@ -28,7 +34,7 @@ public class ScenariosTable {
 
 	}
 
-	public static void insertScenarios(SqliteDatabase db, Scenario sc) {
+	public void insertScenarios(Scenario sc) {
 		String sql = "INSERT OR IGNORE INTO " + ScenariosTableSchema.NAME + "(" + ScenariosTableSchema.Cols.filename
 				+ "," + ScenariosTableSchema.Cols.contentCol + ") VALUES (?,?)";
 
@@ -43,7 +49,7 @@ public class ScenariosTable {
 		}
 	}
 
-	public static void selectDb(SqliteDatabase db, String sql) {
+	public void selectDb(String sql) {
 
 		try (Connection conn = db.connect();
 				Statement stmt = conn.createStatement();
