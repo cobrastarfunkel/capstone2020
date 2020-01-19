@@ -16,8 +16,5 @@ public class App {
 		sqliteDB.getScenarioTable().createScenariosTable();
 		sqliteDB.getScenarioTable().insertScenarios(sc);
 
-		String sql = "SELECT * FROM scenarios";
-		sqliteDB.getScenarioTable().selectAllScenario(sql);
-
 	}
 }

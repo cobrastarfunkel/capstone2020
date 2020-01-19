@@ -2,7 +2,6 @@ package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -44,21 +43,6 @@ public class ScenariosTable {
 			pst.executeUpdate();
 			conn.commit();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void selectAllScenario(String sql) {
-
-		try (Connection conn = db.connect();
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery(sql)) {
-
-			while (rs.next()) {
-				System.out.println(rs.getString(ScenariosTableSchema.Cols.filename) + "\t"
-						+ rs.getString(ScenariosTableSchema.Cols.contentCol));
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -4,6 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.junit.Test;
 
@@ -49,8 +53,18 @@ public class SqliteDatabseTest {
 		testDb.getScenarioTable().createScenariosTable();
 		testDb.getScenarioTable().insertScenarios(sc);
 
-		String sql = "SELECT * FROM scenarios";
-		testDb.getScenarioTable().selectAllScenario(sql);
+		String sql = "SELECT filename FROM scenarios";
+
+		try (Connection conn = testDb.connect();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+
+			while (rs.next()) {
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
