@@ -59,7 +59,7 @@ public class SqliteDatabase {
 	}
 
 	/**
-	 * Helper class to Connect to DB
+	 * Helper method to Connect to DB
 	 * 
 	 * @return Connection conn: Connection to DB
 	 */

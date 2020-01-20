@@ -16,8 +16,7 @@ import database.AppSchemas.ScenariosTableSchema;
 public class ScenariosTable {
 
 	private SqliteDatabase db;
-	// private ArrayList<Scenario> scs = new ArrayList<Scenario>();
-	private HashMap<String, byte[]> scs = new HashMap<String, byte[]>();
+	private HashMap<String, byte[]> scenarios = new HashMap<String, byte[]>();
 
 	public ScenariosTable(SqliteDatabase db) {
 		this.db = db;
@@ -64,7 +63,7 @@ public class ScenariosTable {
 				Scenario tempScenario = new Scenario(splitPaths[splitPaths.length - 1]);
 
 				// Add Scenario to ArrayList of Scenarios
-				this.scs.put(tempScenario.getName(), tempScenario.getStorableFile());
+				this.scenarios.put(tempScenario.getName(), tempScenario.getStorableFile());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -79,7 +78,7 @@ public class ScenariosTable {
 	 */
 	private void insertScenarios() {
 		// Loop through loaded Scenarios
-		for (String filename : scs.keySet()) {
+		for (String filename : scenarios.keySet()) {
 
 			String sql = String.format("INSERT OR IGNORE INTO %s (%s,%s) VALUES (?,?)", ScenariosTableSchema.NAME,
 					ScenariosTableSchema.Cols.filename, ScenariosTableSchema.Cols.contentCol);
@@ -91,7 +90,7 @@ public class ScenariosTable {
 				pst.setString(1, filename);
 
 				// content column
-				pst.setBytes(2, scs.get(filename));
+				pst.setBytes(2, scenarios.get(filename));
 				pst.executeUpdate();
 
 				// Commit because auto commit is disabled by the connection method in
@@ -105,7 +104,7 @@ public class ScenariosTable {
 	}
 
 	public HashMap<String, byte[]> getScs() {
-		return scs;
+		return scenarios;
 	}
 
 }

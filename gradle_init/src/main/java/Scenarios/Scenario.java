@@ -44,6 +44,7 @@ public class Scenario {
 			for (int len; (len = fis.read(buffer)) != -1;) {
 				bs.write(buffer, 0, len);
 			}
+			fis.close();
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
