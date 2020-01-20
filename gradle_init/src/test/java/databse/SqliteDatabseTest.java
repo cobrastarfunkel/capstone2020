@@ -44,6 +44,9 @@ public class SqliteDatabseTest {
 
 			while (rs.next()) {
 				assertTrue(scenarios.containsKey(rs.getString("filename")));
+
+				// TODO: Covert file contents back from byte array to String
+				// assertTrue(scenarios.get(rs.getString("filename")).toString().equals(rs.getString("content")));
 			}
 		} catch (SQLException e) {
 			fail(e.toString());
