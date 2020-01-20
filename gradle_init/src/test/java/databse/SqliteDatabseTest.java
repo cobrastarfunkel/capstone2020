@@ -47,9 +47,7 @@ public class SqliteDatabseTest {
 				ResultSet rs = stmt.executeQuery(sql)) {
 
 			while (rs.next()) {
-				for (Scenario sc : scenarios) {
-
-				}
+				System.out.println(rs.getString("filename") + "\t" + rs.getString("content"));
 
 			}
 		} catch (SQLException e) {

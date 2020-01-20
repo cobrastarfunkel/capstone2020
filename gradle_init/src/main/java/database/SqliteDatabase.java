@@ -29,7 +29,11 @@ public class SqliteDatabase {
 	 */
 	public SqliteDatabase(String dbName) {
 		this.dbName = dbName;
+
+		// Where the database is stored
 		path = new File("src\\main\\resources\\databases\\" + this.dbName).getAbsolutePath();
+
+		// jdbc connector for sqlite
 		url = "jdbc:sqlite:" + path;
 		createDatabase();
 		scenarioTable = new ScenariosTable(this);
@@ -40,6 +44,7 @@ public class SqliteDatabase {
 	 */
 	private void createDatabase() {
 
+		// Create the database if it doesn't exist and print some info to console
 		try (Connection conn = DriverManager.getConnection(this.url)) {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
@@ -54,7 +59,7 @@ public class SqliteDatabase {
 	}
 
 	/**
-	 * Connect to DB
+	 * Helper class to Connect to DB
 	 * 
 	 * @return Connection conn: Connection to DB
 	 */
