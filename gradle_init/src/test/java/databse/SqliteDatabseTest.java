@@ -2,31 +2,23 @@ package databse;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.Test;
 
-import Scenarios.Scenario;
 import database.AppSchemas.ScenariosTableSchema;
 import database.SqliteDatabase;
 
 public class SqliteDatabseTest {
 	private String dbName = "gradleDb.sqlite";
 	private SqliteDatabase testDb;
-
-	@Test
-	public void testDbCreated() {
-		testDb = new SqliteDatabase(dbName);
-		File dbFile = new File(testDb.getPath());
-		assertTrue("Database Should be created", dbFile.exists());
-
-	}
 
 	@Test
 	public void testSchemas() {
@@ -38,7 +30,11 @@ public class SqliteDatabseTest {
 	@Test
 	public void testScenariosTableCreated() {
 		testDb = new SqliteDatabase(dbName);
-		ArrayList<Scenario> scenarios = testDb.getScenarioTable().getScs();
+		File dbFile = new File(testDb.getPath());
+
+		assertTrue("Database Should be created", dbFile.exists());
+
+		HashMap<String, byte[]> scenarios = testDb.getScenarioTable().getScs();
 
 		String sql = "SELECT * FROM scenarios";
 
@@ -47,11 +43,10 @@ public class SqliteDatabseTest {
 				ResultSet rs = stmt.executeQuery(sql)) {
 
 			while (rs.next()) {
-				System.out.println(rs.getString("filename") + "\t" + rs.getString("content"));
-
+				assertTrue(scenarios.containsKey(rs.getString("filename")));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			fail(e.toString());
 		}
 
 	}
