@@ -28,13 +28,6 @@ public class ScenariosTable {
 	 */
 	private void createScenariosTable() {
 		// SQL to create the Table if it doesn't exist
-		/*
-		 * String sql = "CREATE TABLE IF NOT EXISTS " + ScenariosTableSchema.NAME +
-		 * "(\n" + ScenariosTableSchema.Cols.filename + " TEXT,\n" +
-		 * ScenariosTableSchema.Cols.contentCol + " BLOB" + ", UNIQUE(" +
-		 * ScenariosTableSchema.Cols.filename + "," +
-		 * ScenariosTableSchema.Cols.contentCol + "));";
-		 */
 		String sql = String.format("CREATE TABLE IF NOT EXISTS %s (%s TEXT, %s BLOB, UNIQUE(%s,%s));",
 				ScenariosTableSchema.NAME, ScenariosTableSchema.Cols.filename, ScenariosTableSchema.Cols.contentCol,
 				ScenariosTableSchema.Cols.filename, ScenariosTableSchema.Cols.contentCol);
@@ -86,13 +79,6 @@ public class ScenariosTable {
 	private void insertScenarios() {
 		// Loop through loaded Scenarios
 		for (Scenario scenario : this.scs) {
-
-			// Inserts Scenario if both columns are Unique
-			/*
-			 * String sql = "INSERT OR IGNORE INTO " + ScenariosTableSchema.NAME + "(" +
-			 * ScenariosTableSchema.Cols.filename + "," +
-			 * ScenariosTableSchema.Cols.contentCol + ") VALUES (?,?)";
-			 */
 
 			String sql = String.format("INSERT OR IGNORE INTO %s (%s,%s) VALUES (?,?)", ScenariosTableSchema.NAME,
 					ScenariosTableSchema.Cols.filename, ScenariosTableSchema.Cols.contentCol);
