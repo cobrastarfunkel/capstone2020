@@ -1,6 +1,7 @@
 package databse;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -45,9 +46,11 @@ public class SqliteDatabseTest {
 			while (rs.next()) {
 				assertTrue(scenarios.containsKey(rs.getString("filename")));
 
-				// TODO: Covert file contents back from byte array to String
-				// assertTrue(scenarios.get(rs.getString("filename")).toString().equals(rs.getString("content").toString()));
-				// Jira Test
+				// Shouldn't match because the version stored in Scenarios is a byte[] the DB
+				// returns a String
+				assertFalse(scenarios.get(rs.getString("filename")).equals(rs.getString("content")));
+
+				// TODO: Covert file contents back from byte array to String and compare
 			}
 		} catch (SQLException e) {
 			fail(e.toString());
