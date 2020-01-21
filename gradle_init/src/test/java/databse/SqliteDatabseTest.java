@@ -34,9 +34,9 @@ public class SqliteDatabseTest {
 
 		assertTrue("Database Should be created", dbFile.exists());
 
-		HashMap<String, byte[]> scenarios = testDb.getScenarioTable().getScs();
+		HashMap<String, byte[]> scenarios = testDb.getScenarioTable().getScenariosHashMap();
 
-		String sql = "SELECT * FROM scenarios";
+		String sql = String.format("SELECT * FROM %s", ScenariosTableSchema.NAME);
 
 		try (Connection conn = testDb.connect();
 				Statement stmt = conn.createStatement();
@@ -46,7 +46,7 @@ public class SqliteDatabseTest {
 				assertTrue(scenarios.containsKey(rs.getString("filename")));
 
 				// TODO: Covert file contents back from byte array to String
-				// assertTrue(scenarios.get(rs.getString("filename")).toString().equals(rs.getString("content")));
+				// assertTrue(scenarios.get(rs.getString("filename")).toString().equals(rs.getString("content").toString()));
 			}
 		} catch (SQLException e) {
 			fail(e.toString());

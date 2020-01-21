@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class SqliteDatabase {
 
-	private String dbName, path, url;
+	private String dbFileName, path, url;
 	private ScenariosTable scenarioTable;
 
 	/**
@@ -28,10 +28,10 @@ public class SqliteDatabase {
 	 * @param dbName String: Name of the database to be created
 	 */
 	public SqliteDatabase(String dbName) {
-		this.dbName = dbName;
+		this.dbFileName = dbName;
 
 		// Where the database is stored
-		path = new File("src\\main\\resources\\databases\\" + this.dbName).getAbsolutePath();
+		path = new File("src\\main\\resources\\databases\\" + this.dbFileName).getAbsolutePath();
 
 		// jdbc connector for sqlite
 		url = "jdbc:sqlite:" + path;
@@ -79,7 +79,7 @@ public class SqliteDatabase {
 	}
 
 	public String getDbName() {
-		return dbName;
+		return dbFileName;
 	}
 
 	public String getPath() {

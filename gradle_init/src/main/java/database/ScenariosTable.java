@@ -103,7 +103,7 @@ public class ScenariosTable {
 		}
 	}
 
-	public HashMap<String, byte[]> getScs() {
+	public HashMap<String, byte[]> getScenariosHashMap() {
 		return scenarios;
 	}
 
