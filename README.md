@@ -7,6 +7,3 @@ Creating Database works, Table can be created, Files can be imported into table 
 * Convert file back to String from byte[] 
 * More Test cases
 * Verify File contents in using test (Need byte[] to be converted to String)
-
-
-[CC-12]
