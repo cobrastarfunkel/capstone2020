@@ -1,6 +1,7 @@
 package database;
 
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -48,10 +49,10 @@ public class ScenariosTable {
 	 */
 	private void loadScenarios() {
 		// Get the Path to the files defined in the Scenario object
-		var dirName = Paths.get(Scenario.PATH);
+		Path dirName = Paths.get(Scenario.PATH);
 
 		// Make sure the path exists and set paths var to the files
-		try (var paths = Files.newDirectoryStream(dirName)) {
+		try (DirectoryStream<Path> paths = Files.newDirectoryStream(dirName)) {
 
 			// Loop through files in paths
 			for (Path filename : paths) {
