@@ -32,6 +32,9 @@ dependencies {
     
     // Sqlite
     implementation 'org.xerial:sqlite-jdbc:3.8.11.2'
+    
+    // Jackson (json parser)
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.9'
 }
 
 application {
