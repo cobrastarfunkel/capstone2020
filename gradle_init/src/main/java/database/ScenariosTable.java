@@ -67,7 +67,7 @@ public class ScenariosTable {
 				this.scenarios.put(tempScenario.getName(), tempScenario.getStorableFile());
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.printf("No Scenarios in %s\n\n", Scenario.PATH);
 		}
 		insertScenarios();
 	}
