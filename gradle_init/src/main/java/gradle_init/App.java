@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 
 import database.SqliteDatabase;
 
@@ -15,7 +14,7 @@ public class App {
 
 	public static void main(String[] args) {
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		HashMap<String, byte[]> scenarios = sqliteDB.getScenarioTable().getScenariosHashMap();
+
 		String sql = "SELECT * FROM scenarios";
 
 		try (Connection conn = sqliteDB.connect();
