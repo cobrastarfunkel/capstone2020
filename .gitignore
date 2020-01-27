@@ -1,6 +1,8 @@
 ## Project Stuff ##
 *.sqlite
+
 *.exe
+
 
 ### Eclipse ###
 .metadata
