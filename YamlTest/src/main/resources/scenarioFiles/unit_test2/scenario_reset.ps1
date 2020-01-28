@@ -1,1 +1,1 @@
-Remove-Item -path C:\eclipse\test_files\cpptest.txt
+Remove-Item -path C:\cpptest.txt
