@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
    fstream file;
-   file.open("C:\\eclipse\\test_files\\cpptest.txt", fstream::out);
+   file.open("C:\\cpptest.txt", fstream::out);
 
    if(!file) 
    { 
