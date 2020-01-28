@@ -43,6 +43,7 @@ targetCompatibility = 1.8
 
 test {
 	testLogging {
+		// Show output during unit tests
 		showStandardStreams = true
 	}
 }

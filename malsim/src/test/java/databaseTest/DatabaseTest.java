@@ -1,4 +1,4 @@
-package YamlTest;
+package databaseTest;
 
 public class DatabaseTest {
 
