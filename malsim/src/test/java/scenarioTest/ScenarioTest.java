@@ -68,7 +68,7 @@ public class ScenarioTest {
 
 	// If the file is encrypted it will throw an IO exception
 	@Test(expected = IOException.class)
-	public void testCencryption() {
+	public void testCencryption() throws Exception {
 		try {
 			sk = new SymmetricKey("password123");
 			try {
@@ -77,6 +77,7 @@ public class ScenarioTest {
 				sch.executeFile(scFile, scs.get(id).getLanguage(), "deploy");
 			} catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException | IOException
 					| InterruptedException e) {
+				throw e;
 
 			}
 		} catch (NoSuchAlgorithmException | NoSuchPaddingException | UnsupportedEncodingException e1) {
