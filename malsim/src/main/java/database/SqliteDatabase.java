@@ -24,7 +24,6 @@ public class SqliteDatabase {
 	private final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
 
 	private String dbFileName, path, url;
-	private ScenariosTable scenarioTable;
 	private SymmetricKey secretKey;
 
 	/**
@@ -50,7 +49,6 @@ public class SqliteDatabase {
 		// jdbc connector for sqlite
 		url = "jdbc:sqlite:" + path;
 		createDatabase();
-		scenarioTable = new ScenariosTable(this);
 	}
 
 	/*
@@ -102,9 +100,5 @@ public class SqliteDatabase {
 
 	public String getPath() {
 		return path;
-	}
-
-	public ScenariosTable getScenarioTable() {
-		return scenarioTable;
 	}
 }

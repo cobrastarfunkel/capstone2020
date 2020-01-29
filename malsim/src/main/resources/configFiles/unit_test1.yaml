@@ -3,17 +3,20 @@
 id: 0001
 
 # Name for the GUI screen
-name: Test Scenario 1
+scName: Test Scenario 1
 
 # Relative path to the executable Scenario
 # Based from the java resources directory
-deploy_file: unit_test1/scenario1.ps1
+dMalware: unit_test1/scenario1.ps1
 
 # Same as Deploy but for the reset script
 reset_file: unit_test2/scenario1_reset.ps1
 
 # Language the Scenario is using
 language: powershell
+
+# Can be null, Just in case we need it in the future
+os: Windows 10
 
 # Type of Scenario
 type: artifact

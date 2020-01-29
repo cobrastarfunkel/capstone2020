@@ -37,10 +37,10 @@ public class ScenarioTest {
 
 	@Test
 	public void testAscenarioCreation() {
-		scs = scb.loadScenarios();
+		scs = scb.getScenarios();
 		// Check values
 		assertEquals(0002, scs.get(id).getId());
-		assertEquals("Unit Test Scenario", scs.get(id).getName());
+		assertEquals("Unit Test Scenario", scs.get(id).getScName());
 		assertEquals("unit_test2/scenario2.exe", scs.get(id).getDeploy_file());
 		assertEquals("unit_test2/scenario_reset.ps1", scs.get(id).getReset_file());
 		assertEquals("c++", scs.get(id).getLanguage());
