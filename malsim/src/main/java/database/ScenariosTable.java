@@ -48,7 +48,7 @@ public class ScenariosTable {
 	}
 
 	private void loadScenarios() {
-		this.scenarios = scb.loadScenarios();
+		this.scenarios = scb.getScenarios();
 		insertScenariosIntoTable();
 	}
 

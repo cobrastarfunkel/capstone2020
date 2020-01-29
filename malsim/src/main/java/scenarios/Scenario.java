@@ -8,17 +8,25 @@ public class Scenario {
 	public static final String CONFIG_PATH = new File("src\\main\\resources\\configFiles\\").getAbsolutePath();
 	public static final String DEPLOY_PATH = new File("src\\main\\resources\\scenarioFiles\\").getAbsolutePath();
 
-	private String name, language, type, deploy_file, reset_file;
+	private String language, type, reset_file, os;
+	private String dMalware, scName;
+
 	private HashMap<String, String> documents;
 	private int id;
-	private boolean completed;
 
-	public String getName() {
-		return name;
+	// sqlite doesn't have a bool data type 1=complete 0=not
+	private int completed;
+
+	public String getdMalware() {
+		return dMalware;
+	}
+
+	public String getScName() {
+		return scName;
 	}
 
 	public String getDeploy_file() {
-		return deploy_file;
+		return dMalware;
 	}
 
 	public String getReset_file() {
@@ -41,18 +49,22 @@ public class Scenario {
 		return documents;
 	}
 
-	public boolean isCompleted() {
+	public int isCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(boolean completed) {
+	public void setCompleted(int completed) {
 		this.completed = completed;
+	}
+
+	public String getOs() {
+		return os;
 	}
 
 	@Override
 	public String toString() {
 
-		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s", this.id, this.name,
-				this.deploy_file, this.reset_file, this.language);
+		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s", this.id, this.scName,
+				this.dMalware, this.reset_file, this.language);
 	}
 }

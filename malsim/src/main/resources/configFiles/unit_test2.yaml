@@ -5,11 +5,11 @@
 id: 0002
 
 # Name for the GUI screen
-name: Unit Test Scenario
+scName: Unit Test Scenario
 
 # Relative path to the executable Scenario
 # Based from the java resources directory
-deploy_file: unit_test2/scenario2.exe
+dMalware: unit_test2/scenario2.exe
 
 # Same as Deploy but for the reset script
 reset_file: unit_test2/scenario_reset.ps1
