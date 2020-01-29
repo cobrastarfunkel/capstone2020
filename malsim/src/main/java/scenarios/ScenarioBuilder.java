@@ -14,13 +14,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class ScenarioBuilder {
+	public HashMap<Integer, Scenario> scenarios = new HashMap<Integer, Scenario>();
+
+	public ScenarioBuilder() {
+		scenarios = loadScenarios();
+	}
 
 	/**
 	 * Load the Scenarios into a HashMap for easy retrieval
 	 * 
 	 * @return HashMap<Integer, Scenario> of the Scenarios: ID number is the Key
 	 */
-	public HashMap<Integer, Scenario> loadScenarios() {
+	private HashMap<Integer, Scenario> loadScenarios() {
 		HashMap<Integer, Scenario> scenarios = new HashMap<Integer, Scenario>();
 		Scenario scHolder = null;
 
@@ -67,6 +72,10 @@ public class ScenarioBuilder {
 		}
 
 		return tScenario;
+	}
+
+	public HashMap<Integer, Scenario> getScenarios() {
+		return scenarios;
 	}
 
 }
