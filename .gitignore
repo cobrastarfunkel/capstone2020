@@ -1,7 +1,7 @@
 ## Project Stuff ##
 *.sqlite
 temp.exe
-*_copy*
+*copy*
 
 
 ### Eclipse ###
