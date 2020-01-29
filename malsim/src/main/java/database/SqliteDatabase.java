@@ -86,6 +86,10 @@ public class SqliteDatabase {
 		return conn;
 	}
 
+	public void createMalwareTable() {
+		new MalwareTable(this);
+	}
+
 	public SymmetricKey getSecretKey() {
 		return secretKey;
 	}

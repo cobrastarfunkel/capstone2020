@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import database.MalwareTable;
 import database.SqliteDatabase;
 import scenarios.ScenarioHelper;
 
@@ -41,7 +40,7 @@ public class Library {
 		 * e.printStackTrace(); }
 		 */
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		MalwareTable mTable = new MalwareTable(sqliteDB);
+		sqliteDB.createMalwareTable();
 
 		String sql = "SELECT * FROM malware";
 
