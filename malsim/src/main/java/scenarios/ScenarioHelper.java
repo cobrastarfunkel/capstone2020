@@ -13,6 +13,7 @@ import com.profesorfalken.jpowershell.PowerShellNotAvailableException;
 import com.profesorfalken.jpowershell.PowerShellResponse;
 
 public class ScenarioHelper {
+	private final String tempFilePath = Scenario.DEPLOY_PATH + "\\" + "temp.exe";
 
 	public void executeFile(File file, String language, String option) throws IOException, InterruptedException {
 		// Deploy Powershell Scenario
@@ -46,6 +47,7 @@ public class ScenarioHelper {
 		Process exec = Runtime.getRuntime().exec(file.toString());
 		exec.waitFor();
 		System.out.println(exec.exitValue());
+		file.delete();
 
 	}
 
@@ -60,7 +62,6 @@ public class ScenarioHelper {
 	}
 
 	public File convertBytesToFile(byte[] file) throws IOException {
-		String tempFilePath = Scenario.DEPLOY_PATH + "\\" + "temp.exe";
 		Files.write(Paths.get(tempFilePath), file);
 		return new File(tempFilePath);
 

