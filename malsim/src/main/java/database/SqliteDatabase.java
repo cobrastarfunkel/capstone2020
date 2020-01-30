@@ -90,6 +90,10 @@ public class SqliteDatabase {
 		new MalwareTable(this);
 	}
 
+	public void createScenariosTable() {
+		new ScenariosTable(this);
+	}
+
 	public SymmetricKey getSecretKey() {
 		return secretKey;
 	}
