@@ -7,8 +7,11 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 
 import database.SqliteDatabase;
+import scenarios.Scenario;
+import scenarios.ScenarioBuilder;
 import scenarios.ScenarioHelper;
 
 public class Library {
@@ -16,6 +19,12 @@ public class Library {
 	public static void main(String[] args) {
 
 		ScenarioHelper sch = new ScenarioHelper();
+		ScenarioBuilder scb = new ScenarioBuilder();
+		HashMap<Integer, Scenario> scenarios = scb.getScenarios();
+
+		for (Integer key : scenarios.keySet()) {
+			System.out.println(scenarios.get(key).toString());
+		}
 
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
 		sqliteDB.createMalwareTable();
