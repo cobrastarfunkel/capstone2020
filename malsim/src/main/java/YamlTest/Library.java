@@ -23,7 +23,7 @@ public class Library {
 		HashMap<Integer, Scenario> scenarios = scb.getScenarios();
 
 		for (Integer key : scenarios.keySet()) {
-			System.out.println(scenarios.get(key).toString());
+			System.out.println("#####" + scenarios.get(key).toString());
 		}
 
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");

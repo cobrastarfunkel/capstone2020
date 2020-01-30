@@ -1,7 +1,6 @@
 package scenarios;
 
 import java.io.File;
-import java.util.HashMap;
 
 public class Scenario {
 
@@ -11,7 +10,7 @@ public class Scenario {
 	private String language, type, reset_file, os;
 	private String dMalware, scName;
 
-	private HashMap<String, String> documents;
+	private String documents;
 	private int id;
 
 	// sqlite doesn't have a bool data type 1=complete 0=not
@@ -45,7 +44,7 @@ public class Scenario {
 		return type;
 	}
 
-	public HashMap<String, String> getDocuments() {
+	public String getDocuments() {
 		return documents;
 	}
 
@@ -64,8 +63,7 @@ public class Scenario {
 	@Override
 	public String toString() {
 
-		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s\n" + "Documents: %s, %s", this.id,
-				this.scName, this.dMalware, this.reset_file, this.language, documents.get("helpText"),
-				documents.get("description"));
+		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s\n" + "Document: %s", this.id,
+				this.scName, this.dMalware, this.reset_file, this.language, this.documents);
 	}
 }
