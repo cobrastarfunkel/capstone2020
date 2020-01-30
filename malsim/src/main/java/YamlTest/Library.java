@@ -15,30 +15,8 @@ public class Library {
 
 	public static void main(String[] args) {
 
-		/*
-		 * HashMap<Integer, Scenario> scs = new HashMap<Integer, Scenario>();
-		 * ScenarioBuilder scb = new ScenarioBuilder(); scs = scb.loadScenarios();
-		 * 
-		 */
 		ScenarioHelper sch = new ScenarioHelper();
-		/*
-		 * for (Integer id : scs.keySet()) {
-		 * 
-		 * try { sch.executeFile(scs.get(id), "deploy"); } catch (IOException |
-		 * InterruptedException e) { e.printStackTrace(); } }
-		 */
 
-		/*
-		 * try { SymmetricKey sk = new SymmetricKey("password123"); try { //
-		 * sk.encryptFile(sch.getScenarioFile(scs.get(0002).getDeploy_file())); //
-		 * sch.executeFile(scs.get(0002), "deploy");
-		 * sk.decryptFile(sch.getScenarioFile(scs.get(0002).getDeploy_file())); } catch
-		 * (InvalidKeyException | IllegalBlockSizeException | BadPaddingException |
-		 * IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-		 * catch (NoSuchAlgorithmException | NoSuchPaddingException |
-		 * UnsupportedEncodingException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
 		sqliteDB.createMalwareTable();
 		sqliteDB.createScenariosTable();

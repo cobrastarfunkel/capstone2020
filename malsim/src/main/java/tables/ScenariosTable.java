@@ -1,23 +1,19 @@
-package database;
+package tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 import database.AppSchemas.ScenariosTableSchema;
-import scenarios.Scenario;
-import scenarios.ScenarioBuilder;
+import database.DatabaseHelper;
+import database.SqliteDatabase;
 
 public class ScenariosTable {
 
-	private SqliteDatabase db;
-	private DatabaseHelper dbh = new DatabaseHelper();
-	private HashMap<Integer, Scenario> scenarios = new HashMap<Integer, Scenario>();
-	private ScenarioBuilder scb = new ScenarioBuilder();
+	private DatabaseHelper dbh;
 
 	public ScenariosTable(SqliteDatabase db) {
-		this.db = db;
+		this.dbh = new DatabaseHelper(db);
 		createScenariosTable();
 	}
 
@@ -26,26 +22,20 @@ public class ScenariosTable {
 				ScenariosTableSchema.NAME, ScenariosTableSchema.Cols.idNumber, ScenariosTableSchema.Cols.scName,
 				ScenariosTableSchema.Cols.idNumber, ScenariosTableSchema.Cols.scName);
 
-		dbh.createTable(sql, this.db);
-		loadScenarios();
-	}
-
-	private void loadScenarios() {
-		this.scenarios = scb.getScenarios();
+		dbh.createTable(sql);
 		insertScenariosIntoTable();
-
 	}
 
 	private void insertScenariosIntoTable() {
-		for (Integer id : this.scenarios.keySet()) {
+		for (Integer id : dbh.getScenarios().keySet()) {
 
 			String sql = String.format("INSERT OR IGNORE INTO %s (%s, %s) VALUES (?,?)", ScenariosTableSchema.NAME,
 					ScenariosTableSchema.Cols.idNumber, ScenariosTableSchema.Cols.scName);
 
-			try (Connection conn = db.connect(); PreparedStatement pst = conn.prepareStatement(sql)) {
-				pst.setInt(1, scenarios.get(id).getId());
+			try (Connection conn = dbh.getDb().connect(); PreparedStatement pst = conn.prepareStatement(sql)) {
+				pst.setInt(1, dbh.getScenarios().get(id).getId());
 
-				pst.setString(2, scenarios.get(id).getScName());
+				pst.setString(2, dbh.getScenarios().get(id).getScName());
 				pst.executeUpdate();
 
 				conn.commit();

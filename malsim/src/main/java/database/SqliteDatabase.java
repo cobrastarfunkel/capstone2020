@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import javax.crypto.NoSuchPaddingException;
 
 import encryption.SymmetricKey;
+import tables.MalwareTable;
+import tables.ScenariosTable;
 
 public class SqliteDatabase {
 	private final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
