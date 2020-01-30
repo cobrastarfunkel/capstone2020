@@ -64,7 +64,8 @@ public class Scenario {
 	@Override
 	public String toString() {
 
-		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s", this.id, this.scName,
-				this.dMalware, this.reset_file, this.language);
+		return String.format("ID: %d\nName: %s\nDeploy: %s\nReset: %s\nLanguage: %s\n" + "Documents: %s, %s", this.id,
+				this.scName, this.dMalware, this.reset_file, this.language, documents.get("helpText"),
+				documents.get("description"));
 	}
 }
