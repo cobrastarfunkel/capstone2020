@@ -27,8 +27,7 @@ public class Library {
 		}
 
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		sqliteDB.createMalwareTable();
-		sqliteDB.createScenariosTable();
+		sqliteDB.createDatabase();
 
 		String sql = "SELECT * FROM malware";
 

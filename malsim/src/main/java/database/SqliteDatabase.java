@@ -50,13 +50,12 @@ public class SqliteDatabase {
 
 		// jdbc connector for sqlite
 		url = "jdbc:sqlite:" + path;
-		createDatabase();
 	}
 
 	/*
 	 * Create a Database
 	 */
-	private void createDatabase() {
+	public void createDatabase() {
 
 		// Create the database if it doesn't exist and print some info to console
 		try (Connection conn = DriverManager.getConnection(this.url)) {
@@ -69,6 +68,8 @@ public class SqliteDatabase {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		createMalwareTable();
+		createScenariosTable();
 
 	}
 
@@ -88,11 +89,11 @@ public class SqliteDatabase {
 		return conn;
 	}
 
-	public void createMalwareTable() {
+	private void createMalwareTable() {
 		new MalwareTable(this);
 	}
 
-	public void createScenariosTable() {
+	private void createScenariosTable() {
 		new ScenariosTable(this);
 	}
 
