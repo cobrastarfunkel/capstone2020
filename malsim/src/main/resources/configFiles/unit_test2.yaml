@@ -22,6 +22,4 @@ type: artifact
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents:
-  help_text: unit_test/docs/help.pdf
-  description: unit_test/docs/desc.pdf
+documents: unit_test2/docs/help.pdf

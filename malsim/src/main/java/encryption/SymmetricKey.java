@@ -63,9 +63,8 @@ public class SymmetricKey {
 
 	public byte[] decryptBytes(byte[] encryptedText)
 			throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-		byte[] retByte = encryptedText;
 		this.cipher.init(Cipher.DECRYPT_MODE, this.secretKey);
-		retByte = cipher.doFinal(encryptedText);
+		byte[] retByte = this.cipher.doFinal(encryptedText);
 		return retByte;
 	}
 

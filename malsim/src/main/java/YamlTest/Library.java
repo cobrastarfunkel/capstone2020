@@ -7,41 +7,27 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 
-import database.MalwareTable;
 import database.SqliteDatabase;
+import scenarios.Scenario;
+import scenarios.ScenarioBuilder;
 import scenarios.ScenarioHelper;
 
 public class Library {
 
 	public static void main(String[] args) {
 
-		/*
-		 * HashMap<Integer, Scenario> scs = new HashMap<Integer, Scenario>();
-		 * ScenarioBuilder scb = new ScenarioBuilder(); scs = scb.loadScenarios();
-		 * 
-		 */
 		ScenarioHelper sch = new ScenarioHelper();
-		/*
-		 * for (Integer id : scs.keySet()) {
-		 * 
-		 * try { sch.executeFile(scs.get(id), "deploy"); } catch (IOException |
-		 * InterruptedException e) { e.printStackTrace(); } }
-		 */
+		ScenarioBuilder scb = new ScenarioBuilder();
+		HashMap<Integer, Scenario> scenarios = scb.getScenarios();
 
-		/*
-		 * try { SymmetricKey sk = new SymmetricKey("password123"); try { //
-		 * sk.encryptFile(sch.getScenarioFile(scs.get(0002).getDeploy_file())); //
-		 * sch.executeFile(scs.get(0002), "deploy");
-		 * sk.decryptFile(sch.getScenarioFile(scs.get(0002).getDeploy_file())); } catch
-		 * (InvalidKeyException | IllegalBlockSizeException | BadPaddingException |
-		 * IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-		 * catch (NoSuchAlgorithmException | NoSuchPaddingException |
-		 * UnsupportedEncodingException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+		for (Integer key : scenarios.keySet()) {
+			System.out.println("#####" + scenarios.get(key).toString());
+		}
+
 		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		MalwareTable mTable = new MalwareTable(sqliteDB);
+		sqliteDB.createDatabase();
 
 		String sql = "SELECT * FROM malware";
 
@@ -54,9 +40,7 @@ public class Library {
 				if (rs.getInt("idNumber") == 2) {
 					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
 					sqliteDB.getSecretKey().decryptFile(tempFile);
-					Process exec = Runtime.getRuntime().exec(tempFile.toString());
-					exec.waitFor();
-					System.out.println(exec.exitValue());
+					sch.executeFile(tempFile, "c++", "deploy");
 				} else {
 
 				}
