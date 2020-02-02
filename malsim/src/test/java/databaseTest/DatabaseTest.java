@@ -51,7 +51,21 @@ public class DatabaseTest {
 
 	@Test
 	public void testCscenarioTable() {
+		String sql = "SELECT * FROM scenarios";
 
+		try (Connection conn = sqDB.connect();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			while (rs.next()) {
+				if (rs.getInt("idNumber") == 8) {
+					assertTrue(rs.getString("scName").contentEquals("Test Scenario 1"));
+				} else if (rs.getInt("idNumber") == 9) {
+					assertTrue(rs.getString("scName").contentEquals("Unit Test Scenario"));
+				}
+			}
+		} catch (Exception e) {
+
+		}
 	}
 
 }
