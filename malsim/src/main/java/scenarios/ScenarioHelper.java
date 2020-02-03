@@ -17,7 +17,7 @@ public class ScenarioHelper {
 
 	public void executeFile(File file, String language, String option) throws IOException, InterruptedException {
 		// Deploy Powershell Scenario
-		if (language.contentEquals("powershell") || option.contentEquals("reset")) {
+		if (language.contentEquals("powershell")) {
 			deployPowershellScript(file);
 
 			// Deploy executable Scenario

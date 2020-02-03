@@ -9,6 +9,7 @@ int main(int argc, char** argv)
 {
     if (argc < 1) {
         std::cerr << "Must pass either reset or deploy as an argument!";
+        return 2;
     }
 
     if (strcmp(argv[1],"deploy") == 0) {
@@ -27,7 +28,7 @@ int main(int argc, char** argv)
         return 0;  
    } 
 
-   else if (strcmp(argv[1], "reset") == 0) {
+    else if (strcmp(argv[1], "reset") == 0) {
        if (remove("C:\\cpptest.txt") == 0) {
         printf("File Removed");
         return 0;
@@ -39,4 +40,5 @@ int main(int argc, char** argv)
        printf("Invalid Argument! Pass either reset or deploy.");
        return 1;
    }
+   return 3;
 }

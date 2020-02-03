@@ -1,6 +1,7 @@
 package databaseTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -85,6 +86,12 @@ public class DatabaseTest {
 					sqDB.getSecretKey().decryptFile(tempFile);
 					sch.executeFile(tempFile, "c++", "deploy");
 					assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
+
+					// Temp file is removed after each run
+					tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
+					sqDB.getSecretKey().decryptFile(tempFile);
+					sch.executeFile(tempFile, "c++", "reset");
+					assertFalse("C:\\cpptest.txt Should be deleted", new File("C:\\cpptest.txt").exists());
 				} else {
 
 				}
