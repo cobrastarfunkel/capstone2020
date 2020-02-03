@@ -10,7 +10,7 @@ scName: Test Scenario 1
 dMalware: unit_test1/scenario1.ps1
 
 # Same as Deploy but for the reset script
-reset_file: unit_test2/scenario1_reset.ps1
+reset_file: unit_test1/scenario1_reset.ps1
 
 # Language the Scenario is using
 language: powershell
@@ -23,4 +23,4 @@ type: artifact
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents: scenario1/docs/help.pdf
+documents: unit_test1\helpText.pdf

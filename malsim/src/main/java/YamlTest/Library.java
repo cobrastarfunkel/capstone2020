@@ -21,13 +21,23 @@ public class Library {
 		ScenarioHelper sch = new ScenarioHelper();
 		ScenarioBuilder scb = new ScenarioBuilder();
 		HashMap<Integer, Scenario> scenarios = scb.getScenarios();
+		String db = "filesDb.sqlite";
+		SqliteDatabase sqliteDB;
 
 		for (Integer key : scenarios.keySet()) {
 			System.out.println("#####" + scenarios.get(key).toString());
 		}
 
-		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		sqliteDB.createDatabase();
+		if (!new File(SqliteDatabase.PATH + "\\" + db).exists()) {
+			sqliteDB = new SqliteDatabase(db);
+			sqliteDB.createDatabase();
+			sqliteDB.createDocumentsTable();
+			sqliteDB.createMalwareTable();
+			sqliteDB.createProgressTable();
+			sqliteDB.createScenariosTable();
+		} else {
+			sqliteDB = new SqliteDatabase(db);
+		}
 
 		String sql = "SELECT * FROM malware";
 
