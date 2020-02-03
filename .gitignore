@@ -3,9 +3,6 @@
 temp.exe
 *copy*
 
-*.fxml
-*.iml
-
 
 ### Eclipse ###
 .metadata
