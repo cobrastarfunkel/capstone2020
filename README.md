@@ -12,5 +12,4 @@ The SqliteDatabse class builds the databse and the respective Tables classes wil
 <br/><br/>The following will create the database and two tables from the config files:
 
     SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-    sqliteDB.createMalwareTable();
-    sqliteDB.createScenariosTable();
+    sqliteDB.createTables();
