@@ -22,7 +22,7 @@ public class ScenarioHelper {
 
 			// Deploy executable Scenario
 		} else if (language.contentEquals("c++")) {
-			deployExecutable(file);
+			deployExecutable(file, option);
 		}
 
 	}
@@ -42,11 +42,17 @@ public class ScenarioHelper {
 
 	}
 
-	private void deployExecutable(File file) throws IOException, InterruptedException {
+	private void deployExecutable(File file, String options) throws IOException, InterruptedException {
 
-		Process exec = Runtime.getRuntime().exec(file.toString());
-		exec.waitFor();
-		System.out.println(exec.exitValue());
+		if (options.isEmpty()) {
+			Process exec = Runtime.getRuntime().exec(file.toString());
+			exec.waitFor();
+			System.out.println(exec.exitValue());
+		} else {
+			Process exec = Runtime.getRuntime().exec(String.format("%s %s", file.toString(), options));
+			exec.waitFor();
+			System.out.println(exec.exitValue());
+		}
 
 		// Need a better way to do this. For now it keeps
 		// the executable from being deleted during testing
