@@ -31,10 +31,7 @@ public class Library {
 		if (!new File(SqliteDatabase.PATH + "\\" + db).exists()) {
 			sqliteDB = new SqliteDatabase(db);
 			sqliteDB.createDatabase();
-			sqliteDB.createDocumentsTable();
-			sqliteDB.createMalwareTable();
-			sqliteDB.createProgressTable();
-			sqliteDB.createScenariosTable();
+			sqliteDB.createTables();
 		} else {
 			sqliteDB = new SqliteDatabase(db);
 		}

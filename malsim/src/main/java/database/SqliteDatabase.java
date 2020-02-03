@@ -88,19 +88,10 @@ public class SqliteDatabase {
 		return conn;
 	}
 
-	public void createMalwareTable() {
-		new MalwareTable(this);
-	}
-
-	public void createScenariosTable() {
+	public void createTables() {
 		new ScenariosTable(this);
-	}
-
-	public void createDocumentsTable() {
+		new MalwareTable(this);
 		new DocumentsTable(this);
-	}
-
-	public void createProgressTable() {
 		new ProgressTable(this);
 	}
 
