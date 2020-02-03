@@ -30,7 +30,6 @@ public class AppSchemas {
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
 			public static final String document = "document";
-			public static final String typeOfDoc = "typeOfDoc";
 		}
 	}
 
@@ -40,7 +39,6 @@ public class AppSchemas {
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
 			public static final String completed = "completed";
-			public static final String timeSpent = "timeSpent";
 		}
 	}
 

@@ -13,7 +13,7 @@ int main()
    if(!file) 
    { 
        cout<<"Error in creating file!!!"; 
-       return 0; 
+       return 1; 
    } 
   
    file << "File created successfully.1234" << endl; 

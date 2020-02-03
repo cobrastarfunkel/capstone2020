@@ -19,11 +19,13 @@ import java.sql.SQLException;
 import javax.crypto.NoSuchPaddingException;
 
 import encryption.SymmetricKey;
+import tables.DocumentsTable;
 import tables.MalwareTable;
+import tables.ProgressTable;
 import tables.ScenariosTable;
 
 public class SqliteDatabase {
-	private final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
+	public static final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
 
 	private String dbFileName, path, url;
 	private SymmetricKey secretKey;
@@ -50,13 +52,12 @@ public class SqliteDatabase {
 
 		// jdbc connector for sqlite
 		url = "jdbc:sqlite:" + path;
-		createDatabase();
 	}
 
 	/*
 	 * Create a Database
 	 */
-	private void createDatabase() {
+	public void createDatabase() {
 
 		// Create the database if it doesn't exist and print some info to console
 		try (Connection conn = DriverManager.getConnection(this.url)) {
@@ -69,7 +70,6 @@ public class SqliteDatabase {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
 
 	/**
@@ -88,12 +88,11 @@ public class SqliteDatabase {
 		return conn;
 	}
 
-	public void createMalwareTable() {
-		new MalwareTable(this);
-	}
-
-	public void createScenariosTable() {
+	public void createTables() {
 		new ScenariosTable(this);
+		new MalwareTable(this);
+		new DocumentsTable(this);
+		new ProgressTable(this);
 	}
 
 	public SymmetricKey getSecretKey() {

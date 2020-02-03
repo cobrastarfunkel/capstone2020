@@ -2,7 +2,7 @@
 # Don't remove this file, used for Unit tests
 
 # ID Number
-id: 0002
+id: 0009
 
 # Name for the GUI screen
 scName: Unit Test Scenario
@@ -22,4 +22,4 @@ type: artifact
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents: unit_test2/docs/help.pdf
+documents: unit_test2\helpText.pdf

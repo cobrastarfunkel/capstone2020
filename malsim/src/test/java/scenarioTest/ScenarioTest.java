@@ -32,14 +32,14 @@ public class ScenarioTest {
 	private static HashMap<Integer, Scenario> scs = new HashMap<Integer, Scenario>();
 	private ScenarioBuilder scb = new ScenarioBuilder();
 	private ScenarioHelper sch = new ScenarioHelper();
-	private Integer id = 0002;
+	private Integer id = 9;
 	private static SymmetricKey sk;
 
 	@Test
 	public void testAscenarioCreation() {
 		scs = scb.getScenarios();
 		// Check values
-		assertEquals(0002, scs.get(id).getId());
+		assertEquals(9, scs.get(id).getId());
 		assertEquals("Unit Test Scenario", scs.get(id).getScName());
 		assertEquals("unit_test2/scenario2.exe", scs.get(id).getDeploy_file());
 		assertEquals("unit_test2/scenario_reset.ps1", scs.get(id).getReset_file());
@@ -58,7 +58,7 @@ public class ScenarioTest {
 		assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 
 		try {
-			File resetFile = sch.getScenarioFile(scs.get(0002).getReset_file());
+			File resetFile = sch.getScenarioFile(scs.get(id).getReset_file());
 			sch.executeFile(resetFile, scs.get(id).getLanguage(), "reset");
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class ScenarioTest {
 		// Ensure the file was created
 		assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 		try {
-			File resetFile = sch.getScenarioFile(scs.get(0002).getReset_file());
+			File resetFile = sch.getScenarioFile(scs.get(id).getReset_file());
 			sch.executeFile(resetFile, scs.get(id).getLanguage(), "reset");
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();

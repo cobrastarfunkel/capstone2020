@@ -1,6 +1,6 @@
 ### Initial Database Setup
 Creating Database works, Table can be created, Files can be imported into table by storing them in a directory.  Set the path in the Scenario class.
-/src/main/resources/configFiles have examples of how we can use yaml to build scenarios.  These work, if we need to add / remove fields we can.  At the moment the database only has the encrypted executable defined in the config file and an ID number(Malware table) and Scenario Name and id (Scenarios Table).
+/src/main/resources/configFiles have examples of how we can use yaml to build scenarios.  These work, if we need to add / remove fields we can.
 
 ### Using Current Code
 The process at the moment is a Scenario object is created using Jackson (A YAML Parser for Java).  The Scenarios are built using fields in a config file stored in /src/main/resources/conifgFiles  (Example Attached To Jira Ticket CC-13 and in Confluence)
@@ -12,5 +12,4 @@ The SqliteDatabse class builds the databse and the respective Tables classes wil
 <br/><br/>The following will create the database and two tables from the config files:
 
     SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-    sqliteDB.createMalwareTable();
-    sqliteDB.createScenariosTable();
+    sqliteDB.createTables();

