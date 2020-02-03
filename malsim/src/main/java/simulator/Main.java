@@ -16,6 +16,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Malware Simulator v1.0");
 			SqliteDatabase sqliteDB = new SqliteDatabase("guidb.sqlite");
 			sqliteDB.createDatabase();
+			sqliteDB.createTables();
 
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
