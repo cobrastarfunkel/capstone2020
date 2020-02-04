@@ -6,16 +6,27 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.image.Image?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"  >
-   <children>
-		<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" >
+
+		<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0">
 			<padding>
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 			</padding>
-
+			<Label style="-fx-font: NORMAL 20 Tahoma;" text="Scenario Description"                
+        		GridPane.columnIndex="0" GridPane.rowIndex="1">
+    		</Label>
+    		 <ImageView fitHeight="500.0" fitWidth="600.0" layoutX="100.0" layoutY="76.0" nodeOrientation="INHERIT" pickOnBounds="true" 
+    		  cache="true" GridPane.columnIndex="0" 
+        	GridPane.rowIndex="2">
+        		<image>
+            		<Image url="@..\Test-1.png" />
+         		</image>
+         	</ImageView>
+  
 		</GridPane>
-   </children>
-</AnchorPane>
+ 

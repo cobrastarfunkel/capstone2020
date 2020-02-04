@@ -1,6 +1,8 @@
 package simulator;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -10,8 +12,13 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
+import org.apache.pdfbox.tools.imageio.ImageIOUtil;
+
+import com.sun.javafx.iio.ImageStorage.ImageType;
 
 import database.SqliteDatabase;
 import javafx.collections.FXCollections;
@@ -25,6 +32,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -44,9 +53,9 @@ public class SimulatorController implements Initializable {
 	private class GuiScenario {
 		private String name;
 		private Integer id;
-		private File scFile;
+		private byte[] scFile;
 		
-		public GuiScenario(Integer idNumber, String name, File file) {
+		public GuiScenario(Integer idNumber, String name, byte[] file) {
 			this.id = idNumber;
 			this.name = name;
 			this.scFile = file;
@@ -63,10 +72,10 @@ public class SimulatorController implements Initializable {
 		public void setId(Integer id) {
 			this.id = id;
 		}
-		public File getScFile() {
+		public byte[] getScFile() {
 			return scFile;
 		}
-		public void setScFile(File scFile) {
+		public void setScFile(byte[] scFile) {
 			this.scFile = scFile;
 		}
 		
@@ -80,6 +89,8 @@ public class SimulatorController implements Initializable {
 	private ListView<String> listViewMain;
 	@FXML
 	private Button openButton;
+	@FXML
+	private ImageView scenarioDocImage;
 
 	private ObservableList<String> items = FXCollections.observableArrayList();
 	private HashMap<Integer, GuiScenario> scenarios;
@@ -88,13 +99,21 @@ public class SimulatorController implements Initializable {
 	private static GuiScenario selectedScenario;
 	private PDDocument scDoc;
 	private PDFRenderer pdRenderer;
-	private ScenarioHelper sch = new ScenarioHelper();
 
 	@FXML
 	void openScenario(ActionEvent event) {
 		try {
-			//FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ScenarioView.fxml"));
 			Parent root = FXMLLoader.load(getClass().getResource("ScenarioView.fxml"));
+			scDoc = getPDF();
+			pdRenderer = new PDFRenderer(scDoc);
+			
+			for (int page = 0; page < scDoc.getNumberOfPages(); ++page)
+			{ 
+			    BufferedImage bim = pdRenderer.renderImageWithDPI(page, 300);
+
+			    // suffix in filename will be used as the file format
+			    ImageIOUtil.writeImage(bim, "c:\\Test" + "-" + (page+1) + ".png", 300);
+			}
 			
 			Stage scenarioStage = (Stage)listViewMain.getScene().getWindow();
 			scenarioStage.setTitle(selectedScenario.getName());
@@ -129,7 +148,7 @@ public class SimulatorController implements Initializable {
 				items.add(rs.getString("scName") + scString);
 				
 				scenarios.put(items.size()-1, new GuiScenario(rs.getInt("idNumber"), rs.getString("scName"),
-						sch.convertBytesToFile(rs.getBytes("document"))));
+						rs.getBytes("document")));
 			}
 		} catch (Exception e) {
 
@@ -144,8 +163,9 @@ public class SimulatorController implements Initializable {
 
 	}
 	
-	public void sqlQuery(String sql) {
+	public PDDocument getPDF( ) throws IOException {
+		PDDocument tempPdf = PDDocument.load(selectedScenario.getScFile());
 		
+		return tempPdf;
 	}
-
 }

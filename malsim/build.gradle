@@ -39,6 +39,7 @@ dependencies {
     
     //PDFBox
     implementation 'org.apache.pdfbox:pdfbox:2.0.18'
+    implementation 'org.apache.pdfbox:pdfbox-tools:2.0.0-RC1'
     
 }
 
