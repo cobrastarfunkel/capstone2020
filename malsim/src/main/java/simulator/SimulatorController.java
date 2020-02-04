@@ -1,5 +1,6 @@
 package simulator;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import scenarios.ScenarioHelper;
@@ -35,13 +37,11 @@ public class SimulatorController implements Initializable {
 	@FXML
 	private Label scenarioLabel;
 	@FXML
-	private ListView<String> listView;
+	private ListView<String> listViewMain;
 	@FXML
 	private Button openButton;
 
 	private ObservableList<String> items = FXCollections.observableArrayList();
-	private ObservableList stuffList;
-	private HBox hbox;
 
 	SqliteDatabase sqliteDB;
 	ScenarioHelper sch;
@@ -66,9 +66,7 @@ public class SimulatorController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
-		listView = new ListView<String>();
-		listView.setItems(items);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulatorView.fxml"));
 
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
 		sqliteDB.createDatabase();
@@ -83,13 +81,11 @@ public class SimulatorController implements Initializable {
 
 			while (rs.next()) {
 				items.add(rs.getString(2));
-				System.out.println(rs.getString(2));
 			}
 		} catch (Exception e) {
 
 		}
-		System.out.println("Initialize!!!!!!!!!!!!!");
-
+		listViewMain.setItems(items);
 	}
 
 }

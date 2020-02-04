@@ -10,7 +10,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		try {
+
 			Parent root = FXMLLoader.load(getClass().getResource("SimulatorView.fxml"));
 
 			primaryStage.setTitle("Malware Simulator v1.0");
@@ -18,9 +18,6 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	public static void main(String[] args) {
