@@ -49,6 +49,7 @@ public class ScenarioHelper {
 			exec.waitFor();
 			System.out.println(exec.exitValue());
 		} else {
+			System.out.println(file.getName());
 			Process exec = Runtime.getRuntime().exec(String.format("%s %s", file.toString(), options));
 			exec.waitFor();
 			System.out.println(exec.exitValue());
@@ -58,9 +59,9 @@ public class ScenarioHelper {
 		// the executable from being deleted during testing
 		// but it shouldn't be necessary in the long run.
 		// If it is we should figure out a better way to do it
-		if (file.getName().contentEquals("temp.exe")) {
-			file.delete();
-		}
+		//if (file.getName().contentEquals("temp.exe")) {
+		//	file.delete();
+		//}
 	}
 
 	public File getScenarioFile(String file) {

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <bits/stdc++.h>
+#include <fstream>
+#include <cstring>
+
 
 using namespace std;
 
@@ -21,7 +23,7 @@ int main(int argc, char** argv)
             printf("Error in creating file!!!");
             return 1; 
         } 
-  
+        printf("File created");
         file << "File created successfully.1234" << endl; 
         file.close();
 

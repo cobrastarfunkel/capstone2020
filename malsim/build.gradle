@@ -36,6 +36,7 @@ dependencies {
     
     // Sqlite
     implementation 'org.xerial:sqlite-jdbc:3.8.11.2'
+    
 }
 
 sourceCompatibility = 1.8

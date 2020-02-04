@@ -24,7 +24,7 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <ListView prefHeight="353.0" prefWidth="533.0" id="listView"/>
+            <ListView prefHeight="353.0" prefWidth="533.0" fx:id="listViewMain"/>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#openScenario" text="Open Scenario" />

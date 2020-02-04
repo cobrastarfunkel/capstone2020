@@ -58,7 +58,7 @@ public class ScenarioTest {
 		assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 
 		try {
-			File resetFile = sch.getScenarioFile(scs.get(id).getReset_file());
+			File resetFile = sch.getScenarioFile(scs.get(id).getDeploy_file());
 			sch.executeFile(resetFile, scs.get(id).getLanguage(), "reset");
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class ScenarioTest {
 		// Ensure the file was created
 		assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 		try {
-			File resetFile = sch.getScenarioFile(scs.get(id).getReset_file());
+			File resetFile = sch.getScenarioFile(scs.get(id).getDeploy_file());
 			sch.executeFile(resetFile, scs.get(id).getLanguage(), "reset");
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
