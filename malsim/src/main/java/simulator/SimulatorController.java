@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 import database.SqliteDatabase;
@@ -18,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import scenarios.ScenarioHelper;
@@ -38,6 +40,8 @@ public class SimulatorController implements Initializable {
 	private Button openButton;
 
 	private ObservableList<String> items = FXCollections.observableArrayList();
+	private ObservableList stuffList;
+	private HBox hbox;
 
 	SqliteDatabase sqliteDB;
 	ScenarioHelper sch;
@@ -53,7 +57,7 @@ public class SimulatorController implements Initializable {
 			Stage scenarioStage = new Stage();
 			scenarioStage.initModality(Modality.APPLICATION_MODAL);
 			scenarioStage.setTitle("Scenario Description");
-			scenarioStage.setScene(queryScene);
+			scenarioStage.setScene(new Scene(root));
 			scenarioStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +89,6 @@ public class SimulatorController implements Initializable {
 
 		}
 		System.out.println("Initialize!!!!!!!!!!!!!");
-		queryScene = new Scene(listView);
 
 	}
 
