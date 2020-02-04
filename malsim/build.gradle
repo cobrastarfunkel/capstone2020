@@ -37,6 +37,9 @@ dependencies {
     // Sqlite
     implementation 'org.xerial:sqlite-jdbc:3.8.11.2'
     
+    //PDFBox
+    implementation 'org.apache.pdfbox:pdfbox:2.0.18'
+    
 }
 
 sourceCompatibility = 1.8
