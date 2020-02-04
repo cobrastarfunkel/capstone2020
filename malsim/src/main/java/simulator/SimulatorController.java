@@ -1,13 +1,17 @@
 package simulator;
 
+
 import java.io.File;
 import java.io.IOException;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import java.util.HashMap;
 import java.util.Observable;
+
 import java.util.ResourceBundle;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -25,11 +29,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import scenarios.ScenarioHelper;
@@ -112,8 +118,10 @@ public class SimulatorController implements Initializable {
 		scenarios = new HashMap<Integer, SimulatorController.GuiScenario>();
 
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
+
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
+
 
 		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, documents.document\r\n" + 
 				"from scenarios\r\n" + 
