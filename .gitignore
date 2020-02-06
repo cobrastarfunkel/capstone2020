@@ -2,6 +2,7 @@
 *.sqlite
 temp.exe
 *copy*
+.idea/
 
 
 ### Eclipse ###

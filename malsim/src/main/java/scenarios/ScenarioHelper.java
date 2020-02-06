@@ -14,6 +14,7 @@ import com.profesorfalken.jpowershell.PowerShellResponse;
 
 public class ScenarioHelper {
 	private final String tempFilePath = Scenario.DEPLOY_PATH + "\\" + "temp.exe";
+	private final String tempDocPath = Scenario.DEPLOY_PATH + "\\" + "temp.html";
 
 	public void executeFile(File file, String language, String option) throws IOException, InterruptedException {
 		// Deploy Powershell Scenario
@@ -59,9 +60,9 @@ public class ScenarioHelper {
 		// the executable from being deleted during testing
 		// but it shouldn't be necessary in the long run.
 		// If it is we should figure out a better way to do it
-		//if (file.getName().contentEquals("temp.exe")) {
-		//	file.delete();
-		//}
+		// if (file.getName().contentEquals("temp.exe")) {
+		// file.delete();
+		// }
 	}
 
 	public File getScenarioFile(String file) {
@@ -74,10 +75,15 @@ public class ScenarioHelper {
 		return byteFile;
 	}
 
-	public File convertBytesToFile(byte[] file) throws IOException {
+	public File convertBytesToTempFile(byte[] file) throws IOException {
 		Files.write(Paths.get(tempFilePath), file);
 		return new File(tempFilePath);
 
+	}
+
+	public File convertBytesToFile(byte[] file) throws IOException {
+		Files.write(Paths.get(tempDocPath), file);
+		return new File(tempDocPath);
 	}
 
 }

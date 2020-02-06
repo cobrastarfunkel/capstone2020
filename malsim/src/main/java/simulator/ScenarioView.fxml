@@ -13,20 +13,10 @@
 
 
 
-		<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0">
-			<padding>
-				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-			</padding>
-			<Label style="-fx-font: NORMAL 20 Tahoma;" text="Scenario Description"                
-        		GridPane.columnIndex="0" GridPane.rowIndex="1">
-    		</Label>
-    		 <ImageView fitHeight="500.0" fitWidth="600.0" layoutX="100.0" layoutY="76.0" nodeOrientation="INHERIT" pickOnBounds="true" 
-    		  cache="true" GridPane.columnIndex="0" 
-        	GridPane.rowIndex="2">
-        		<image>
-            		<Image url="@..\Test-1.png" />
-         		</image>
-         	</ImageView>
-  
+		<GridPane alignment="CENTER" hgap="1.0" vgap="1.0" xmlns:fx="http://javafx.com/fxml"
+		 	prefHeight="600.0" prefWidth="800.0" fx:controller="simulator.ScenarioViewController">
+		
+    		 <WebView fx:id="webView" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="795.0"
+        	GridPane.columnIndex="0" GridPane.rowIndex="0"/>  
 		</GridPane>
  
