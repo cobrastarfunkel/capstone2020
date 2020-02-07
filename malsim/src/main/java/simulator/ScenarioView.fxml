@@ -10,13 +10,15 @@
 <?import javafx.scene.web.WebView?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
 
 
 
 		<GridPane alignment="CENTER" hgap="1.0" vgap="1.0" xmlns:fx="http://javafx.com/fxml"
-		 	prefHeight="600.0" prefWidth="800.0" fx:controller="simulator.ScenarioViewController">
+		 	prefHeight="600.0" prefWidth="800.0" >
+		 	<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
 		
     		 <WebView fx:id="webView" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="795.0"
-        	GridPane.columnIndex="0" GridPane.rowIndex="0"/>  
+        	GridPane.columnIndex="0" GridPane.rowIndex="1"/>  
 		</GridPane>
  

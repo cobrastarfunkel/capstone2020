@@ -22,8 +22,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -32,31 +30,6 @@ import javafx.stage.Stage;
  */
 
 public class SimulatorController implements Initializable {
-
-	private class GuiScenario {
-		private String name;
-		private Integer id;
-		private byte[] scDoc;
-
-		public GuiScenario(Integer idNumber, String name, byte[] file) {
-			this.id = idNumber;
-			this.name = name;
-			this.scDoc = file;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public Integer getId() {
-			return id;
-		}
-
-		public byte[] getScFile() {
-			return scDoc;
-		}
-
-	}
 
 	// These items are for the list of scenarios
 	@FXML
@@ -67,32 +40,29 @@ public class SimulatorController implements Initializable {
 	private Button openButton;
 	@FXML
 	private ImageView scenarioDocImage;
-	@FXML
-	private WebView webView;
-
-	private WebEngine we;
 
 	private ObservableList<String> items = FXCollections.observableArrayList();
-	private HashMap<Integer, GuiScenario> scenarios;
+	private HashMap<Integer, ScenarioModel> scenarios;
 
 	private SqliteDatabase sqliteDB;
-	private static GuiScenario selectedScenario;
+	private static ScenarioModel selectedScenario;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		new FXMLLoader(getClass().getResource("SimulatorView.fxml"));
 
 		String scString;
-		scenarios = new HashMap<Integer, SimulatorController.GuiScenario>();
+		scenarios = new HashMap<Integer, ScenarioModel>();
 
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
 
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
 
-		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, documents.document\r\n"
+		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, documents.document, malware.dMalware\r\n"
 				+ "from scenarios\r\n" + "join progress on scenarios.idNumber = progress.idNumber\r\n"
-				+ "join documents on scenarios.idNumber = documents.idNumber";
+				+ "join documents on scenarios.idNumber = documents.idNumber\r\n"
+				+ "join malware on scenarios.idNumber = malware.idNumber";
 
 		try (Connection conn = sqliteDB.connect();
 				Statement stmt = conn.createStatement();
@@ -102,8 +72,8 @@ public class SimulatorController implements Initializable {
 				scString = (rs.getInt("completed") == 0) ? "\t\tIncomplete" : "\t\tCompleted";
 				items.add(rs.getString("scName") + scString);
 
-				scenarios.put(items.size() - 1,
-						new GuiScenario(rs.getInt("idNumber"), rs.getString("scName"), rs.getBytes("document")));
+				scenarios.put(items.size() - 1, new ScenarioModel(rs.getInt("idNumber"), rs.getString("scName"),
+						rs.getBytes("document"), rs.getBytes("dMalware")));
 			}
 		} catch (Exception e) {
 
@@ -119,11 +89,16 @@ public class SimulatorController implements Initializable {
 
 	@FXML
 	void openScenario(ActionEvent event) {
+		if (selectedScenario == null) {
+			selectedScenario = scenarios.get(0);
+		}
+		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
+				selectedScenario.getScDoc(), selectedScenario.getScFile());
+
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulator/ScenarioView.fxml"));
+			loader.setController(new ScenarioViewController(scModel));
 			Parent root = loader.load();
-
-			ScenarioViewController scvCon = loader.getController();
 
 			Stage scenarioStage = (Stage) listViewMain.getScene().getWindow();
 
