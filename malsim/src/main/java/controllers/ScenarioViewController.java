@@ -1,4 +1,4 @@
-package simulator;
+package controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import models.ScenarioModel;
 import scenarios.ScenarioHelper;
 
 public class ScenarioViewController implements Initializable {
@@ -50,7 +51,7 @@ public class ScenarioViewController implements Initializable {
 	@FXML
 	void goHome(ActionEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("SimulatorView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 			Stage primaryStage = (Stage) webView.getScene().getWindow();
 			primaryStage.setTitle("Malware Simulator v1.0");
 

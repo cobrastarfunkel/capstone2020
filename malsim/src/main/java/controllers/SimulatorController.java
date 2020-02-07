@@ -1,4 +1,4 @@
-package simulator;
+package controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +23,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.ScenarioModel;
 
 /**
  *
@@ -49,7 +50,7 @@ public class SimulatorController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		new FXMLLoader(getClass().getResource("SimulatorView.fxml"));
+		new FXMLLoader(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 		String scString;
 		scenarios = new HashMap<Integer, ScenarioModel>();
@@ -96,7 +97,7 @@ public class SimulatorController implements Initializable {
 				selectedScenario.getScDoc(), selectedScenario.getScFile());
 
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulator/ScenarioView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));
 			loader.setController(new ScenarioViewController(scModel));
 			Parent root = loader.load();
 

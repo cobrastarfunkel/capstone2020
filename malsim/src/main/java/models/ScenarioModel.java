@@ -1,4 +1,4 @@
-package simulator;
+package models;
 
 public class ScenarioModel {
 	private String name;
