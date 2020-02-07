@@ -5,16 +5,22 @@ public class ScenarioModel {
 	private Integer id;
 	private byte[] scDoc;
 	private byte[] scenario;
+	private String difficulty;
 
-	public ScenarioModel(Integer idNumber, String name, byte[] file, byte[] scenario) {
+	public ScenarioModel(Integer idNumber, String name, byte[] file, byte[] scenario, String difficulty) {
 		this.id = idNumber;
 		this.name = name;
 		this.scDoc = file;
 		this.scenario = scenario;
+		this.difficulty = difficulty;
 	}
 
 	public void setScDoc(byte[] scDoc) {
 		this.scDoc = scDoc;
+	}
+
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
 	}
 
 	public void setName(String name) {
@@ -48,4 +54,9 @@ public class ScenarioModel {
 	public byte[] getScDoc() {
 		return scDoc;
 	}
+
+	public String getDifficulty() {
+		return difficulty;
+	}
+
 }

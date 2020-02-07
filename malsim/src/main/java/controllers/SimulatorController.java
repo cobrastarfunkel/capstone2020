@@ -60,21 +60,22 @@ public class SimulatorController implements Initializable {
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
 
-		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, documents.document, malware.dMalware\r\n"
-				+ "from scenarios\r\n" + "join progress on scenarios.idNumber = progress.idNumber\r\n"
+		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, "
+				+ "documents.document, malware.dMalware, progress.difficulty\r\n" + "from scenarios\r\n"
+				+ "join progress on scenarios.idNumber = progress.idNumber\r\n"
 				+ "join documents on scenarios.idNumber = documents.idNumber\r\n"
-				+ "join malware on scenarios.idNumber = malware.idNumber";
+				+ "join malware on scenarios.idNumber = malware.idNumber\r\n";
 
 		try (Connection conn = sqliteDB.connect();
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql)) {
 
 			while (rs.next()) {
-				scString = (rs.getInt("completed") == 0) ? "\t\tIncomplete" : "\t\tCompleted";
-				items.add(rs.getString("scName") + scString);
+				scString = (rs.getInt("completed") == 0) ? "\t\t\tIncomplete" : "\t\t\tCompleted";
+				items.add(rs.getString("scName") + "\t\t\t" + rs.getString("difficulty") + scString);
 
 				scenarios.put(items.size() - 1, new ScenarioModel(rs.getInt("idNumber"), rs.getString("scName"),
-						rs.getBytes("document"), rs.getBytes("dMalware")));
+						rs.getBytes("document"), rs.getBytes("dMalware"), rs.getString("difficulty")));
 			}
 		} catch (Exception e) {
 
@@ -94,7 +95,7 @@ public class SimulatorController implements Initializable {
 			selectedScenario = scenarios.get(0);
 		}
 		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
-				selectedScenario.getScDoc(), selectedScenario.getScFile());
+				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty());
 
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));
