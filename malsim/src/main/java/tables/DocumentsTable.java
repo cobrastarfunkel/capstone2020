@@ -23,9 +23,10 @@ public class DocumentsTable {
 	}
 
 	private void createDocumentsTable() {
-		String sql = String.format("CREATE TABLE IF NOT EXISTS %s (%s INTEGER, %s BLOB, UNIQUE(%s));",
-				DocumentTableSchema.NAME, DocumentTableSchema.Cols.idNumber, DocumentTableSchema.Cols.document,
-				DocumentTableSchema.Cols.idNumber);
+		String sql = String.format(
+				"CREATE TABLE IF NOT EXISTS %s (%s INTEGER NOT NULL, %s INTEGER PRIMARY KEY, %s BLOB NOT NULL, UNIQUE(%s));",
+				DocumentTableSchema.NAME, DocumentTableSchema.Cols.idNumber, DocumentTableSchema.Cols.dIdNumber,
+				DocumentTableSchema.Cols.document, DocumentTableSchema.Cols.idNumber);
 
 		dbh.createTable(sql);
 		insertDocumentIntoTable();
