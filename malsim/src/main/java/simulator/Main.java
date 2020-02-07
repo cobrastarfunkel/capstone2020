@@ -15,7 +15,7 @@ public class Main extends Application {
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
 
-		Parent root = FXMLLoader.load(getClass().getResource("SimulatorView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 		primaryStage.setTitle("Malware Simulator v1.0");
 

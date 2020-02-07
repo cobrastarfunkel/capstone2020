@@ -20,6 +20,7 @@ public class AppSchemas {
 
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
+			public static final String mIdNumber = "mIdNumber";
 			public static final String dMalware = "dMalware";
 		}
 	}
@@ -29,6 +30,7 @@ public class AppSchemas {
 
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
+			public static final String dIdNumber = "dIdNumber";
 			public static final String document = "document";
 		}
 	}
@@ -38,7 +40,10 @@ public class AppSchemas {
 
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
+			public static final String pIdNumber = "pIdNumber";
 			public static final String completed = "completed";
+			public static final String difficulty = "difficulty";
+			public static final String avgTime = "avgTime";
 		}
 	}
 
@@ -47,8 +52,7 @@ public class AppSchemas {
 
 		public static final class Cols {
 			public static final String idNumber = "idNumber";
-			public static final String difficulty = "difficulty";
-			public static final String avgTime = "avgTime";
+			public static final String tIdNumber = "tIdNumber";
 			public static final String language = "language";
 			public static final String os = "os";
 			public static final String scType = "scType";

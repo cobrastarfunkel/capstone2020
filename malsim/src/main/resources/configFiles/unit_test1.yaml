@@ -23,4 +23,6 @@ type: artifact
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents: unit_test1\helpText.pdf
+documents: unit_test1\webView.html
+
+difficulty: Easy

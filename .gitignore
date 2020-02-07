@@ -1,7 +1,9 @@
 ## Project Stuff ##
 *.sqlite
 temp.exe
+temp.html
 *copy*
+.idea/
 
 
 ### Eclipse ###

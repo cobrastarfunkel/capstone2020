@@ -82,13 +82,13 @@ public class DatabaseTest {
 			while (rs.next()) {
 				System.out.println("ID: " + rs.getInt("idNumber"));
 				if (rs.getInt("idNumber") == 9) {
-					File tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
+					File tempFile = sch.convertBytesToTempFile(rs.getBytes("dMalware"));
 					sqDB.getSecretKey().decryptFile(tempFile);
 					sch.executeFile(tempFile, "c++", "deploy");
 					assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 
 					// Temp file is removed after each run
-					tempFile = sch.convertBytesToFile(rs.getBytes("dMalware"));
+					tempFile = sch.convertBytesToTempFile(rs.getBytes("dMalware"));
 					sqDB.getSecretKey().decryptFile(tempFile);
 					sch.executeFile(tempFile, "c++", "reset");
 					assertFalse("C:\\cpptest.txt Should be deleted", new File("C:\\cpptest.txt").exists());

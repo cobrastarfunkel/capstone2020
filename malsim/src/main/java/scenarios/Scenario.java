@@ -10,7 +10,7 @@ public class Scenario {
 	private String language, type, reset_file, os;
 	private String dMalware, scName;
 
-	private String documents;
+	private String documents, difficulty;
 	private int id;
 
 	// sqlite doesn't have a bool data type 1=complete 0=not
@@ -58,6 +58,10 @@ public class Scenario {
 
 	public String getOs() {
 		return os;
+	}
+
+	public String getDifficulty() {
+		return difficulty;
 	}
 
 	@Override
