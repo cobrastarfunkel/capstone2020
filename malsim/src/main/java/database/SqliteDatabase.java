@@ -23,6 +23,7 @@ import tables.DocumentsTable;
 import tables.MalwareTable;
 import tables.ProgressTable;
 import tables.ScenariosTable;
+import tables.TraitsTable;
 
 public class SqliteDatabase {
 	public static final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
@@ -93,6 +94,7 @@ public class SqliteDatabase {
 		new MalwareTable(this);
 		new DocumentsTable(this);
 		new ProgressTable(this);
+		new TraitsTable(this);
 	}
 
 	public SymmetricKey getSecretKey() {
