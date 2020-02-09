@@ -23,6 +23,7 @@ import tables.DocumentsTable;
 import tables.MalwareTable;
 import tables.ProgressTable;
 import tables.ScenariosTable;
+import tables.TraitsTable;
 
 public class SqliteDatabase {
 	public static final String PATH = new File("src\\main\\resources\\databases\\").getAbsolutePath();
@@ -64,7 +65,7 @@ public class SqliteDatabase {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
 				System.out.println(meta.getConnection());
-				System.out.println("Database Created");
+				System.out.println("Database Connected");
 			}
 
 		} catch (SQLException e) {
@@ -93,6 +94,7 @@ public class SqliteDatabase {
 		new MalwareTable(this);
 		new DocumentsTable(this);
 		new ProgressTable(this);
+		new TraitsTable(this);
 	}
 
 	public SymmetricKey getSecretKey() {
