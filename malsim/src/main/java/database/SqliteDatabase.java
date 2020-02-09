@@ -64,7 +64,7 @@ public class SqliteDatabase {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
 				System.out.println(meta.getConnection());
-				System.out.println("Database Created");
+				System.out.println("Database Connected");
 			}
 
 		} catch (SQLException e) {
