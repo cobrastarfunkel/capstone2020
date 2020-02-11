@@ -60,9 +60,9 @@ public class ScenarioHelper {
 		// the executable from being deleted during testing
 		// but it shouldn't be necessary in the long run.
 		// If it is we should figure out a better way to do it
-		// if (file.getName().contentEquals("temp.exe")) {
-		// file.delete();
-		// }
+		if (file.getName().contentEquals("temp.exe")) {
+			file.delete();
+		}
 	}
 
 	public File getScenarioFile(String file) {
