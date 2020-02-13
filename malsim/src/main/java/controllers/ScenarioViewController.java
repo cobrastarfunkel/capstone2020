@@ -42,6 +42,7 @@ public class ScenarioViewController implements Initializable {
 
 		try {
 			we.load(sch.convertBytesToFile(scenario.getScDoc()).toURI().toString());
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
