@@ -19,7 +19,7 @@ language: powershell
 os: Windows 10
 
 # Type of Scenario
-type: artifact
+type: technique
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.

@@ -22,7 +22,6 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		// Show pull request
 	}
 
 	public static void main(String[] args) {
