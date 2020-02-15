@@ -1,9 +1,14 @@
 
-
+/*****General Styles*****/
 :root {
   --example-of-var: 10px;
   --header-color: hsl(110, 54%, 54%);
 }
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
 h4 {
   text-align: center;
   /*background-color: hsl(180, 35%, 51%);*/
@@ -11,6 +16,61 @@ h4 {
   /* Below is the variable followed be a default in case it cant find the variable */
   padding: var(--example-of-var, 15px);
 }
+
+/*******NavBar Style*******/
+.cardNav {
+  display: grid;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+
+.cardNav img {
+  width:30px;
+  height:30px;
+  padding-left: 10px;
+  grid-column: 1;
+  grid-row: 1;
+}
+#appname {
+  text-align: right;
+  padding: 10px 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 17px;
+  grid-column: 3 ;
+  grid-row: 1 ;
+}
+
+.cardNav button1 {
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  transition: all 0.2s;
+  grid-column: 2;
+  grid-row: 1;
+  cursor: pointer;
+}
+
+.cardNav button1:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+
+
+
+/******Body Styles*****/
 
 .fullCard {
   max-width: 765px;
@@ -28,19 +88,17 @@ h4 {
     margin-bottom: 10px;
 }
 
-.cardHeader {
-  background-color: var(--header-color), rgba(41, 185, 113, 0.699);
-  display: inline;
-}
-.cardHeader a {
-  float: right;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-size: 17px;
+
+.sim-console {
+  background-color: black;
+  color: aliceblue;
+  margin-top: 40px;
 }
 
-.cardHeader img {
-  width:30px;
-  height:30px;
-  padding-left: 10px;
+.sim-console a:link {
+  color: aquamarine;
+}
+
+.sim-console a:visited {
+  color: darkgrey;
 }
