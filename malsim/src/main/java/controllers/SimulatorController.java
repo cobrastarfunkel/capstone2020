@@ -60,11 +60,12 @@ public class SimulatorController implements Initializable {
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
 
-		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, "
+		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, scenarioTraits.scType, "
 				+ "documents.document, malware.dMalware, progress.difficulty\r\n" + "from scenarios\r\n"
 				+ "join progress on scenarios.idNumber = progress.idNumber\r\n"
 				+ "join documents on scenarios.idNumber = documents.idNumber\r\n"
-				+ "join malware on scenarios.idNumber = malware.idNumber\r\n";
+				+ "join malware on scenarios.idNumber = malware.idNumber\r\n"
+				+ "join scenarioTraits on scenarios.idNumber = scenarioTraits.idNumber\r\n";
 
 		try (Connection conn = sqliteDB.connect();
 				Statement stmt = conn.createStatement();
@@ -74,8 +75,9 @@ public class SimulatorController implements Initializable {
 				scString = (rs.getInt("completed") == 0) ? "\t\t\tIncomplete" : "\t\t\tCompleted";
 				items.add(rs.getString("scName") + "\t\t\t" + rs.getString("difficulty") + scString);
 
-				scenarios.put(items.size() - 1, new ScenarioModel(rs.getInt("idNumber"), rs.getString("scName"),
-						rs.getBytes("document"), rs.getBytes("dMalware"), rs.getString("difficulty")));
+				scenarios.put(items.size() - 1,
+						new ScenarioModel(rs.getInt("idNumber"), rs.getString("scName"), rs.getBytes("document"),
+								rs.getBytes("dMalware"), rs.getString("difficulty"), rs.getString("scType")));
 			}
 		} catch (Exception e) {
 
@@ -95,7 +97,8 @@ public class SimulatorController implements Initializable {
 			selectedScenario = scenarios.get(0);
 		}
 		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
-				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty());
+				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty(),
+				selectedScenario.getType());
 
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));

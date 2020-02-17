@@ -20,13 +20,15 @@
 		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0" stylesheets="@../fxmlFiles/nav_bar.css" styleClass="nav_top">
 		 	
 		 	<top>
-			 	<HBox spacing="10" alignment="CENTER">
+			 	<HBox spacing="5" alignment="CENTER">
 			 		<children>
-			 			<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" styleClass="button1"/>
+			 			<ImageView fx:id="image_class" fitHeight="30.0" fitWidth="30.0">
+			 		
+			 			</ImageView>
 			 			<Region HBox.hgrow="ALWAYS"/>
 			 			<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" styleClass="button1"/>
 			 			<Region HBox.hgrow="ALWAYS"/>
-			 			<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" styleClass="button1"/>
+			 			<Label text=".malsim" styleClass="nav_label"/>
 			 		</children>
 			 	</HBox>	
 		 	</top>
