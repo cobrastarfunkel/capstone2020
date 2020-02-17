@@ -38,6 +38,7 @@ public class ScenarioViewController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		backButton.getStyleClass().add("button1");
 		we = this.webView.getEngine();
 
 		try {
