@@ -14,6 +14,7 @@ BorderPane {
 .nav_label {
 	-fx-font-size: 17px;
 	-fx-font-weight: bold;
+	
 }
 
 .button1 {
@@ -24,9 +25,18 @@ BorderPane {
   -fx-background-color: #ffffff;
   -fx-font-weight: 300;
   -fx-font-size: 17px;
+  -fx-padding: 5px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
 }
 
 .button1:hover {
   -fx-text-fill: #ffffff;
   -fx-background-color: #000000;
+}
+
+.button1:pressed {
+  -fx-background-color: #ffffff;
+  -fx-text-fill: #000000;
 }

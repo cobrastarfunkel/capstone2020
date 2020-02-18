@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -89,7 +91,16 @@ public class ScenarioViewController implements Initializable {
 
 	@FXML
 	void completeSc(ActionEvent event) {
+		String sql = String.format("update progress\r\nSET completed = 1\r\nWHERE idNumber = %d", scenario.getId());
 
+		try {
+			Connection conn = scenario.getSqliteDb().connect();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.executeUpdate();
+
+			conn.commit();
+		} catch (Exception e) {
+		}
 	}
 
 }
