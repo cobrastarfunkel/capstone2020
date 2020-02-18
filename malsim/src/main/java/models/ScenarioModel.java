@@ -1,5 +1,6 @@
 package models;
 
+import database.SqliteDatabase;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
@@ -10,6 +11,7 @@ public class ScenarioModel {
 	private byte[] scDoc;
 	private byte[] scenario;
 	private String difficulty;
+	private SqliteDatabase sqliteDb;
 
 	@FXML
 	private ImageView image_class;
@@ -82,6 +84,14 @@ public class ScenarioModel {
 
 	public void setImage_class(String type) {
 
+	}
+
+	public SqliteDatabase getSqliteDb() {
+		return sqliteDb;
+	}
+
+	public void setSqliteDb(SqliteDatabase sqliteDb) {
+		this.sqliteDb = sqliteDb;
 	}
 
 }

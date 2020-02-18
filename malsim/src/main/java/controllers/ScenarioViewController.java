@@ -58,7 +58,6 @@ public class ScenarioViewController implements Initializable {
 		try {
 			image_class.setImage(new Image(image_file.toUri().toURL().toExternalForm()));
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -86,6 +85,11 @@ public class ScenarioViewController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void completeSc(ActionEvent event) {
+
 	}
 
 }

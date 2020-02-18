@@ -3,6 +3,8 @@
 :root {
   --example-of-var: 10px;
   --header-color: hsl(110, 54%, 54%);
+  background-color: black;
+  color: aliceblue;
 }
 
 body {
