@@ -20,9 +20,9 @@
 		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0" stylesheets="@../fxmlFiles/nav_bar.css" styleClass="nav_top">
 		 	
 		 	<top>
-			 	<HBox spacing="5" alignment="CENTER">
+			 	<HBox spacing="10" alignment="CENTER" styleClass="nav_body">
 			 		<children>
-			 			<ImageView fx:id="image_class" fitHeight="30.0" fitWidth="30.0">
+			 			<ImageView fx:id="image_class" fitHeight="30.0" fitWidth="30.0" styleClass="image_view">
 			 		
 			 			</ImageView>
 			 			<Region HBox.hgrow="ALWAYS"/>
@@ -34,7 +34,7 @@
 		 	</top>
 		 	
 		 	<center>
-    		 	<WebView fx:id="webView" prefHeight="555.0" prefWidth="795.0"/>
+    		 	<WebView fx:id="webView" prefHeight="555.0" prefWidth="795.0" styleClass="nav_body"/>
         	</center>  
 		</BorderPane>
  

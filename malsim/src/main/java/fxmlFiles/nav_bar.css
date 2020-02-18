@@ -1,17 +1,26 @@
 
 
+BorderPane {
+	-fx-font-family: monospace;
+	-fx-font-weight: 300;
+}
 /*******NavBar Style*******/
 .nav_top {
-	-fx-background-color: #ffffff;
-	-fxfont-family: "Courier New", Courier, monospace;
+	-fx-background-color: #000000;
 }
 
+.nav_body {
+	-fx-background-color: #ffffff;
+}
 .nav_label {
 	-fx-font-size: 17px;
-		-fxfont-family: "Courier New", Courier, monospace;
-	
+	-fx-font-weight: bold;
+	-fx-padding: 0, 0, 0, 10px;
 }
 
+.image_view {
+	-fx-padding: 0, 0, 0, 10px;
+}
 .button1 {
   /*padding: 0.35em 1.2em;
   border: 0.1em solid #000000;
@@ -28,7 +37,7 @@
   -fx-border-radius: 0.12em;
   -fx-transition: all 0.2s;
   -fx-background-color: #ffffff;
-  	-fxfont-family: "Courier New", Courier, monospace;
+  -fx-font-weight: 300;
 }
 
 .button1:hover {
