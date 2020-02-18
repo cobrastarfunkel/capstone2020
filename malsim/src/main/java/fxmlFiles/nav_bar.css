@@ -1,0 +1,46 @@
+
+
+BorderPane {
+	-fx-font-family: monospace;
+	-fx-font-weight: 300;
+}
+/*******NavBar Style*******/
+.nav_top {
+	-fx-background-color: #000000;
+}
+
+.nav_body {
+	-fx-background-color: #ffffff;
+}
+.nav_label {
+	-fx-font-size: 17px;
+	-fx-font-weight: bold;
+	-fx-padding: 0, 0, 0, 10px;
+}
+
+.image_view {
+	-fx-padding: 0, 0, 0, 10px;
+}
+.button1 {
+  /*padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  margin: 0 0.3em 0.3em 0;
+  
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  
+  color: #000000;
+  text-align: center;*/
+  -fx-border-width: 0.1em;
+  -fx-border-color: #000000;
+  -fx-border-radius: 0.12em;
+  -fx-transition: all 0.2s;
+  -fx-background-color: #ffffff;
+  -fx-font-weight: 300;
+}
+
+.button1:hover {
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #000000;
+}
