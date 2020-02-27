@@ -27,7 +27,7 @@
 			 			</ImageView>
 			 			<Region HBox.hgrow="ALWAYS"/>
 			 			<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" styleClass="button1"/>
-			 			<Button mnemonicParsing="false" onAction="#goHome" text="Reset" fx:id="backButton" styleClass="button1"/>
+			 			<Button mnemonicParsing="false" onAction="#resetSc" text="Reset" fx:id="backButton" styleClass="button1"/>
 			 			<Button mnemonicParsing="false" onAction="#completeSc" text="Complete" fx:id="backButton" styleClass="button1"/>
 			 			<Region HBox.hgrow="ALWAYS"/>
 			 			<Label text=".malsim" styleClass="nav_label"/>

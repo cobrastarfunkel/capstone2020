@@ -33,10 +33,10 @@ BorderPane {
 
 .button1:hover {
   -fx-text-fill: #ffffff;
-  -fx-background-color: #000000;
+  -fx-background-color: rgb(40, 44, 52);
 }
 
 .button1:pressed {
   -fx-background-color: #ffffff;
-  -fx-text-fill: #000000;
+  -fx-text-fill:  rgb(40, 44, 52);
 }

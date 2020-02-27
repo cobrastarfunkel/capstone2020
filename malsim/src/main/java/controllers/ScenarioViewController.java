@@ -91,16 +91,22 @@ public class ScenarioViewController implements Initializable {
 
 	@FXML
 	void completeSc(ActionEvent event) {
-		String sql = String.format("update progress\r\nSET completed = 1\r\nWHERE idNumber = %d", scenario.getId());
+		String sql = "update progress\r\nSET completed = 1\r\nWHERE idNumber = ?";
 
 		try {
 			Connection conn = scenario.getSqliteDb().connect();
 			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, scenario.getId());
 			pst.executeUpdate();
 
 			conn.commit();
 		} catch (Exception e) {
 		}
+	}
+
+	@FXML
+	void resetSc(ActionEvent event) {
+
 	}
 
 }
