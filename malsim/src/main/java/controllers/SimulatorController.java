@@ -113,7 +113,11 @@ public class SimulatorController implements Initializable {
 			scenarioStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+<<<<<<< HEAD
 
+=======
+			// TEST
+>>>>>>> 97a4c8f4cfb45f421fc9bd384251536cec0891cf
 		}
 	}
 
