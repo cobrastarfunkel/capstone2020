@@ -99,6 +99,7 @@ public class SimulatorController implements Initializable {
 		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
 				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty(),
 				selectedScenario.getType());
+		scModel.setSqliteDb(sqliteDB);
 
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));
@@ -112,6 +113,7 @@ public class SimulatorController implements Initializable {
 			scenarioStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 	}
 

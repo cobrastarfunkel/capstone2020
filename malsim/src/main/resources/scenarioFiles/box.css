@@ -3,6 +3,9 @@
 :root {
   --example-of-var: 10px;
   --header-color: hsl(110, 54%, 54%);
+  background-color: rgb(40, 44, 52);
+  /*color: aliceblue;*/
+
 }
 
 body {
@@ -106,14 +109,18 @@ background: rgb(119, 185, 211);
 
 
 .sim-console {
-  background-color: black;
+  background-color:rgb(40, 44, 52);
   color: aliceblue;
 }
 
 .sim-console a:link {
-  color: aquamarine;
+  color: #ff9999
 }
 
 .sim-console a:visited {
   color: darkgrey;
+}
+
+.prompt {
+  color: #88ccbb;
 }
