@@ -22,6 +22,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import models.ScenarioModel;
 
@@ -42,6 +44,9 @@ public class SimulatorController implements Initializable {
 	@FXML
 	private ImageView scenarioDocImage;
 
+	@FXML
+	private Circle vmIndicator;
+
 	private ObservableList<String> items = FXCollections.observableArrayList();
 	private HashMap<Integer, ScenarioModel> scenarios;
 
@@ -50,6 +55,15 @@ public class SimulatorController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		vmIndicator.setStroke(Color.BLACK);
+		vmIndicator.setStrokeWidth(1.5);
+
+		/*
+		 * if (MacFinder.isVMMac(String.format("00-0C-29-FE-61-64").getBytes())) {
+		 * vmIndicator.setFill(Color.DARKGREEN); } else {
+		 * vmIndicator.setFill(Color.RED); }
+		 */
+		vmIndicator.setFill(Color.DARKGREEN);
 		new FXMLLoader(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 		String scString;
