@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import conditions.MacFinder;
 import database.SqliteDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -58,12 +59,12 @@ public class SimulatorController implements Initializable {
 		vmIndicator.setStroke(Color.BLACK);
 		vmIndicator.setStrokeWidth(1.5);
 
-		/*
-		 * if (MacFinder.isVMMac(String.format("00-0C-29-FE-61-64").getBytes())) {
-		 * vmIndicator.setFill(Color.DARKGREEN); } else {
-		 * vmIndicator.setFill(Color.RED); }
-		 */
-		vmIndicator.setFill(Color.DARKGREEN);
+		if (MacFinder.isVMMac()) {
+			vmIndicator.setFill(Color.GREEN);
+		} else {
+			vmIndicator.setFill(Color.RED);
+		}
+
 		new FXMLLoader(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 		String scString;
