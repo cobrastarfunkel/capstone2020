@@ -6,13 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.layout.GridPane;
 
 public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 		SqliteDatabase sqliteDB = new SqliteDatabase("guidb.sqlite");
 		sqliteDB.createDatabase();
 		sqliteDB.createTables();
@@ -24,7 +23,7 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+
 	}
 
 	public static void main(String[] args) {
