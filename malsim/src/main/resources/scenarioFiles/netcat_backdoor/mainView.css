@@ -1,3 +1,7 @@
+/*
+** Top Nav Bar
+*/
+
 .search-bar-container {
   display: grid;
   grid-template-columns: [back-button]1fr [forward-buton]1fr [refresh-button]1fr [search-bar]25fr [star-button]1fr;
@@ -17,16 +21,18 @@
   border-radius: 50%;
 }
 
+/* When using in Java change paths to netcat_backdoor/icons/filename      */
 .back-button {
-  background: url("icons/arrow_back-24px.svg") no-repeat scroll center center;
+  background: url("../icons/arrow_back-24px.svg") no-repeat scroll center center;
 }
 
 .forward-button {
-  background: url("icons/arrow_forward-24px.svg") no-repeat scroll center center;
+  background: url("../icons/arrow_forward-24px.svg") no-repeat scroll center
+    center;
 }
 
 .refresh-button {
-  background: url("icons/refresh-24px.svg") no-repeat scroll center center /
+  background: url("../icons/refresh-24px.svg") no-repeat scroll center center /
     100%;
 }
 
@@ -36,7 +42,48 @@
 }
 
 .star-button {
-  background: url("icons/star_outline-24px.svg") no-repeat scroll center center /
-    100%;
+  background: url("../icons/star_outline-24px.svg") no-repeat scroll center
+    center / 100%;
   margin-left: 1em;
+}
+
+/*
+** Main Window
+*/
+
+.main-container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: [side-bar]1fr [main-window]4fr;
+}
+
+.side-bar {
+  background-color: rgb(187, 171, 171);
+}
+
+.side-bar a {
+  margin: 0.5em;
+  display: block;
+  transition: 0.3s;
+}
+
+.inbox-icon {
+  background: url("../icons/inbox-24px.svg") no-repeat scroll center center /
+    100%;
+}
+
+.side-bar a:hover {
+  background-color: rgb(223, 219, 219);
+  border-radius: 6px;
+  text-indent: 5px;
+}
+
+.main-window {
+  padding-left: 1em;
+  display: grid;
+  grid-template-rows: [main-head]1fr [main-content] 4fr;
+}
+
+.main-head {
+  background-color: lightgreen;
 }
