@@ -23,16 +23,15 @@
 
 /* When using in Java change paths to netcat_backdoor/icons/filename      */
 .back-button {
-  background: url("../icons/arrow_back-24px.svg") no-repeat scroll center center;
+  background: url("icons/arrow_back-24px.svg") no-repeat scroll center center;
 }
 
 .forward-button {
-  background: url("../icons/arrow_forward-24px.svg") no-repeat scroll center
-    center;
+  background: url("icons/arrow_forward-24px.svg") no-repeat scroll center center;
 }
 
 .refresh-button {
-  background: url("../icons/refresh-24px.svg") no-repeat scroll center center /
+  background: url("icons/refresh-24px.svg") no-repeat scroll center center /
     100%;
 }
 
@@ -42,8 +41,8 @@
 }
 
 .star-button {
-  background: url("../icons/star_outline-24px.svg") no-repeat scroll center
-    center / 100%;
+  background: url("icons/star_outline-24px.svg") no-repeat scroll center center /
+    100%;
   margin-left: 1em;
 }
 
