@@ -1,0 +1,42 @@
+.search-bar-container {
+  display: grid;
+  grid-template-columns: [back-button]1fr [forward-buton]1fr [refresh-button]1fr [search-bar]25fr [star-button]1fr;
+}
+
+.bar-button {
+  border: none;
+  transition: all 0.4s;
+  background-color: #ffffff;
+  content: "";
+  height: 20px;
+  width: 20px;
+}
+
+.bar-button:hover {
+  background-color: rgb(223, 219, 219);
+  border-radius: 50%;
+}
+
+.back-button {
+  background: url("icons/arrow_back-24px.svg") no-repeat scroll center center;
+}
+
+.forward-button {
+  background: url("icons/arrow_forward-24px.svg") no-repeat scroll center center;
+}
+
+.refresh-button {
+  background: url("icons/refresh-24px.svg") no-repeat scroll center center /
+    100%;
+}
+
+.search-bar {
+  border-radius: 10px;
+  text-indent: 10px;
+}
+
+.star-button {
+  background: url("icons/star_outline-24px.svg") no-repeat scroll center center /
+    100%;
+  margin-left: 1em;
+}
