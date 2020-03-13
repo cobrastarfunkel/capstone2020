@@ -1,4 +1,43 @@
 /*
+** Material Icons
+*/
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(icons/iconfont/MaterialIcons-Regular.woff2) format("woff2"),
+    url(icons/iconfont/MaterialIcons-Regular.woff) format("woff"),
+    url(icons/iconfont/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+/*
 ** Top Nav Bar
 */
 input[disabled] {
@@ -9,24 +48,27 @@ input[disabled] {
 .search-bar-container {
   display: grid;
   grid-template-columns: [back-button]1fr [forward-buton]1fr [refresh-button]1fr [search-bar]25fr [star-button]1fr;
+  padding: 0px;
 }
 
 .bar-button {
-  border: none;
+  display: inline-block;
   transition: all 0.4s;
   background-color: #ffffff;
-  content: "";
-  height: 20px;
-  width: 20px;
   cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: auto;
+  text-align: center;
 }
 
 .bar-button:hover {
   background-color: rgb(223, 219, 219);
   border-radius: 50%;
-  border-width: 50px;
-  background-size: round;
+
+  transform: scale(1.1);
 }
+
 /*  Come back to this, hover after focus doesn't change bg color anymore
 .bar-button:focus {
   outline: none;
@@ -36,35 +78,13 @@ input[disabled] {
 .bar-button:active {
   outline: none;
   background-color: rgb(223, 219, 219);
-  border-radius: 50%;
-  background-size: 125%;
-  transition: 0.1s;
-}
-
-/* When using in Java change paths to netcat_backdoor/icons/filename
-  If using with VSCode use icons/filename      */
-.back-button {
-  background: url("icons/arrow_back-24px.svg") no-repeat scroll center center;
-}
-
-.forward-button {
-  background: url("icons/arrow_forward-24px.svg") no-repeat scroll center center;
-}
-
-.refresh-button {
-  background: url("icons/refresh-24px.svg") no-repeat scroll center center /
-    100%;
+  transform: scale(1.3);
 }
 
 .search-bar {
   border-radius: 10px;
   text-indent: 10px;
-}
-
-.star-button {
-  background: url("icons/star_outline-24px.svg") no-repeat scroll center center /
-    100%;
-  margin-left: 1em;
+  margin-right: 0.9em;
 }
 
 /*
@@ -92,6 +112,11 @@ input[disabled] {
   font-weight: bold;
 }
 
+.side-bar span {
+  position: relative;
+  bottom: 5px;
+}
+
 .side-bar a:hover {
   background-color: rgb(223, 219, 219);
   border-radius: 6px;
@@ -104,31 +129,26 @@ input[disabled] {
 
 .main-window {
   padding-left: 1em;
-  display: grid;
-  grid-template-rows: [main-head]1fr [content-header]1fr [main-content] 20fr;
+  display: inline;
   grid-template-areas:
     "main-head"
     "content-header"
     "main-content"
     "filler";
+  grid-template-columns: auto;
 }
 
 .main-head {
   grid-row: main-head;
-  grid-template-columns: [refresh-button-head]1fr [mail-count]1fr;
+  display: inline;
 }
 
-.main-head button {
-  background: url("icons/refresh-24px.svg") no-repeat scroll center center /
-    100%;
+.main-head th {
+  background-color: white;
 }
 
-.refresh-button-head {
-  grid-column: refresh-button-head;
-}
-
-.mail-count {
-  grid-column: mail-count;
+.tab-content {
+  display: none;
 }
 
 .main-content {
@@ -140,16 +160,22 @@ input[disabled] {
   cursor: pointer;
   width: 33.3%;
   transition: 0.2s;
+  text-align: left;
+  border-bottom: 1px black solid;
+}
+
+.main-content th span {
+  position: relative;
+  bottom: 5px;
 }
 
 .main-content th:hover {
   background-color: rgb(224, 221, 221);
 }
 
-.main-content th:active {
+.main-content th.active {
   background-color: rgb(224, 221, 221);
-  border-bottom: black;
-  border-radius: 50%;
+  border-top: 1px black solid;
 }
 
 .main-content td {
@@ -157,6 +183,11 @@ input[disabled] {
   text-align: left;
   padding-bottom: 5px;
   cursor: pointer;
+}
+
+.main-content td span {
+  position: relative;
+  bottom: 5px;
 }
 
 tr:hover > td.highlight {

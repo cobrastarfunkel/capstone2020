@@ -9,48 +9,52 @@
   <body>
     <hr>
     <div class="search-bar-container">
-      <button class="back-button bar-button"></button>
-      <button class="forward-button bar-button"></button>
-      <button class="refresh-button bar-button"></button>
-      <input class="search-bar" value="http://mail.google.com/mail/u/0/#inbox" disabled/>
-      <button class="star-button bar-button"></button>
+      <i class="material-icons bar-button">arrow_back</i>
+      <i class="material-icons bar-button">arrow_forward</i>
+      <i class="material-icons bar-button">refresh</i>
+      <input class="search-bar" value="http://mail.malmail.com/mail/u/0/#inbox" disabled/>
+      <i class="material-icons bar-button"">star</i>
     </div>
     <hr>
     <div class="main-container">
       <div class="side-bar">
-        <a href="#"> <img src="icons/inbox-24px.svg"></img> Inbox</a>
-        <a href="#"><img src="icons/star-24px.svg"></img>Starred</a>
-        <a href="#"><img src="icons/access_time-24px.svg"></img>Snoozed</a>
-        <a href="#"><img src="icons/label_important-24px.svg"></img>Important</a>
-        <a href="#"><img src="icons/send-24px.svg"></img>Sent</a>
-        <a href="#"><img src="icons/file_copy-24px.svg"></img>Drafts</a>
+        <a href="#"> <img src="icons/inbox-24px.svg"></img><span>Inbox</span></a>
+        <a href="#"><img src="icons/star-24px.svg"></img><span>Starred</span></a>
+        <a href="#"><img src="icons/access_time-24px.svg"></img><span>Snoozed</span></a>
+        <a href="#"><img src="icons/label_important-24px.svg"></img><span>Important</span></a>
+        <a href="#"><img src="icons/send-24px.svg"></img><span>Sent</span></a>
+        <a href="#"><img src="icons/file_copy-24px.svg"></img><span>Drafts</span></a>
       </div>
       <div class="main-window">
         <div class="main-head">
-            <button class="refresh-button-head bar-button"></button>
-            <h6 class="mail-count">1-3 of 3</h6>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="text-align: left;"><i class="material-icons bar-button">refresh</i></th>
+                    <th style="text-align: right;"><span>1-3 of 3</span></th>
+                </tr>
+            </table>
         </div>
         <div class="main-content">
             <table style="width: 100%; border-spacing: 0px;">
                 <tr>
-                    <th>Primary</th>
-                    <th>Social</th>
-                    <th>Promotions</th>
+                    <th tabindex="1" id="primary"><a href="#"> <img src="icons/inbox-24px.svg"></img><span>Primary</span></a></th>
+                    <th><a href="#"> <img src="icons/people-24px.svg"></img><span>Social</span></a></th>
+                    <th><a href="#"> <img src="icons/local_offer-24px.svg"></img><span>Promotions</span></a></th>
                 </tr>
                 <tr>
-                        <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/>Discover Card</a></td>
+                        <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
                         <td class="highlight">Your Current Statement</td>
                         <td class="highlight">4:02 AM</td>
                 </tr>
                 <tr>
-                    <td class="highlight"><a href="#"><img src="icons/star-24px.svg"/>IT Support</a></td>
+                    <td class="highlight"><a href="#"><img src="icons/star-24px.svg"/><span>IT Support</span></a></td>
                     <td class="highlight"><b>IMPORTANT</b> Security Update</td>
                     <td class="highlight">2:02 AM</td>
                 </tr>
                 <tr>
-                    <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/>Discover Card</a></td>
+                    <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
                     <td class="highlight">Your Current Statement</td>
-                    <td class="highlight">4:02 AM</td>
+                    <td class="highlight">Jan 12</td>
                 </tr>
             </table>
       </div>
