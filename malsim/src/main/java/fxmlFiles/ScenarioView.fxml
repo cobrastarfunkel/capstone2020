@@ -17,7 +17,7 @@
 
 
 
-		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0" 
+		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="800.0" prefWidth="1000.0" 
 		stylesheets="@../fxmlFiles/nav_bar.css" styleClass="nav_top">
 		 	<top>
 			 	<HBox spacing="10" alignment="CENTER" styleClass="nav_body">

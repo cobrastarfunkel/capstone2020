@@ -18,6 +18,7 @@ input[disabled] {
   content: "";
   height: 20px;
   width: 20px;
+  cursor: pointer;
 }
 
 .bar-button:hover {
@@ -40,7 +41,8 @@ input[disabled] {
   transition: 0.1s;
 }
 
-/* When using in Java change paths to netcat_backdoor/icons/filename      */
+/* When using in Java change paths to netcat_backdoor/icons/filename
+  If using with VSCode use icons/filename      */
 .back-button {
   background: url("icons/arrow_back-24px.svg") no-repeat scroll center center;
 }
@@ -103,13 +105,17 @@ input[disabled] {
 .main-window {
   padding-left: 1em;
   display: grid;
-  grid-template-rows: [main-head]1fr [main-content] auto;
+  grid-template-rows: [main-head]1fr [content-header]1fr [main-content] 20fr;
+  grid-template-areas:
+    "main-head"
+    "content-header"
+    "main-content"
+    "filler";
 }
 
 .main-head {
-  max-height: 25px;
-  min-height: 25px;
   grid-row: main-head;
+  grid-template-columns: [refresh-button-head]1fr [mail-count]1fr;
 }
 
 .main-head button {
@@ -117,6 +123,65 @@ input[disabled] {
     100%;
 }
 
+.refresh-button-head {
+  grid-column: refresh-button-head;
+}
+
+.mail-count {
+  grid-column: mail-count;
+}
+
 .main-content {
   grid-row: main-content;
+}
+
+.main-content th {
+  background-color: rgb(236, 234, 234);
+  cursor: pointer;
+  width: 33.3%;
+  transition: 0.2s;
+}
+
+.main-content th:hover {
+  background-color: rgb(224, 221, 221);
+}
+
+.main-content th:active {
+  background-color: rgb(224, 221, 221);
+  border-bottom: black;
+  border-radius: 50%;
+}
+
+.main-content td {
+  border-collapse: separate;
+  text-align: left;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+tr:hover > td.highlight {
+  border-bottom: 1px black solid;
+  padding: 0 0 5px 0;
+}
+
+tr:hover > td.highlight span {
+  margin: -1px 0;
+  padding: 5px 5px 1px;
+}
+
+.main-content a {
+  margin: 3px;
+  display: block;
+  transition: 0.3s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.main-content img {
+  margin-right: 4px;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(235, 233, 233);
 }
