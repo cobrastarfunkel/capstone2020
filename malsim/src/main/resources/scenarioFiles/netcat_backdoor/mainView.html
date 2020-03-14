@@ -13,7 +13,7 @@
       <i class="material-icons bar-button">&#xe5c8;</i>
       <i class="material-icons bar-button">&#xe5d5;</i>
       <input class="search-bar" value="http://mail.malmail.com/mail/u/0/#inbox" disabled/>
-      <i class="material-icons bar-button"">&#xe838;</i>
+      <i class="material-icons bar-button">&#xe838;</i>
     </div>
     <hr>
     <div class="main-container">
@@ -35,29 +35,46 @@
             </table>
         </div>
         <div class="main-content">
+          <hr>
             <table style="width: 100%; border-spacing: 0px;">
                 <tr>
-                    <th tabindex="1" id="primary"><a href="#"> <img src="icons/inbox-24px.svg"></img><span>Primary</span></a></th>
-                    <th><a href="#"> <img src="icons/people-24px.svg"></img><span>Social</span></a></th>
-                    <th><a href="#"> <img src="icons/local_offer-24px.svg"></img><span>Promotions</span></a></th>
+                    <th tabindex="1" id="primary-tab" class="tab-header active" onclick="changeMailTab(event, 'primary-tab-content')"><i class="material-icons">&#xe156;</i><span>Primary</span></a></th>
+                    <th id="social-tab" class="tab-header" onclick="changeMailTab(event, 'social-tab-content')"><i class="material-icons">&#xe7fb;</i><span>Social</span></a></th>
+                    <th><i class="material-icons">&#xe54e;</i><span>Promotions</span></a></th>
                 </tr>
-                <tr>
-                        <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
-                        <td class="highlight">Your Current Statement</td>
-                        <td class="highlight">4:02 AM</td>
-                </tr>
-                <tr>
-                    <td class="highlight"><a href="#"><img src="icons/star-24px.svg"/><span>IT Support</span></a></td>
-                    <td class="highlight"><b>IMPORTANT</b> Security Update</td>
-                    <td class="highlight">2:02 AM</td>
-                </tr>
-                <tr>
-                    <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
-                    <td class="highlight">Your Current Statement</td>
-                    <td class="highlight">Jan 12</td>
-                </tr>
+                  <tr id="primary-tab-content-0" class="mail-tab">
+                          <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
+                          <td class="highlight">Your Current Statement</td>
+                          <td class="highlight">4:02 AM</td>
+                  </tr>
+                  <tr id="primary-tab-content-1" class="mail-tab">
+                      <td class="highlight"><a href="#"><img src="icons/star-24px.svg"/><span>IT Support</span></a></td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                      <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="primary-tab-content-2" class="mail-tab">
+                      <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
+                      <td class="highlight">Your Current Statement</td>
+                      <td class="highlight">Jan 12</td>
+                  </tr>
+                  <tr id="social-tab-content-0" style="display: none;" class="mail-tab">
+                          <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>LinkedIn Jobs</span></a></td>
+                          <td class="highlight">New Jobs in your area</td>
+                          <td class="highlight">4:02 AM</td>
+                  </tr>
+                  <tr id="social-tab-content-1" style="display: none;" class="mail-tab">
+                      <td class="highlight"><a href="#"><img src="icons/star-24px.svg"/><span>IT Support</span></a></td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                      <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="social-tab-content-2" style="display: none;" class="mail-tab">
+                      <td class="highlight"><a href="#"><img src="icons/star_outline-24px.svg"/><span>Discover Card</span></a></td>
+                      <td class="highlight">Your New Offers!</td>
+                      <td class="highlight">Jan 12</td>
+                  </tr>
             </table>
       </div>
     </div>
+    <script src="malMailPage.js"></script>
   </body>
 </html>
