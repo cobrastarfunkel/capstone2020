@@ -1,3 +1,12 @@
+:root {
+  --main-active-bg-color: rgba(224, 238, 238, 0.8);
+  --main-text-color: #3a3b41;
+}
+
+hr {
+  background-color: rgb(224, 221, 221);
+  color: rgb(224, 221, 221);
+}
 /*
 ** Material Icons
 */
@@ -42,7 +51,7 @@
 */
 input[disabled] {
   color: black;
-  background-color: rgb(238, 235, 235);
+  background-color: var(--main-active-bg-color);
 }
 
 .search-bar-container {
@@ -54,7 +63,6 @@ input[disabled] {
 .bar-button {
   display: inline-block;
   transition: all 0.4s;
-  background-color: #ffffff;
   cursor: pointer;
   border-radius: 50%;
   width: 28px;
@@ -63,7 +71,7 @@ input[disabled] {
 }
 
 .bar-button:hover {
-  background-color: rgb(223, 219, 219);
+  background-color: var(--main-active-bg-color);
   border-radius: 50%;
 
   transform: scale(1.1);
@@ -77,7 +85,7 @@ input[disabled] {
 
 .bar-button:active {
   outline: none;
-  background-color: rgb(223, 219, 219);
+  background-color: var(--main-active-bg-color);
   transform: scale(1.3);
 }
 
@@ -108,7 +116,7 @@ input[disabled] {
   display: block;
   transition: 0.3s;
   text-decoration: none;
-  color: black;
+  color: var(--main-text-color);
   font-weight: bold;
 }
 
@@ -118,7 +126,7 @@ input[disabled] {
 }
 
 .side-bar a:hover {
-  background-color: rgb(223, 219, 219);
+  background-color: var(--main-active-bg-color);
   border-radius: 6px;
   text-indent: 5px;
 }
@@ -143,10 +151,6 @@ input[disabled] {
   display: inline;
 }
 
-.main-head th {
-  background-color: white;
-}
-
 .tab-content {
   display: none;
 }
@@ -156,12 +160,12 @@ input[disabled] {
 }
 
 .main-content th {
-  background-color: rgb(236, 234, 234);
   cursor: pointer;
   width: 33.3%;
   transition: 0.2s;
   text-align: left;
-  border-bottom: 1px black solid;
+  border-bottom: 1px rgb(159, 161, 163) solid;
+  border-top: 1px rgb(159, 161, 163) solid;
 }
 
 .main-content th span {
@@ -170,12 +174,11 @@ input[disabled] {
 }
 
 .main-content th:hover {
-  background-color: rgb(224, 221, 221);
+  background-color: var(--main-active-bg-color);
 }
 
 .main-content th.active {
   background-color: rgb(224, 221, 221);
-  border-top: 1px black solid;
 }
 
 .main-content td {
@@ -191,7 +194,8 @@ input[disabled] {
 }
 
 tr:hover > td.highlight {
-  border-bottom: 1px black solid;
+  border-bottom: 1px rgb(181, 191, 202) solid;
+  border-top: 1px rgb(181, 191, 202) solid;
   padding: 0 0 5px 0;
 }
 
@@ -205,14 +209,10 @@ tr:hover > td.highlight span {
   display: block;
   transition: 0.3s;
   text-decoration: none;
-  color: black;
+  color: var(--main-text-color);
   font-weight: bold;
 }
 
 .main-content img {
   margin-right: 4px;
-}
-
-tr:nth-child(odd) {
-  background-color: rgb(235, 233, 233);
 }
