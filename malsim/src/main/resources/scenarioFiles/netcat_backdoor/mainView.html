@@ -4,6 +4,7 @@
   <head>
       <!-- When using with java change to netcat_backdoor/mainView.css -->
     <link rel="stylesheet" type="text/css" href="mainView.css" />
+    <script src="malMailPage.js"></script>
     <title>.malsim</title>
   </head>
   <body>
@@ -38,7 +39,7 @@
           <hr>
             <table style="width: 100%; border-spacing: 0px;">
                 <tr>
-                    <th tabindex="1" id="primary-tab" class="tab-header active" onclick="changeMailTab(event, 'primary-tab-content')"><i class="material-icons">&#xe156;</i><span>Primary</span></a></th>
+                    <th class="tab-header active" onclick="changeMailTab(event, 'primary-tab-content')"><i class="material-icons">&#xe156;</i><span>Primary</span></a></th>
                     <th id="social-tab" class="tab-header" onclick="changeMailTab(event, 'social-tab-content')"><i class="material-icons">&#xe7fb;</i><span>Social</span></a></th>
                     <th><i class="material-icons">&#xe54e;</i><span>Promotions</span></a></th>
                 </tr>
@@ -75,6 +76,5 @@
             </table>
       </div>
     </div>
-    <script src="malMailPage.js"></script>
   </body>
 </html>
