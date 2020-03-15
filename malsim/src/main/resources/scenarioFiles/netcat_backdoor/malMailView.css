@@ -249,19 +249,30 @@ tr:hover > td.highlight span {
 ** Email Styles
 */
 
-.email {
+.email-container {
   display: none;
+  grid-template-rows: [email-bar]1fr [email-heading]auto;
 }
 
-.email i {
+.email-header {
+  grid-row: email-bar;
   margin-left: 0.1em;
   margin-top: 0.3em;
 }
 
-.email h3 {
+.email-content {
+  display: grid;
+  grid-row: email-heading;
+  grid-template-columns: [email-title]1fr [email-star]2fr;
+}
+
+.email-content p {
+  font-size: 1.375rem;
+  font-weight: 400;
   margin-left: 1em;
 }
 
-.email-content {
-  display: inline-block;
+.email-content i {
+  text-align: left;
+  padding-top: 0.9em;
 }
