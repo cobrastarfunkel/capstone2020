@@ -3,8 +3,8 @@
 <html>
   <head>
       <!-- When using with java change to netcat_backdoor/mainView.css -->
-    <link rel="stylesheet" type="text/css" href="netcat_backdoor/malMailView.css" />
-    <script src="netcat_backdoor/malMailPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="malMailView.css" />
+    <script src="malMailPage.js"></script>
     <title>.malsim</title>
   </head>
   <body>
@@ -110,10 +110,25 @@
             </table>
       </div>
       <div id="it-support-email" class="email-container">
-        <i class="material-icons bar-button email-header" onclick="openMail('it-support-email')">&#xe5c4;</i>
-        <div class="email-content">
-          <p>IMPORTANT Security Update</p><i class="material-icons material-gold">&#xe838;</i>
+        <div>
+          <i class="material-icons bar-button email-header" onclick="openMail('it-support-email')">&#xe5c4;</i>
         </div>
+        <div class="email-heading">
+            <p>IMPORTANT Security Update</p><i class="material-icons material-gold">&#xe838;</i>
+      </div>
+      <div class="email-body">
+        <img src="images/LogoMakr_4yK6l1.png" id="malSimItLogo"/>
+        <hr>
+        <p>During a recent scan of our systems we noticed that you have not applied update 2.35e.
+          This is a critiical security update addressing a well known vulnerability. The update
+          was originally emailed to all employees over two months ago.  You are currently in violation
+          of company security policy and your supervisor will be notified if the update has not been
+          applied as of COB this Friday.</p>
+        <p>To apply the update, click the link provided below and click run when prompted.  You workstation
+           may require a reboot after installation.</p>
+        <p>Thank you for your cooperation,</p>
+           <h6>MalSim IT Department</h6>
+        <hr>
       </div>
     </div>
   </body>

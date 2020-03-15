@@ -252,28 +252,44 @@ tr:hover > td.highlight span {
 
 .email-container {
   display: none;
-  grid-template-rows: [email-bar]1fr [email-heading]auto;
+  grid-template-rows: [email-bar]1fr [email-heading]2fr [email-body]auto;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .email-header {
   grid-row: email-bar;
+  grid-column: span 12;
   margin-left: 0.1em;
   margin-top: 0.3em;
 }
 
-.email-content {
-  display: grid;
+.email-heading {
+  display: flex;
   grid-row: email-heading;
-  grid-template-columns: [email-title]1fr [email-star]2fr;
+  grid-column: span 12;
 }
 
-.email-content p {
+.email-heading p {
   font-size: 1.375rem;
   font-weight: 400;
-  margin-left: 1em;
+  margin-left: 5vw;
 }
 
-.email-content i {
+.email-heading i {
   text-align: left;
   padding-top: 0.9em;
+}
+
+.email-body {
+  grid-row: email-body;
+  grid-column: span 12;
+  padding-left: 5vw;
+}
+
+/*
+** Logo
+*/
+#malSimItLogo {
+  height: 75px;
+  width: 120px;
 }

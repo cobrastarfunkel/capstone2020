@@ -123,6 +123,10 @@ public class SimulatorController implements Initializable {
 
 			Stage scenarioStage = (Stage) listViewMain.getScene().getWindow();
 
+			// May not be good for other monitors, check on different resolutions
+			scenarioStage.setX(700);
+			scenarioStage.setY(200);
+
 			scenarioStage.setTitle(selectedScenario.getName());
 			scenarioStage.setScene(new Scene(root));
 			scenarioStage.show();
