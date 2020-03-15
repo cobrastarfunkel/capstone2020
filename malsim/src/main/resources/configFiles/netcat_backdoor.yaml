@@ -22,6 +22,6 @@ type: technique
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents: netcat_backdoor\mainView.html
+documents: netcat_backdoor\malMailView.html
 
-difficulty: Hard
+difficulty: Easy
