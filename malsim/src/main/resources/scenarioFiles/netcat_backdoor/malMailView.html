@@ -22,7 +22,7 @@
         <div class="compose-button">
           <i class="material-icons">&#xe150;</i><p>Compose</p>
         </div>
-        <div class="bar-item">
+        <div class="bar-item active">
           <i class="material-icons">&#xe156;</i><p>Inbox</p>
         </div>
         <div class="bar-item">
@@ -51,7 +51,7 @@
             </table>
         </div>
         <div class="main-content">
-            <table style="width: 100%; border-spacing: 0px;">
+            <table style="width: 100%; border-spacing: 0px;" id="mail-table">
                 <tr>
                     <th class="tab-header active" onclick="changeMailTab(event, 'primary-tab-content')"><i class="material-icons">&#xe156;</i><span>Primary</span></th>
                     <th id="social-tab" class="tab-header" onclick="changeMailTab(event, 'social-tab-content')"><i class="material-icons">&#xe7fb;</i><span>Social</span></th>
@@ -62,7 +62,7 @@
                           <td class="highlight">Your Current Statement</td>
                           <td class="highlight">4:02 AM</td>
                   </tr>
-                  <tr id="primary-tab-content-1" class="mail-tab">
+                  <tr id="primary-tab-content-1" class="mail-tab" onclick="openMail('it-support-email')">
                       <td class="highlight"><i class="material-icons material-gold">&#xe838;</i><span>IT Support</span></td>
                       <td class="highlight"><b>IMPORTANT</b> Security Update</td>
                       <td class="highlight">2:02 AM</td>
@@ -108,6 +108,13 @@
                       <td class="highlight">Jan 12</td>
                   </tr>
             </table>
+      </div>
+      <div id="it-support-email" class="email">
+        <hr>
+        <i class="material-icons bar-button" onclick="openMail('it-support-email')">&#xe5c4;</i>
+        <div class="email-content">
+          <p>IMPORTANT Security Update</p><i class="material-icons material-gold">&#xe838;</i>
+        </div>
       </div>
     </div>
   </body>

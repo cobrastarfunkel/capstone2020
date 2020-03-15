@@ -152,6 +152,10 @@ input[disabled] {
   margin-top: 0.5em;
 }
 
+.bar-item:active {
+  color: brown;
+}
+
 .side-bar .bar-item:hover {
   background-color: var(--main-active-bg-color);
   border-radius: 24px;
@@ -239,4 +243,25 @@ tr:hover > td.highlight {
 
 tr:hover > td.highlight span {
   margin-left: 1em;
+}
+
+/*
+** Email Styles
+*/
+
+.email {
+  display: none;
+}
+
+.email i {
+  margin-left: 0.1em;
+  margin-top: 0.3em;
+}
+
+.email h3 {
+  margin-left: 1em;
+}
+
+.email-content {
+  display: inline-block;
 }

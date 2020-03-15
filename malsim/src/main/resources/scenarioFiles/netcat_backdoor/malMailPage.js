@@ -12,3 +12,13 @@ function changeMailTab(evt, tabName) {
   }
   evt.currentTarget.className += " active";
 }
+
+function openMail(mailId) {
+  document.getElementById("mail-table").style.display =
+    document.getElementById("mail-table").style.display == "none"
+      ? "table"
+      : "none";
+
+  document.getElementById(mailId).style.display =
+    document.getElementById(mailId).style.display == "grid" ? "none" : "grid";
+}
