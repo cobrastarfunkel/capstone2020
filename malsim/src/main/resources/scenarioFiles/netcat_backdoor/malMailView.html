@@ -64,7 +64,7 @@
                   </tr>
                   <tr id="primary-tab-content-1" class="mail-tab" onclick="openMail('it-support-email')">
                       <td class="highlight"><i class="material-icons material-gold">&#xe838;</i><span>IT Support</span></td>
-                      <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update<i class="material-icons attachment">&#xe226;</i></td>
                       <td class="highlight">2:02 AM</td>
                   </tr>
                   <tr id="primary-tab-content-2" class="mail-tab">
@@ -110,8 +110,11 @@
             </table>
       </div>
       <div id="it-support-email" class="email-container">
-        <div>
-          <i class="material-icons bar-button email-header" onclick="openMail('it-support-email')">&#xe5c4;</i>
+        <div class="email-header">
+          <i class="material-icons bar-button" onclick="openMail('it-support-email')">&#xe5c4;</i>
+          <div class="email-time">
+            <i class="material-icons attachment-body">&#xe226;</i><p>2:02 AM(6 hours ago)</p>
+        </div>
         </div>
         <div class="email-heading">
             <p>IMPORTANT Security Update</p><i class="material-icons material-gold">&#xe838;</i>
@@ -124,11 +127,15 @@
           was originally emailed to all employees over two months ago.  You are currently in violation
           of company security policy and your supervisor will be notified if the update has not been
           applied as of COB this Friday.</p>
-        <p>To apply the update, click the link provided below and click run when prompted.  You workstation
-           may require a reboot after installation.</p>
+        <p>To apply the update, download the attached file and click run when prompted.  Your workstation
+           will require a reboot after installation.</p>
         <p>Thank you for your cooperation,</p>
            <h6>MalSim IT Department</h6>
         <hr>
+        <a href="#" onclick="installMalware()">Download Update</a>
+        <div class="download-popup" id="download-popup">
+            <button>Run</button><button onclick="closeDownload()">Cancel</button>
+        </div>
       </div>
     </div>
   </body>

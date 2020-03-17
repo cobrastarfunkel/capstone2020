@@ -22,3 +22,11 @@ function openMail(mailId) {
   document.getElementById(mailId).style.display =
     document.getElementById(mailId).style.display == "grid" ? "none" : "grid";
 }
+
+function installMalware() {
+  document.getElementById("download-popup").style.display = "flex";
+}
+
+function closeDownload() {
+  document.getElementById("download-popup").style.display = "none";
+}

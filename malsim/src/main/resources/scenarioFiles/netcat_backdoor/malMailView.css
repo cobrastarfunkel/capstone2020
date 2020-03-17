@@ -8,6 +8,7 @@ body {
   color: var(--main-text-color);
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
   font-size: 0.875rem;
+  font-weight: 450;
 }
 
 hr {
@@ -134,6 +135,10 @@ input[disabled] {
   min-width: 150px;
 }
 
+.compose-button i {
+  color: crimson;
+}
+
 .compose-button:hover {
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
     0 4px 8px 3px rgba(60, 64, 67, 0.149);
@@ -158,6 +163,7 @@ input[disabled] {
   color: crimson;
   background-color: rgba(248, 194, 205, 0.432);
   border-radius: 24px;
+  font-weight: 550;
 }
 
 .bar-item:active {
@@ -260,12 +266,10 @@ tr:hover > td.highlight span {
 .email-container {
   display: none;
   grid-template-rows: [email-bar]1fr [email-heading]2fr [email-body]auto;
-  grid-template-columns: repeat(12, 1fr);
 }
 
 .email-header {
   grid-row: email-bar;
-  grid-column: span 12;
   margin-left: 0.1em;
   margin-top: 0.3em;
 }
@@ -273,7 +277,6 @@ tr:hover > td.highlight span {
 .email-heading {
   display: flex;
   grid-row: email-heading;
-  grid-column: span 12;
 }
 
 .email-heading p {
@@ -289,8 +292,25 @@ tr:hover > td.highlight span {
 
 .email-body {
   grid-row: email-body;
-  grid-column: span 12;
   padding-left: 5vw;
+}
+
+.attachment {
+  font-size: 15px;
+  transform: rotate(90deg);
+  padding-left: 5px;
+}
+
+.attachment-body {
+  font-size: 20px;
+  transform: rotate(90deg);
+  padding-top: 1em;
+}
+
+.email-time {
+  display: inline-flex;
+  float: right;
+  bottom: 1em;
 }
 
 /*
@@ -299,4 +319,23 @@ tr:hover > td.highlight span {
 #malSimItLogo {
   height: 75px;
   width: 120px;
+}
+
+/*
+** Download button
+*/
+.download-popup {
+  position: absolute;
+  bottom: 0;
+  width: 25%;
+  display: none;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.download-popup button {
+  margin: 1em;
+  border-radius: 5px;
 }
