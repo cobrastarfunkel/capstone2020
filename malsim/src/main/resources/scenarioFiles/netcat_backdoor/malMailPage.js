@@ -1,3 +1,9 @@
+function goToEmails() {
+  // When using with java netcat_backdoor/malMailView.html
+  // vsCode malMailView.html
+  window.location.href = "netcat_backdoor/malMailView.html";
+}
+
 function changeMailTab(evt, tabName) {
   let x = document.getElementsByClassName("mail-tab");
   for (let i = 0; i < x.length; i++) {
@@ -29,4 +35,8 @@ function installMalware() {
 
 function closeDownload() {
   document.getElementById("download-popup").style.display = "none";
+}
+
+function nextPage() {
+  window.location.href = "metasploitInfo.html";
 }
