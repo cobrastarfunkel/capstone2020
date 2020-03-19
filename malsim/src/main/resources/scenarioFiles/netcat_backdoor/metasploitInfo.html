@@ -2,9 +2,8 @@
 
 <html>
   <head>
-    <!-- When using with java change to netcat_backdoor/mainView.css -->
     <link rel="stylesheet" type="text/css" href="style_sheets/metasploit.css" />
-    <script src="malMailPage.js"></script>
+    <script src="metasploit.js"></script>
     <title>.malsim</title>
   </head>
   <body>
@@ -38,7 +37,15 @@
     <br />
     <div class="msf-console">
       <p>msf5 ></p>
-      <input type="text" id="console-input" autofocus />
+      <form action="#">
+        <input
+          type="text"
+          id="console-input"
+          name="console-text"
+          autofocus
+          onkeypress="takeInput(event)"
+        />
+      </form>
     </div>
   </body>
 </html>

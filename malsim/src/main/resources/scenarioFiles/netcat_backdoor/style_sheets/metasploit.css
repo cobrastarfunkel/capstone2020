@@ -45,6 +45,15 @@ body {
   margin-right: 0.3em;
 }
 
+.header-buttons button:active {
+  background-color: white;
+  counter-reset: var(--kali-buttons-color);
+}
+
+.header-buttons button:focus {
+  outline: none;
+}
+
 .kali-prompt-container {
   display: inline-flex;
 }
@@ -61,10 +70,16 @@ body {
   display: inline-flex;
 }
 
+.msf-console form {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .msf-console input {
-  margin-left: 3px;
+  margin-left: 5px;
   border: none;
-  background-color: rgba(89, 126, 53, 0);
+  background-color: rgba(0, 0, 0, 0);
   caret-color: lightgray;
   color: lightgray;
 }
