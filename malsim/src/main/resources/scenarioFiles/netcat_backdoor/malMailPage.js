@@ -1,7 +1,7 @@
 function goToEmails() {
   // When using with java netcat_backdoor/malMailView.html
   // vsCode malMailView.html
-  window.location.href = "netcat_backdoor/malMailView.html";
+  window.location.href = "malMailView.html";
 }
 
 function changeMailTab(evt, tabName) {

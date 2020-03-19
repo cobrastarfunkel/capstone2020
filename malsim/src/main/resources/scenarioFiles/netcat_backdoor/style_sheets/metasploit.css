@@ -1,0 +1,51 @@
+body {
+  background-color: rgba(0, 0, 0, 0.897);
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.kali-header-container {
+  display: grid;
+  grid-template-rows: [main-head]1fr [menu]1fr [tabs]1fr;
+  background-color: lightgrey;
+}
+
+.header-main {
+  display: grid;
+  grid-template-columns: [user]1fr [buttons]1fr;
+}
+
+.header-main p {
+  grid-column: user;
+  text-align: right;
+  color: rgb(92, 87, 87);
+  font-weight: bolder;
+}
+
+.header-buttons {
+  grid-column: buttons;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0.7em 0 0.7em;
+}
+
+.header-buttons button {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: none;
+  background-color: rgb(92, 87, 87);
+  color: lightgrey;
+  margin-right: 0.3em;
+}
+
+.kali-prompt-container {
+  display: inline-flex;
+}
+
+.kali-prompt {
+  color: red;
+  margin-right: 1em;
+}
