@@ -1,3 +1,7 @@
+:root {
+  --kali-buttons-color: rgb(92, 87, 87);
+}
+
 body {
   background-color: rgba(0, 0, 0, 0.897);
   color: white;
@@ -5,9 +9,9 @@ body {
 }
 
 .kali-header-container {
-  display: grid;
-  grid-template-rows: [main-head]1fr [menu]1fr [tabs]1fr;
   background-color: lightgrey;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .header-main {
@@ -18,7 +22,7 @@ body {
 .header-main p {
   grid-column: user;
   text-align: right;
-  color: rgb(92, 87, 87);
+  color: var(--kali-buttons-color);
   font-weight: bolder;
 }
 
@@ -36,7 +40,7 @@ body {
   height: 20px;
   width: 20px;
   border: none;
-  background-color: rgb(92, 87, 87);
+  background-color: var(--kali-buttons-color);
   color: lightgrey;
   margin-right: 0.3em;
 }
@@ -48,4 +52,23 @@ body {
 .kali-prompt {
   color: red;
   margin-right: 1em;
+}
+
+/*
+** Metasploit Console
+*/
+.msf-console {
+  display: inline-flex;
+}
+
+.msf-console input {
+  margin-left: 3px;
+  border: none;
+  background-color: rgba(89, 126, 53, 0);
+  caret-color: lightgray;
+  color: lightgray;
+}
+
+.msf-console input:focus {
+  outline: none;
 }
