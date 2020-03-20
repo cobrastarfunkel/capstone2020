@@ -71,6 +71,11 @@ body {
 ** Metasploit Console
 */
 
+.msf-console-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .msf-console-prompt {
   display: inline-flex;
 }
@@ -87,8 +92,13 @@ body {
   background-color: rgba(0, 0, 0, 0);
   caret-color: lightgray;
   color: lightgray;
+  width: 1000px;
 }
 
 .msf-console-prompt input:focus {
   outline: none;
+}
+
+.msf-console-command-text {
+  display: none;
 }

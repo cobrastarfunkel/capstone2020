@@ -9,29 +9,35 @@ function takeInput(event) {
 
     switch (inputVal) {
       case "?":
-        elemTag = "p";
-        textLine = "Type ? for this help text<br> Type use handler";
+        elementId = "help-text";
         break;
 
       case "use handler":
-        elemTag = "p";
-        textLine = "Another Line";
+        elementId = "use-handler";
+        break;
+
+      case "search windows":
+        elementId = "search-windows";
+        break;
+
+      case "use exploit":
+        elementId = "use-exploit";
         break;
 
       default:
-        elemTag = "p";
-        textLine = "Command not found";
+        elementId = "command-not-found";
     }
-    formatConsole(elemTag, textLine);
+    formatConsole(elementId);
     addConsolePrompt();
   }
 }
 
-function formatConsole(elemTag, textLine) {
-  let node = document.createElement(elemTag);
-  let textNode = document.createTextNode(textLine);
-  node.appendChild(textNode);
-  document.getElementById("msf-console").appendChild(node);
+function formatConsole(elementId) {
+  let node = document.getElementById(elementId);
+  let clone = node.cloneNode(true);
+  console.log(clone);
+  clone.style.display = "inline";
+  document.getElementById("msf-console").appendChild(clone);
 }
 
 function addConsolePrompt() {
@@ -43,7 +49,7 @@ function addConsolePrompt() {
   console.log("prevWindow: " + prevWindow);
 
   newId = "msf-console-prompt-" + nextWindow;
-  //document.getElementById("console-input-" + prevWindow).disabled = true;
+
   console.log("else: " + newId + " counter: " + prevWindow);
 
   clone.id = newId;

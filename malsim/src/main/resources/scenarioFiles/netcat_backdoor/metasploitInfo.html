@@ -36,7 +36,7 @@
       >
       <h6>Enter ? for help</h6>
       <br />
-      <div id="msf-console">
+      <div id="msf-console" class="msf-console-container">
         <div class="msf-console-prompt" id="msf-console-prompt-0">
           <p>msf5 ></p>
           <form action="#">
@@ -49,9 +49,29 @@
             />
           </form>
         </div>
+        <div id="help-text" class="msf-console-command-text">
+          <p>
+            Type '?' for this help text<br />
+            Type 'search windows' for a list of windows stuff<br />
+            Type 'use handler' to use handler<br />
+            Type 'use exploit' to use exploit<br />
+          </p>
+        </div>
+        <div id="search-windows" class="msf-console-command-text">
+          <p>Insert stuff here for windows searching</p>
+        </div>
+        <div id="use-handler" class="msf-console-command-text">
+          <p>Insert stuff here for handler</p>
+        </div>
+        <div id="use-exploit" class="msf-console-command-text">
+          <p>Insert stuff here for exploits</p>
+        </div>
+        <div id="command-not-found" class="msf-console-command-text">
+          <p>Command not found. Type '?' for help.</p>
+        </div>
       </div>
-      <div id="help-text"></div>
     </div>
+
     <script src="metasploit.js"></script>
   </body>
 </html>
