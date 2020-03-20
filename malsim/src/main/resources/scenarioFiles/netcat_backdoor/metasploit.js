@@ -3,7 +3,7 @@ var counter = 0;
 function takeInput(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    let inputVal = document.getElementById("console-input").value;
+    let inputVal = document.getElementById("console-input-" + counter).value;
     let elemTag = "";
     let textLine = "";
 
@@ -36,21 +36,22 @@ function formatConsole(elemTag, textLine) {
 
 function addConsolePrompt() {
   let mainDivNode = document.getElementById("msf-console-prompt-0");
-
+  let prevWindow = counter;
+  let nextWindow = ++counter;
   let clone = mainDivNode.cloneNode(true);
-  clone.id = "msf-console-prompt-" + counter;
+  let newId = "";
+  console.log("prevWindow: " + prevWindow);
 
-  if (counter - 1 > 0) {
-    document.getElementById(
-      "msf-console-prompt-" + counter - 1
-    ).disabled = true;
-  } else {
-    document.getElementById("msf-console-prompt-0").disabled = true;
-  }
+  newId = "msf-console-prompt-" + nextWindow;
+  //document.getElementById("console-input-" + prevWindow).disabled = true;
+  console.log("else: " + newId + " counter: " + prevWindow);
 
+  clone.id = newId;
   document.getElementById("msf-console").appendChild(clone);
-  counter++;
-  console.log(clone.id);
-  //mainDivNode.setAttribute("class", "msf-console-prompt");
-  //mainDivNode.setAttribute("id", "msf-console-prompt-" + consoleCount());
+  let cloneChild = document.getElementById(newId).childNodes;
+  cloneChild[3].firstChild.nextSibling.id = "console-input-" + nextWindow;
+  document.getElementById("console-input-" + counter).focus();
+  document.getElementById("console-input-" + counter).value = "";
+  document.getElementById("console-input-" + counter).disabled = false;
+  console.log("console-input-" + prevWindow);
 }
