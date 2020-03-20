@@ -3,7 +3,6 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style_sheets/metasploit.css" />
-    <script src="metasploit.js"></script>
     <title>.malsim</title>
   </head>
   <body>
@@ -17,13 +16,14 @@
         <div class="header-tabs"></div>
       </div>
     </div>
-    <div class="kali-prompt-container">
-      <p class="kali-prompt">root@kali:</p>
-      <p>~# msfconsole</p>
-    </div>
-    <br />
-    <br />
-    <pre>
+    <div class="console-container">
+      <div class="kali-prompt-container">
+        <p class="kali-prompt">root@kali:</p>
+        <p>~# msfconsole</p>
+      </div>
+      <br />
+      <br />
+      <pre>
       # cowsay++
       ____________
       < metasploit >
@@ -32,20 +32,26 @@
               \  (oo)____
                  (__)    )\
                     ||--|| *
-    </pre>
-    <h6>Enter ? for help</h6>
-    <br />
-    <div class="msf-console">
-      <p>msf5 ></p>
-      <form action="#">
-        <input
-          type="text"
-          id="console-input"
-          name="console-text"
-          autofocus
-          onkeypress="takeInput(event)"
-        />
-      </form>
+    </pre
+      >
+      <h6>Enter ? for help</h6>
+      <br />
+      <div id="msf-console">
+        <div class="msf-console-prompt" id="msf-console-prompt-0">
+          <p>msf5 ></p>
+          <form action="#">
+            <input
+              type="text"
+              id="console-input"
+              name="console-text"
+              autofocus
+              onkeypress="takeInput(event)"
+            />
+          </form>
+        </div>
+      </div>
+      <div id="help-text"></div>
     </div>
+    <script src="metasploit.js"></script>
   </body>
 </html>

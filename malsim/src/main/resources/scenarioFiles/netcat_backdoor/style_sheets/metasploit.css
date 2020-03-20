@@ -54,6 +54,10 @@ body {
   outline: none;
 }
 
+.console-container {
+  padding-left: 10px;
+}
+
 .kali-prompt-container {
   display: inline-flex;
 }
@@ -66,17 +70,18 @@ body {
 /*
 ** Metasploit Console
 */
-.msf-console {
+
+.msf-console-prompt {
   display: inline-flex;
 }
 
-.msf-console form {
+.msf-console-prompt form {
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-.msf-console input {
+.msf-console-prompt input {
   margin-left: 5px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
@@ -84,6 +89,6 @@ body {
   color: lightgray;
 }
 
-.msf-console input:focus {
+.msf-console-prompt input:focus {
   outline: none;
 }
