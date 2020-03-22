@@ -52,16 +52,92 @@
         <div id="help-text" class="msf-console-command-text">
           <p>
             Type '?' for this help text<br />
-            Type 'search windows' for a list of windows stuff<br />
+            Type 'search windows' for a list of windows exploits<br />
             Type 'use handler' to use handler<br />
             Type 'use exploit' to use exploit<br />
           </p>
         </div>
         <div id="search-windows" class="msf-console-command-text">
-          <p>Insert stuff here for windows searching</p>
+          <p>
+            exploit/windows/smb/ms08_67_netapi 2008-10-28 great MS08-67
+            Microsoft Server Service Relative Path Corruption
+          </p>
+          <p>
+            exploit/windows/smb/smb_delivery 2016-07-06 excellent SMB Delivery
+          </p>
+          <p>
+            exploit/windows/smb/smb_relay 2001-03-31 MS08-068 Microsoft Windows
+            SMB Relay Code Execution
+          </p>
+          <p>
+            exploit/windows/ssh/putty_msg_debug 2002-12-16 normal PuTTY Buffer
+            Overflow
+          </p>
+          <p>
+            exploit/windows/vnc/realvnc_client 2001-01-29 normal RealVNC 3.3.7
+            Client Buffer Overflow
+          </p>
+          <br />
+          <p>
+            What we're looking for here is the netapi exploit. We'll use this
+            once we have received the reverse shell from the exploit that was
+            e-mailed earlier.
+          </p>
         </div>
         <div id="use-handler" class="msf-console-command-text">
-          <p>Insert stuff here for handler</p>
+          <p>
+            msf5 exploit(<span style="color: red;">multi/handler</span>) > show
+            options
+          </p>
+          <br />
+          <p>Payload options (windows/meterpreter/reverse_tcp):</p>
+          <table style="border-spacing: 15px; text-align: left;">
+            <tr>
+              <th>Name</th>
+              <th>Current Setting</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>----</td>
+              <td>---------------</td>
+              <td>--------</td>
+              <td>-----------</td>
+            </tr>
+            <tr>
+              <td>EXITFUNC</td>
+              <td>process</td>
+              <td>yes</td>
+              <td>Exit Technique</td>
+            </tr>
+            <tr>
+              <td>LHOST</td>
+              <td>153.22.8.10</td>
+              <td>yes</td>
+              <td>The Listen Address</td>
+            </tr>
+            <tr>
+              <td>LPORT</td>
+              <td>8221</td>
+              <td>yes</td>
+              <td>The Listen Port</td>
+            </tr>
+          </table>
+
+          <p>
+            In the above output we can see we've chosen to use a meterpreter
+            reverse_tcp payload.<br />
+            This will allow us to receive the shell that our emailed exploit is
+            going to send back.<br />
+            In order to receive the shell we've set the LHOST option to the ip
+            address of our attack machine and the LPORT option to an unused open
+            port on our computer.
+          </p>
+          <p>
+            Meterpreter is a Metasploit attack payload that provides an
+            interactive shell from which an attacker can explore the target
+            machine and execute code.
+          </p>
         </div>
         <div id="use-exploit" class="msf-console-command-text">
           <p>Insert stuff here for exploits</p>

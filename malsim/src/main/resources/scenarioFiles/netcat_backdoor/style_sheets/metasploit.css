@@ -12,6 +12,10 @@ body {
   background-color: lightgrey;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .header-main {
@@ -56,6 +60,7 @@ body {
 
 .console-container {
   padding-left: 10px;
+  margin-top: 50px;
 }
 
 .kali-prompt-container {
@@ -74,6 +79,7 @@ body {
 .msf-console-container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 }
 
 .msf-console-prompt {
@@ -92,7 +98,7 @@ body {
   background-color: rgba(0, 0, 0, 0);
   caret-color: lightgray;
   color: lightgray;
-  width: 1000px;
+  width: 780px;
 }
 
 .msf-console-prompt input:focus {
