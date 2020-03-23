@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style_sheets/malMailView.css" />
+    <script src="malMailPage.js"></script>
+    <title>.malsim</title>
+  </head>
+  <body>
+    <hr>
+    <div class="search-bar-container">
+      <i class="material-icons bar-button">&#xe5c4;</i>
+      <i class="material-icons bar-button">&#xe5c8;</i>
+      <i class="material-icons bar-button">&#xe5d5;</i>
+      <input class="search-bar" value="http://mail.malmail.com/mail/u/0/#inbox" disabled/>
+      <i class="material-icons bar-button">&#xe838;</i>
+    </div>
+    <hr>
+    <div class="main-container">
+      <div class="side-bar">
+        <div class="compose-button">
+          <i class="material-icons">&#xe150;</i><p>Compose</p>
+        </div>
+        <div class="bar-item active">
+          <i class="material-icons">&#xe156;</i><p>Inbox</p>
+        </div>
+        <div class="bar-item">
+          <i class="material-icons">&#xe838;</i><p>Starred</p>
+        </div>
+        <div class="bar-item">
+          <i class="material-icons">&#xe192;</i><p>Snoozed</p>
+        </div>
+        <div class="bar-item">
+          <i class="material-icons">&#xe892;</i><p>Important</p>
+        </div>
+        <div class="bar-item">
+          <i class="material-icons">&#xe163;</i><p>Sent</p>
+        </div>
+        <div class="bar-item">
+          <i class="material-icons">&#xe151;</i><p>Drafts</p>
+        </div>
+      </div>
+      <div class="main-window">
+        <div class="main-head">
+            <table style="width: 100%;">
+                <tr>
+                    <th style="text-align: left;"><i class="material-icons bar-button">&#xe5d5;</i></th>
+                    <th style="text-align: right;"><span>1-3 of 3</span></th>
+                </tr>
+            </table>
+        </div>
+        <div class="main-content">
+            <table style="width: 100%; border-spacing: 0px;" id="mail-table">
+                <tr>
+                    <th class="tab-header active" onclick="changeMailTab(event, 'primary-tab-content')"><i class="material-icons">&#xe156;</i><span>Primary</span></th>
+                    <th id="social-tab" class="tab-header" onclick="changeMailTab(event, 'social-tab-content')"><i class="material-icons">&#xe7fb;</i><span>Social</span></th>
+                    <th id="promotions-tab" class="tab-header" onclick="changeMailTab(event, 'promotions-tab-content')"><i class="material-icons">&#xe54e;</i><span>Promotions</span></th>
+                </tr>
+                  <tr id="primary-tab-content-0" class="mail-tab">
+                          <td class="highlight"><i class="material-icons">&#xe83a;</i><span>Discover Card</span></td>
+                          <td class="highlight">Your Current Statement</td>
+                          <td class="highlight">4:02 AM</td>
+                  </tr>
+                  <tr id="primary-tab-content-1" class="mail-tab" onclick="openMail('it-support-email')">
+                      <td class="highlight"><i class="material-icons material-gold">&#xe838;</i><span>IT Support</span></td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update<i class="material-icons attachment">&#xe226;</i></td>
+                      <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="primary-tab-content-2" class="mail-tab">
+                      <td class="highlight"><i class="material-icons">&#xe83a;</i><span>Discover Card</span></td>
+                      <td class="highlight">Your Current Statement</td>
+                      <td class="highlight">Jan 12</td>
+                  </tr>
+                  <tr id="social-tab-content-0" style="display: none;" class="mail-tab">
+                          <td class="highlight"><i class="material-icons">&#xe83a;</i><span>LinkedIn Jobs</span></td>
+                          <td class="highlight">New Jobs in your area</td>
+                          <td class="highlight">4:02 AM</td>
+                  </tr>
+                  <tr id="social-tab-content-1" style="display: none;" class="mail-tab">
+                      <td class="highlight"><i class="material-icons">&#xe83a;</i><span>IT Support</span></td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                      <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="social-tab-content-2" style="display: none;" class="mail-tab">
+                      <td class="highlight"><i class="material-icons">&#xe83a;</i><span>Discover Card</span></td>
+                      <td class="highlight">Your New Offers!</td>
+                      <td class="highlight">Jan 12</td>
+                  </tr>
+                  <tr id="social-tab-content-0" style="display: none;" class="mail-tab">
+                    <td class="highlight"><i class="material-icons">&#xe83a;</i><span>LinkedIn Jobs</span></td>
+                    <td class="highlight">New Jobs in your area</td>
+                    <td class="highlight">4:02 AM</td>
+                  </tr>
+                  <tr id="promotions-tab-content-0" style="display: none;" class="mail-tab">
+                    <td class="highlight"><i class="material-icons">&#xe83a;</i><span>IT Support</span></td>
+                    <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                    <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="promotions-tab-content-1" style="display: none;" class="mail-tab">
+                      <td class="highlight"><i class="material-icons">&#xe83a;</i><span>IT Support</span></td>
+                      <td class="highlight"><b>IMPORTANT</b> Security Update</td>
+                      <td class="highlight">2:02 AM</td>
+                  </tr>
+                  <tr id="promotions-tab-content-2" style="display: none;" class="mail-tab">
+                      <td class="highlight"><i class="material-icons">&#xe83a;</i><span>Discover Card</span></td>
+                      <td class="highlight">Your New Offers!</td>
+                      <td class="highlight">Jan 12</td>
+                  </tr>
+            </table>
+      </div>
+      <div id="it-support-email" class="email-container">
+        <div class="email-header">
+          <i class="material-icons bar-button" onclick="openMail('it-support-email')">&#xe5c4;</i>
+          <div class="email-time">
+            <i class="material-icons attachment-body">&#xe226;</i><p>2:02 AM(6 hours ago)</p>
+        </div>
+        </div>
+        <div class="email-heading">
+            <p>IMPORTANT Security Update</p><i class="material-icons material-gold">&#xe838;</i>
+      </div>
+      <div class="email-body">
+        <img src="images/LogoMakr_4yK6l1.png" id="malSimItLogo"/>
+        <hr>
+        <p>During a recent scan of our systems we noticed that you have not applied update 2.35e.
+          This is a critiical security update addressing a well known vulnerability. The update
+          was originally emailed to all employees over two months ago.  You are currently in violation
+          of company security policy and your supervisor will be notified if the update has not been
+          applied as of COB this Friday.</p>
+        <p>To apply the update, download the attached file and click run when prompted.  Your workstation
+           will require a reboot after installation.</p>
+        <p>Thank you for your cooperation,</p>
+           <h6>MalSim IT Department</h6>
+        <hr>
+        <a href="#" onclick="installMalware()">Download Update</a>
+        <div class="download-popup" id="download-popup">
+            <button onclick="nextPage()">Run</button><button onclick="closeDownload()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
