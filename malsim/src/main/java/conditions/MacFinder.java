@@ -6,7 +6,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class MacFinder{
-	private static boolean isVMMac(/*byte[] mac*/) {
+	public static boolean isVMMac() {
 		try {
 			InetAddress ip;
 			ip = InetAddress.getLocalHost();
@@ -38,7 +38,7 @@ public class MacFinder{
 		
 		return false;
 	}
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 
 		InetAddress ip;
 		try {
@@ -75,6 +75,6 @@ public class MacFinder{
 
 		}
 
-	}
+	}*/
 
 }
