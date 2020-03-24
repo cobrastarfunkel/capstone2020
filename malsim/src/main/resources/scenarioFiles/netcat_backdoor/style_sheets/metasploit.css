@@ -1,0 +1,110 @@
+:root {
+  --kali-buttons-color: rgb(92, 87, 87);
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.897);
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.kali-header-container {
+  background-color: lightgrey;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header-main {
+  display: grid;
+  grid-template-columns: [user]1fr [buttons]1fr;
+}
+
+.header-main p {
+  grid-column: user;
+  text-align: right;
+  color: var(--kali-buttons-color);
+  font-weight: bolder;
+}
+
+.header-buttons {
+  grid-column: buttons;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0.7em 0 0.7em;
+}
+
+.header-buttons button {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: none;
+  background-color: var(--kali-buttons-color);
+  color: lightgrey;
+  margin-right: 0.3em;
+}
+
+.header-buttons button:active {
+  background-color: white;
+  counter-reset: var(--kali-buttons-color);
+}
+
+.header-buttons button:focus {
+  outline: none;
+}
+
+.console-container {
+  padding-left: 10px;
+  margin-top: 50px;
+}
+
+.kali-prompt-container {
+  display: inline-flex;
+}
+
+.kali-prompt {
+  color: red;
+  margin-right: 1em;
+}
+
+/*
+** Metasploit Console
+*/
+
+.msf-console-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.msf-console-prompt {
+  display: inline-flex;
+}
+
+.msf-console-prompt form {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msf-console-prompt input {
+  margin-left: 5px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  caret-color: lightgray;
+  color: lightgray;
+  width: 780px;
+}
+
+.msf-console-prompt input:focus {
+  outline: none;
+}
+
+.msf-console-command-text {
+  display: none;
+}

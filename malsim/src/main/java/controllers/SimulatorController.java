@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import conditions.MacFinder;
 import database.SqliteDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import models.ScenarioModel;
 
@@ -42,6 +45,9 @@ public class SimulatorController implements Initializable {
 	@FXML
 	private ImageView scenarioDocImage;
 
+	@FXML
+	private Circle vmIndicator;
+
 	private ObservableList<String> items = FXCollections.observableArrayList();
 	private HashMap<Integer, ScenarioModel> scenarios;
 
@@ -50,6 +56,15 @@ public class SimulatorController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		vmIndicator.setStroke(Color.BLACK);
+		vmIndicator.setStrokeWidth(1.5);
+
+		if (MacFinder.isVMMac()) {
+			vmIndicator.setFill(Color.GREEN);
+		} else {
+			vmIndicator.setFill(Color.RED);
+		}
+
 		new FXMLLoader(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 		String scString;
@@ -99,6 +114,7 @@ public class SimulatorController implements Initializable {
 		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
 				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty(),
 				selectedScenario.getType());
+		scModel.setSqliteDb(sqliteDB);
 
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));
@@ -107,11 +123,16 @@ public class SimulatorController implements Initializable {
 
 			Stage scenarioStage = (Stage) listViewMain.getScene().getWindow();
 
+			// May not be good for other monitors, check on different resolutions
+			scenarioStage.setX(700);
+			scenarioStage.setY(200);
+
 			scenarioStage.setTitle(selectedScenario.getName());
 			scenarioStage.setScene(new Scene(root));
 			scenarioStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 	}
 
