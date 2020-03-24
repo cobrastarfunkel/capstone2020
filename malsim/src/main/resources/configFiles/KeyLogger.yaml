@@ -1,0 +1,27 @@
+---
+# Don't remove this file, used for Unit tests
+
+# ID Number
+id: 0010
+
+# Name for the GUI screen
+scName: Keyloggers
+
+# Relative path to the executable Scenario
+# Based from the java resources directory
+dMalware: KeyLogger/KeyLogger.exe
+
+# Same as Deploy but for the reset script
+reset_file: unit_test2/scenario_reset.ps1
+
+# Language the Scenario is using
+language: c++
+
+# Type of Scenario
+type: artifact
+
+# Place documents in the docs directory inside the Scenarios directory
+# Then add them here as needed.
+documents: unit_test2\index.html
+
+difficulty: Hard
