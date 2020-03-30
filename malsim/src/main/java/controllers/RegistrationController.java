@@ -30,13 +30,15 @@ import models.ScenarioModel;
 public class RegistrationController implements Initializable {
 
 	@FXML
-	package TextField user;
+	private TextField user;
 
 	@FXML
-	package TextField password;
+	private TextField password;
 	
 	@FXML
-	package TextField confirmPassword;
+	private TextField confirmPassword;
+	
+	
 	
 	@FXML
 	private Button registerButton;
@@ -50,7 +52,7 @@ public class RegistrationController implements Initializable {
 		
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
 		sqliteDB.createDatabase();
-		sqlite.createTables();
+		sqliteDB.createTables();
 	}
 
 	@FXML
@@ -64,7 +66,7 @@ public class RegistrationController implements Initializable {
 			
 			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
-			Stage primaryStage = (Stage) loginButton.getScene().getWindow();
+			Stage primaryStage = (Stage) registerButton.getScene().getWindow();
 			primaryStage.setTitle("Malware Simulator v1.0");
 
 			Scene scene = new Scene(root);
