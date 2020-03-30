@@ -27,36 +27,41 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.ScenarioModel;
 
-public class LoginController implements Initializable {
+public class RegistrationController implements Initializable {
 
 	@FXML
-	private TextField user;
+	package TextField user;
 
 	@FXML
-	private TextField password;
-
-	@FXML
-	private Button loginButton;
+	package TextField password;
 	
 	@FXML
-	private Button registrationButton;
+	package TextField confirmPassword;
+	
+	@FXML
+	private Button registerButton;
 
 	private SqliteDatabase sqliteDB;
 	private static ScenarioModel selectedScenario;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		new FXMLLoader(getClass().getResource("/fxmlFiles/LoginView.fxml"));
+		new FXMLLoader(getClass().getResource("/fxmlFiles/RegistrationView.fxml"));
 		
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
-
 		sqliteDB.createDatabase();
-		sqliteDB.createTables();
+		sqlite.createTables();
 	}
 
 	@FXML
-	void openHome(ActionEvent event) {
+	void register(ActionEvent event) {
 		try {
+			
+			/*
+			 * verify if user already exists in the database
+			 * if no, store username & encrypted password & salt
+			 */
+			
 			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
 			Stage primaryStage = (Stage) loginButton.getScene().getWindow();
@@ -65,24 +70,7 @@ public class LoginController implements Initializable {
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@FXML
-	void openRegistration(ActionEvent event) {
-		try {
-		
-			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/RegistrationView.fxml"));
-		
-			Stage primaryStage = (Stage) loginButton.getScene().getWindow();
-			primaryStage.setTitle("User Registration");
 			
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
