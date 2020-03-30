@@ -23,19 +23,10 @@ public class RegistrationController implements Initializable {
 
 	@FXML
 	private TextField password;
-<<<<<<< HEAD
 	
 	@FXML
 	private TextField confirmPassword;
 	
-	
-	
-=======
-
-	@FXML
-	private TextField confirmPassword;
-
->>>>>>> 1589312fda3471727be645069dceff514f97ea03
 	@FXML
 	private Button registerButton;
 

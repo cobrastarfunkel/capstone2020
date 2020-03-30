@@ -37,11 +37,7 @@
             </GridPane>
             <StackPane prefHeight="-1.0" prefWidth="-1.0">
               <children>
-<<<<<<< HEAD
                 <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#register" text="Register/Login" StackPane.alignment="CENTER_RIGHT" />
-=======
-                <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#register" text="Register/Login" StackPane.alignment="CENTER_RIGHT" />
->>>>>>> 1589312fda3471727be645069dceff514f97ea03
               </children>
             </StackPane>
           </children>
