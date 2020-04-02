@@ -10,7 +10,22 @@
       <h1>Metasploit Explanation</h1>
       <div class="prompt">
         <p>
-          C:\ >
+          C:\ > By having the target (us in this case) download the update from
+          the email on the previous screen we have sent a reverse shell back to
+          ourselves. Next we will use metasploit to access this shell and modify
+          the Windows computer to send us back a shell whenever someone logs in.
+        </p>
+        <p>
+          C:\ > To do this we need to download netcat to the windows computer
+          and modify a registry key. The modified registry key will run netcat
+          and cause it to send a shell back to our kali machine running
+          metasploit.
+        </p>
+        <p>
+          C:\ > We will use a meterpreter shell to download netcat and modfiy
+          the registry key. Meterpreter is a Metasploit payload that gives us a
+          shell we can use to do almost anything we want on the targets
+          computer.
         </p>
       </div>
     </div>

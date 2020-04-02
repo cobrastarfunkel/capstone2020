@@ -9,33 +9,35 @@ function takeInput(event) {
 
     switch (inputVal) {
       case "?":
-        elementId = "help-text";
+        formatConsole("help-text");
+        addConsolePrompt();
         break;
 
       case "use handler":
-        elementId = "use-handler";
+        formatConsole("use-handler");
+        addConsolePrompt();
         break;
 
       case "search windows":
-        elementId = "search-windows";
+        formatConsole("search-windows");
+        addConsolePrompt();
         break;
 
       case "use exploit":
-        elementId = "use-exploit";
+        formatConsole("use-exploit");
+        addConsolePrompt();
         break;
 
       default:
-        elementId = "command-not-found";
+        formatConsole("command-not-found");
+        addConsolePrompt();
     }
-    formatConsole(elementId);
-    addConsolePrompt();
   }
 }
 
 function formatConsole(elementId) {
   let node = document.getElementById(elementId);
   let clone = node.cloneNode(true);
-  console.log(clone);
   clone.style.display = "inline";
   document.getElementById("msf-console").appendChild(clone);
 }
@@ -46,18 +48,15 @@ function addConsolePrompt() {
   let nextWindow = ++counter;
   let clone = mainDivNode.cloneNode(true);
   let newId = "";
-  console.log("prevWindow: " + prevWindow);
 
   newId = "msf-console-prompt-" + nextWindow;
-
-  console.log("else: " + newId + " counter: " + prevWindow);
 
   clone.id = newId;
   document.getElementById("msf-console").appendChild(clone);
   let cloneChild = document.getElementById(newId).childNodes;
   cloneChild[3].firstChild.nextSibling.id = "console-input-" + nextWindow;
-  document.getElementById("console-input-" + counter).focus();
-  document.getElementById("console-input-" + counter).value = "";
-  document.getElementById("console-input-" + counter).disabled = false;
-  console.log("console-input-" + prevWindow);
+  let consoleInput = document.getElementById("console-input-" + counter);
+  consoleInput.focus();
+  consoleInput.value = "";
+  consoleInput.disabled = false;
 }
