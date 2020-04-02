@@ -15,7 +15,7 @@ function takeInput(event) {
 
       case "use handler":
         formatConsole("use-handler");
-        addConsolePrompt();
+        meterpreterPrompt();
         break;
 
       case "search windows":
@@ -46,17 +46,22 @@ function addConsolePrompt() {
   let mainDivNode = document.getElementById("msf-console-prompt-0");
   let prevWindow = counter;
   let nextWindow = ++counter;
+
   let clone = mainDivNode.cloneNode(true);
   let newId = "";
-
   newId = "msf-console-prompt-" + nextWindow;
-
   clone.id = newId;
   document.getElementById("msf-console").appendChild(clone);
+
   let cloneChild = document.getElementById(newId).childNodes;
   cloneChild[3].firstChild.nextSibling.id = "console-input-" + nextWindow;
+
   let consoleInput = document.getElementById("console-input-" + counter);
   consoleInput.focus();
   consoleInput.value = "";
   consoleInput.disabled = false;
+}
+
+function meterpreterPrompt() {
+
 }

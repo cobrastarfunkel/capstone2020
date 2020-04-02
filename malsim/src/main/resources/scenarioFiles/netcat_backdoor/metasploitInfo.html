@@ -138,6 +138,22 @@
             interactive shell from which an attacker can explore the target
             machine and execute code.
           </p>
+          <p>
+            msf5 exploit(<span style="color: red;">multi/handler</span>) >
+            exploit
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Started reverse TCP handler on 153.22.8.10:8221
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Sending stage (179779 bytes) to 11.132.30.55
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Meterpreter session 1 opened (153.22.8.10:8221 -> 11.132.30.55:11879) at <span id="theDate"></spane>
+          </p>
         </div>
         <div id="use-exploit" class="msf-console-command-text">
           <p>Insert stuff here for exploits</p>
@@ -149,5 +165,9 @@
     </div>
 
     <script src="metasploit.js"></script>
+    <script>
+      let theDate = new Date();
+      document.getElementById('theDate').innerHTML = theDate.toUTCString();
+    </script>
   </body>
 </html>
