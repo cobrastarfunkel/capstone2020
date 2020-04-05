@@ -22,11 +22,6 @@ function takeInput(event) {
         addConsolePrompt("msf-console-prompt");
         break;
 
-      case "use exploit":
-        formatConsole("use-exploit");
-        addConsolePrompt("msf-console-prompt");
-        break;
-
       default:
         formatConsole("command-not-found");
         addConsolePrompt("msf-console-prompt");

