@@ -14,6 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,47 +28,49 @@ public class RegistrationController implements Initializable {
 
 	@FXML
 	private TextField password;
-	
+
 	@FXML
 	private TextField confirmPassword;
-	
+
 	@FXML
 	private Button registerButton;
 
 	private SqliteDatabase sqliteDB;
+	private Alert a = new Alert(AlertType.WARNING);
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		new FXMLLoader(getClass().getResource("/fxmlFiles/RegistrationView.fxml"));
 
-		sqliteDB = new SqliteDatabase("guidb.sqlite");
-		sqliteDB.createDatabase();
-		sqliteDB.createTables();
 	}
 
 	@FXML
 	void register(ActionEvent event) throws NoSuchAlgorithmException, NoSuchProviderException {
-		if(user.getLength() > 0 && password.getLength() > 0 && confirmPassword.getLength() > 0) {
-			
+		if (user.getLength() > 0 && password.getLength() > 0 && confirmPassword.getLength() > 0) {
+
 			try {
-	
-				Authenticator auth = new Authenticator(user.getText(), password.getText(), sqliteDB);
-				auth.register();
-				
-				Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
-	
-				Stage primaryStage = (Stage) registerButton.getScene().getWindow();
-				primaryStage.setTitle("Malware Simulator v1.0");
-	
-				Scene scene = new Scene(root);
-				primaryStage.setScene(scene);
-				primaryStage.show();
-	
+
+				Authenticator auth = new Authenticator(user.getText(), password.getText());
+
+				if (auth.register()) {
+
+					Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
+
+					Stage primaryStage = (Stage) registerButton.getScene().getWindow();
+					primaryStage.setTitle("Malware Simulator v1.0");
+
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				} else {
+					a.setContentText("Invalid Username");
+					a.show();
+				}
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	
+
 }
