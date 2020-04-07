@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import auth.Authenticator;
 import database.SqliteDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.ScenarioModel;
 
+@SuppressWarnings("unused")
 public class LoginController implements Initializable {
 
 	@FXML
@@ -37,17 +39,17 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private Button loginButton;
-	
+
 	@FXML
 	private Button registrationButton;
 
 	private SqliteDatabase sqliteDB;
 	private static ScenarioModel selectedScenario;
-	
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		new FXMLLoader(getClass().getResource("/fxmlFiles/LoginView.fxml"));
-		
+
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
 
 		sqliteDB.createDatabase();
@@ -57,32 +59,38 @@ public class LoginController implements Initializable {
 	@FXML
 	void openHome(ActionEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
 
-			Stage primaryStage = (Stage) loginButton.getScene().getWindow();
-			primaryStage.setTitle("Malware Simulator v1.0");
+			Authenticator auth = new Authenticator(this.user.getText(), this.password.getText(), sqliteDB);
 
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			if (auth.login()) {
+				Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
+
+				Stage primaryStage = (Stage) loginButton.getScene().getWindow();
+				primaryStage.setTitle("Malware Simulator v1.0");
+
+				Scene scene = new Scene(root);
+				primaryStage.setScene(scene);
+				primaryStage.show();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@FXML
 	void openRegistration(ActionEvent event) {
+
 		try {
-		
+
 			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/RegistrationView.fxml"));
-		
+
 			Stage primaryStage = (Stage) loginButton.getScene().getWindow();
 			primaryStage.setTitle("User Registration");
-			
+
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

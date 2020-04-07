@@ -2,8 +2,11 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.ResourceBundle;
 
+import auth.Authenticator;
 import database.SqliteDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,8 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import models.ScenarioModel;
 
+@SuppressWarnings("unused")
 public class RegistrationController implements Initializable {
 
 	@FXML
@@ -31,7 +34,6 @@ public class RegistrationController implements Initializable {
 	private Button registerButton;
 
 	private SqliteDatabase sqliteDB;
-	private static ScenarioModel selectedScenario;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -43,25 +45,28 @@ public class RegistrationController implements Initializable {
 	}
 
 	@FXML
-	void register(ActionEvent event) {
-		try {
-
-			/*
-			 * verify if user already exists in the database if no, store username &
-			 * encrypted password & salt
-			 */
-
-			Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
-
-			Stage primaryStage = (Stage) registerButton.getScene().getWindow();
-			primaryStage.setTitle("Malware Simulator v1.0");
-
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-
-		} catch (IOException e) {
-			e.printStackTrace();
+	void register(ActionEvent event) throws NoSuchAlgorithmException, NoSuchProviderException {
+		if(user.getLength() > 0 && password.getLength() > 0 && confirmPassword.getLength() > 0) {
+			
+			try {
+	
+				Authenticator auth = new Authenticator(user.getText(), password.getText(), sqliteDB);
+				auth.register();
+				
+				Parent root = FXMLLoader.load(getClass().getResource("/fxmlFiles/SimulatorView.fxml"));
+	
+				Stage primaryStage = (Stage) registerButton.getScene().getWindow();
+				primaryStage.setTitle("Malware Simulator v1.0");
+	
+				Scene scene = new Scene(root);
+				primaryStage.setScene(scene);
+				primaryStage.show();
+	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
+	
+	
 }

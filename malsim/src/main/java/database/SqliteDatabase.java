@@ -20,6 +20,7 @@ import javax.crypto.NoSuchPaddingException;
 
 import encryption.SymmetricKey;
 import tables.DocumentsTable;
+import tables.LoginsTable;
 import tables.MalwareTable;
 import tables.ProgressTable;
 import tables.ScenariosTable;
@@ -95,6 +96,7 @@ public class SqliteDatabase {
 		new DocumentsTable(this);
 		new ProgressTable(this);
 		new TraitsTable(this);
+		new LoginsTable(this);
 	}
 
 	public SymmetricKey getSecretKey() {
