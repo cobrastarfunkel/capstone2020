@@ -38,5 +38,5 @@ function closeDownload() {
 }
 
 function nextPage() {
-  window.location.href = "metasploitInfo.html";
+  window.location.href = "metasploitExplanation.html";
 }
