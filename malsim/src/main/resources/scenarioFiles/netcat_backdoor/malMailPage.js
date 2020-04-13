@@ -1,7 +1,7 @@
 function goToEmails() {
   // When using with java netcat_backdoor/malMailView.html
   // vsCode malMailView.html
-  window.location.href = "malMailView.html";
+  window.location.href = "netcat_backdoor/malMailView.html";
 }
 
 function changeMailTab(evt, tabName) {
@@ -38,5 +38,5 @@ function closeDownload() {
 }
 
 function nextPage() {
-  window.location.href = "metasploitInfo.html";
+  window.location.href = "metasploitExplanation.html";
 }
