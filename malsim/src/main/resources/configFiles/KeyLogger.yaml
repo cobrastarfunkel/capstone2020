@@ -9,7 +9,7 @@ scName: Keyloggers
 
 # Relative path to the executable Scenario
 # Based from the java resources directory
-dMalware: KeyLogger/KeyLogger.exe
+dMalware: KeyLogger/compile_program.ps1
 
 # Same as Deploy but for the reset script
 reset_file: unit_test2/scenario_reset.ps1
