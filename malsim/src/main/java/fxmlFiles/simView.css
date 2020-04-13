@@ -1,0 +1,4 @@
+.vmIndicatorLight {
+
+  -fx-effect: innershadow( three-pass-box, #ffffff, 8, 0.0, 2, 1);
+}

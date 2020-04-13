@@ -9,9 +9,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.Region?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" 
-xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SimulatorController">
+xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SimulatorController"
+stylesheets="@../fxmlFiles/simView.css">
    <children>
       <ImageView fitHeight="70.0" fitWidth="600.0" layoutX="100.0" layoutY="76.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -31,6 +35,12 @@ xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:
                   <Button mnemonicParsing="false" onAction="#openScenario" text="Open Scenario" />
                </children>
             </StackPane>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+            	<children>
+            		<Circle centerX="0" centerY="10" radius="15" fx:id="vmIndicator" styleClass="vmIndicatorLight"/>
+            		<Region HBox.hgrow="ALWAYS"/>
+            	</children>
+            </HBox>
          </children>
       </VBox>
    </children>

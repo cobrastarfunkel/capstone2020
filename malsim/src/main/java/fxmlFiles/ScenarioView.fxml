@@ -17,24 +17,23 @@
 
 
 
-		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0" stylesheets="@../fxmlFiles/nav_bar.css" styleClass="nav_top">
-		 	
+		<BorderPane xmlns:fx="http://javafx.com/fxml" prefHeight="800.0" prefWidth="1000.0" 
+		stylesheets="@../fxmlFiles/nav_bar.css" styleClass="nav_top">
 		 	<top>
 			 	<HBox spacing="10" alignment="CENTER" styleClass="nav_body">
 			 		<children>
-			 			<ImageView fx:id="image_class" fitHeight="30.0" fitWidth="30.0" styleClass="image_view">
-			 		
-			 			</ImageView>
+			 			<ImageView fx:id="image_class" fitHeight="30.0" fitWidth="30.0"/>
 			 			<Region HBox.hgrow="ALWAYS"/>
 			 			<Button mnemonicParsing="false" onAction="#goHome" text="Home" fx:id="backButton" styleClass="button1"/>
+			 			<Button mnemonicParsing="false" onAction="#resetSc" text="Reset" fx:id="backButton" styleClass="button1"/>
+			 			<Button mnemonicParsing="false" onAction="#completeSc" text="Complete" fx:id="backButton" styleClass="button1"/>
 			 			<Region HBox.hgrow="ALWAYS"/>
 			 			<Label text=".malsim" styleClass="nav_label"/>
 			 		</children>
 			 	</HBox>	
 		 	</top>
-		 	
 		 	<center>
-    		 	<WebView fx:id="webView" prefHeight="555.0" prefWidth="795.0" styleClass="nav_body"/>
+    		 	<WebView fx:id="webView" prefHeight="555.0" prefWidth="795.0" />
         	</center>  
 		</BorderPane>
  

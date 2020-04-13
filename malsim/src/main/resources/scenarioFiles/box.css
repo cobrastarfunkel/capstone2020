@@ -1,8 +1,9 @@
-
 /*****General Styles*****/
 :root {
   --example-of-var: 10px;
   --header-color: hsl(110, 54%, 54%);
+  background-color: rgb(40, 44, 52);
+  /*color: aliceblue;*/
 }
 
 body {
@@ -27,10 +28,9 @@ h4 {
   background-color: #ffffff;
 }
 
-
 .cardNav img {
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   padding-left: 10px;
   grid-column: 1;
   grid-row: 1;
@@ -41,8 +41,8 @@ h4 {
   margin-right: 20px;
   text-decoration: none;
   font-size: 17px;
-  grid-column: 3 ;
-  grid-row: 1 ;
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .cardNav button1 {
@@ -67,24 +67,24 @@ h4 {
   background-color: #000000;
 }
 ::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgb(0, 0, 0); 
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  background: rgb(0, 0, 0);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-background: rgb(119, 185, 211); 
+  background: rgb(119, 185, 211);
 }
 /******Body Styles*****/
 
@@ -94,26 +94,29 @@ background: rgb(119, 185, 211);
   border-radius: 5px;
   margin: 10px 5px;
   padding: 4px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .cardContent {
-    padding: var(--example-of-var, 10px);
+  padding: var(--example-of-var, 10px);
 }
 .cardText {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-
 .sim-console {
-  background-color: black;
+  background-color: rgb(40, 44, 52);
   color: aliceblue;
 }
 
 .sim-console a:link {
-  color: aquamarine;
+  color: #ff9999;
 }
 
 .sim-console a:visited {
   color: darkgrey;
+}
+
+.prompt {
+  color: #88ccbb;
 }

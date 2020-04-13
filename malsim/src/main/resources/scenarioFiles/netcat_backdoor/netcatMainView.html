@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- When using with java change to:
+            <link rel="stylesheet" type="text/css" href="box.css" />
+            <script src="netcat_backdoor/malMailPage.js"></script> 
+        
+        When using with vsCode:
+            <link rel="stylesheet" type="text/css" href="../box.css" />
+            <script src="malMailPage.js"></script>
+            ### Also change the path for goToEmails() in malMailPage.js ###
+    -->
+    <link rel="stylesheet" type="text/css" href="../box.css" />
+    <script src="malMailPage.js"></script>
+    <title>.malsim</title>
+  </head>
+  <body>
+    <div class="sim-console">
+      <h1>NetCat Backdoor</h1>
+      <div class="prompt">
+        <p>
+          C:\ > The following Scenario is going to walk you through the process
+          of establishing a persistent connection to a remote server using a
+          netcat backdoor.
+        </p>
+        <p>
+          C:\ > The scenario is:
+        </p>
+        <ul>
+          <li>
+            You have received an email from the "IT department" instructing you
+            to download an update.
+          </li>
+          <li>
+            This update will send a reverse shell back to the attackers
+            computer.
+          </li>
+          <li>
+            The reverse shell will be caught by Metasploit and used to install
+            netcat.
+          </li>
+          <li>
+            The shell will also allow the attacker to modify registry keys to
+            ensure a connection in the future.
+          </li>
+        </ul>
+        <p>
+          C:\ > In the next screen you will see a simulation of an email
+          service. Click the IT departments email and run the attachment to get
+          started.
+        </p>
+      </div>
+      <h6>
+        This Scenario is interactive, but no modifications will be made to your
+        computer.
+      </h6>
+    </div>
+    <button onclick="goToEmails()">Click to Proceed</button>
+  </body>
+</html>

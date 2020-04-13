@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -58,7 +60,6 @@ public class ScenarioViewController implements Initializable {
 		try {
 			image_class.setImage(new Image(image_file.toUri().toURL().toExternalForm()));
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -86,6 +87,26 @@ public class ScenarioViewController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void completeSc(ActionEvent event) {
+		String sql = "update progress\r\nSET completed = 1\r\nWHERE idNumber = ?";
+
+		try {
+			Connection conn = scenario.getSqliteDb().connect();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, scenario.getId());
+			pst.executeUpdate();
+
+			conn.commit();
+		} catch (Exception e) {
+		}
+	}
+
+	@FXML
+	void resetSc(ActionEvent event) {
+
 	}
 
 }
