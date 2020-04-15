@@ -12,10 +12,28 @@ import com.profesorfalken.jpowershell.PowerShell;
 import com.profesorfalken.jpowershell.PowerShellNotAvailableException;
 import com.profesorfalken.jpowershell.PowerShellResponse;
 
+/**
+ * Can run executables and Powershell scripts. Use executeFile with the correct
+ * options to run stuff
+ * 
+ * @author Ian Cobia
+ *
+ */
+
 public class ScenarioHelper {
 	private final String tempFilePath = Scenario.DEPLOY_PATH + "\\" + "temp.exe";
 	private final String tempDocPath = Scenario.DEPLOY_PATH + "\\" + "temp.html";
 
+	/**
+	 * Will run either deployPowershellScript or deployExecutable base on language
+	 * arg
+	 * 
+	 * @param file     File: the file to be executed
+	 * @param language String: c++ or powershell
+	 * @param option   String: If you executable takes args pass them here
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public void executeFile(File file, String language, String option) throws IOException, InterruptedException {
 		// Deploy Powershell Scenario
 		if (language.contentEquals("powershell")) {
@@ -28,6 +46,11 @@ public class ScenarioHelper {
 
 	}
 
+	/**
+	 * Run Powershell scripts
+	 * 
+	 * @param file File: The powershell script
+	 */
 	private void deployPowershellScript(File file) {
 
 		try (PowerShell powerShell = PowerShell.openSession()) {
@@ -43,6 +66,14 @@ public class ScenarioHelper {
 
 	}
 
+	/**
+	 * Executes exectuables
+	 * 
+	 * @param file   File: the file to be executed
+	 * @param option String: If you executable takes args pass them here
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	private void deployExecutable(File file, String options) throws IOException, InterruptedException {
 
 		if (options.isEmpty()) {

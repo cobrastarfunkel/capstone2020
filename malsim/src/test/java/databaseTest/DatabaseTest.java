@@ -81,10 +81,10 @@ public class DatabaseTest {
 
 			while (rs.next()) {
 				System.out.println("ID: " + rs.getInt("idNumber"));
-				if (rs.getInt("idNumber") == 9) {
+				if (rs.getInt("idNumber") == 10) {
 					File tempFile = sch.convertBytesToTempFile(rs.getBytes("dMalware"));
 					sqDB.getSecretKey().decryptFile(tempFile);
-					sch.executeFile(tempFile, "c++", "deploy");
+					sch.executeFile(tempFile, "powershell", "");
 					assertTrue("C:\\cpptest.txt Should be created", new File("C:\\cpptest.txt").exists());
 
 					// Temp file is removed after each run

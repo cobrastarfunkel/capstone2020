@@ -8,6 +8,15 @@ import java.util.HashMap;
 import scenarios.Scenario;
 import scenarios.ScenarioBuilder;
 
+/**
+ * Used to Build out tables in the database. The Scenarios are initially turned
+ * into Java Objects (by the ScenarioBuilder class) and then stored as a
+ * HashMap. Next the Scenarios are added to the database when createDatabase
+ * from SqliteDatabase class is called
+ * 
+ * @author Ian Cobia
+ *
+ */
 public class DatabaseHelper {
 
 	private SqliteDatabase db;
