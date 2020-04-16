@@ -13,6 +13,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+/**
+ * Builds the Scenarios from the yaml config files in
+ * src/java/resources/configFiles
+ * 
+ * @author ianco
+ *
+ */
 public class ScenarioBuilder {
 	public HashMap<Integer, Scenario> scenarios = new HashMap<Integer, Scenario>();
 

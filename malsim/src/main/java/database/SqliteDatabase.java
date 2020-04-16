@@ -41,6 +41,7 @@ public class SqliteDatabase {
 	 */
 	public SqliteDatabase(String dbName) {
 		try {
+			// Generate key to encrypt data in database
 			this.secretKey = new SymmetricKey("34erdfcv#$ERDFCV");
 		} catch (NoSuchAlgorithmException | NoSuchPaddingException | UnsupportedEncodingException e) {
 			e.printStackTrace();

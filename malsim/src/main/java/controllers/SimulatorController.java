@@ -87,6 +87,7 @@ public class SimulatorController implements Initializable {
 				ResultSet rs = stmt.executeQuery(sql)) {
 
 			while (rs.next()) {
+				// Just formatting for the listView, should probably change to a tableView
 				scString = (rs.getInt("completed") == 0) ? "\t\t\tIncomplete" : "\t\t\tCompleted";
 				items.add(rs.getString("scName") + "\t\t\t" + rs.getString("difficulty") + scString);
 
