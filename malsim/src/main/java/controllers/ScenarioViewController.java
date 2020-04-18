@@ -105,7 +105,7 @@ public class ScenarioViewController implements Initializable {
 	}
 
 	@FXML
-	void resetSc(ActionEvent event) {
+	void runSc(ActionEvent event) {
 
 	}
 

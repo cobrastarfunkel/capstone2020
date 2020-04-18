@@ -1,12 +1,17 @@
 package controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 
 import conditions.MacFinder;
 import database.SqliteDatabase;
@@ -27,6 +32,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import models.ScenarioModel;
+import scenarios.ScenarioHelper;
 
 /**
  *
@@ -53,6 +59,7 @@ public class SimulatorController implements Initializable {
 
 	private SqliteDatabase sqliteDB;
 	private static ScenarioModel selectedScenario;
+	private ScenarioHelper sch = new ScenarioHelper();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -71,9 +78,6 @@ public class SimulatorController implements Initializable {
 		scenarios = new HashMap<Integer, ScenarioModel>();
 
 		sqliteDB = new SqliteDatabase("guidb.sqlite");
-
-		sqliteDB.createDatabase();
-		sqliteDB.createTables();
 
 		String sql = "select scenarios.idNumber, scenarios.scName, progress.completed, scenarioTraits.scType, "
 				+ "documents.document, malware.dMalware, progress.difficulty\r\n" + "from scenarios\r\n"
@@ -113,9 +117,21 @@ public class SimulatorController implements Initializable {
 			selectedScenario = scenarios.get(0);
 		}
 		ScenarioModel scModel = new ScenarioModel(selectedScenario.getId(), selectedScenario.getName(),
-				selectedScenario.getScDoc(), selectedScenario.getScFile(), selectedScenario.getDifficulty(),
+				selectedScenario.getScDoc(), selectedScenario.getScenario(), selectedScenario.getDifficulty(),
 				selectedScenario.getType());
 		scModel.setSqliteDb(sqliteDB);
+
+		if (scModel.getId() == 10) {
+
+			try {
+				File tempFile = sch.convertBytesToFile(sqliteDB.getSecretKey().decryptBytes(scModel.getScenario()));
+				sch.executeFile(tempFile, "powershell", "");
+			} catch (IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException
+					| InterruptedException e) {
+				e.printStackTrace();
+			}
+
+		}
 
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/ScenarioView.fxml"));
