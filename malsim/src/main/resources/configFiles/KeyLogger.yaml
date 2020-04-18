@@ -12,7 +12,8 @@ scName: Keyloggers
 dMalware: KeyLogger/compile_program.ps1
 
 # Same as Deploy but for the reset script
-reset_file: KeyLogger/compile_program.ps1
+
+reset_file: KeyLogger/keylogger_reset.ps1
 
 # Language the Scenario is using
 language: c++
@@ -22,6 +23,7 @@ type: artifact
 
 # Place documents in the docs directory inside the Scenarios directory
 # Then add them here as needed.
-documents: unit_test2\index.html
+documents: KeyLogger\webView.html
 
-difficulty: Hard
+difficulty: Easy
+
