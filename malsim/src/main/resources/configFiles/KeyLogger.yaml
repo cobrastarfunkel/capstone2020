@@ -12,6 +12,7 @@ scName: Keyloggers
 dMalware: KeyLogger/compile_program.ps1
 
 # Same as Deploy but for the reset script
+
 reset_file: KeyLogger/keylogger_reset.ps1
 
 # Language the Scenario is using
@@ -25,3 +26,4 @@ type: artifact
 documents: KeyLogger\webView.html
 
 difficulty: Easy
+
