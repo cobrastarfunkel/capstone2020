@@ -12,7 +12,7 @@ scName: Keyloggers
 dMalware: KeyLogger/compile_program.ps1
 
 # Same as Deploy but for the reset script
-reset_file: unit_test2/scenario_reset.ps1
+reset_file: KeyLogger/compile_program.ps1
 
 # Language the Scenario is using
 language: c++
