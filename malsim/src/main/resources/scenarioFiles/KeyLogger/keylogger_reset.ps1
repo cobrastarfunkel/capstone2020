@@ -1,0 +1,1 @@
+Remove-Item -path .\src\main\resources\scenarioFiles\KeyLogger\SavedKeyPresses.txt
