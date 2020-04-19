@@ -1,10 +1,29 @@
 # Malsim
 
 ## TOC
+* [About This Program](#About-This-Program)
 * [Project Setup](#Project-Setup)
 * [Using the Database](#Using-the-Database)
 * [Adding Tables to the Database](#Adding-Tables-to-the-Database)
 * [Confluence Links](#Confluence-Links)
+
+## About This Program
+###### [Return to Top](#Malsim)
+#### What it is:
+The Malware Simulator is a training tool designed for use in an entry level cybersecurity
+course to help teach students to recognize different types of malware and attacks. On the landing
+page you will see a list of scenarios that you can choose from to learn about a particular type
+of attack. You will see an on-screen-indicator in the bottom left of the screen that will be green
+if you are in a VM indicating the program is completely safe to run. It will be red if you are
+running the simulator on a physical machine. Proceed with caution.
+
+#### How to use it:
+Choose a scenario you would like to complete and select "Open Scenario" at the bottom of the screen
+Wait a few moments as some scenarios need time to set things up in the background. Once in a scenario
+page step through carefully and read everything thoroughly. Each scenario is unique and tasks you need
+to complete will be described on that page. After completing your walkthrough indicate that you have
+finished by selecting "Complete" at the top of the screen. Return to the home page by selecting "Home"
+The "Run Malware" button is currently unused in the scenarios we have created so far.
 
 ## Project Setup
 ###### [Return to Top](#Malsim)
