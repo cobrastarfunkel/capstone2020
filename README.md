@@ -70,7 +70,88 @@ Feel free to delete the database if you want to reset progress.  It will be crea
 *If anything is added to code outside of Java; so Scenarios mostly; the database must be deleted to reflect the changes.*
 
 
+## Using the Database
+#### Current Process
+The process at the moment is a Scenario object is created using Jackson (A YAML Parser for Java).  The Scenarios are built using fields in a config file stored in **/src/main/resources/conifgFiles.**
 
+
+The ScenarioBuilder class handles the creation of the Scenarios.
+
+
+The SqliteDatabase class builds the database and the respective Tables classes will build the tables.
+
+### To Add Scenarios
+1. Drop a file in **/src/main/resources/conifgFiles** that follows the format of the example config file below
+1. Place the Scenario files in the **/src/main/resources/scenarioFiles** directory under the path you defined in the config file. As an example in the file below all of your scenario files would go in the **/src/main/resources/scenarioFiles/unit_test2** directory.
+
+**Ensure the ID number is unique to your Scenario.**
+
+    ---
+    # Configuration File for Unit Test 1
+    
+    # ID Number
+    id: 0002
+    
+    # Name for the GUI screen
+    scName: Unit Test Scenario
+    
+    # Relative path to the executable Scenario
+    # Based from the java resources directory
+    dMalware: unit_test2/scenario2.exe
+    
+    # Same as Deploy but for the reset script
+    reset_file: unit_test2/scenario_reset.ps1
+    
+    # Language the Scenario is using
+    language: c++
+    
+    # Type of Scenario
+    type: artifact
+    
+    # Place documents in the docs directory inside the Scenarios directory
+    # Then add them here as needed.
+    documentation: unit_test/docs/help.pdf
+
+
+The following will create the database (If it doesn’t already exist) and tables and fill them with data from config files:
+
+    SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
+    sqliteDB.createTables();
+    
+### Viewing Database
+To view the database, the easiest method is to download DB Browser Sqlite and open the .sqlite file located in **/src/main/resources/databases**
+
+You can download a SQLite Browser [here](https://sqlitebrowser.org/dl/)
+
+Another option is to run queries using sql in java.  
+
+The following creates the database if it doesn’t exist, populates it with whatever Scenarios are in the configFiles directory, and queries everything from the scenarios table.
+
+    SqliteDatabase sqliteDB = new SqliteDatabase("filesDb.sqlite");
+    sqliteDB.createTables();
+    
+    // SQL query
+    String sql = "SELECT * FROM scenarios";
+    
+    // Connect to the Database
+    try (Connection conn = sqliteDB.connect();
+    
+        // Statement class is used for executing and returning SQL Queries
+	     Statement stmt = conn.createStatement();
+        
+        // The results from the Query
+	     ResultSet rs = stmt.executeQuery(sql)) {
+
+            // Loop through results
+	         while (rs.next()) {
+                // When printing Queries use the column name with the get methods below
+		          System.out.printf("ID: %s\tName: %s\n", rs.getInt("idNumber"), rs.getString("scName"));
+	         }
+    } catch (Exception e) {
+        printStackTrace();
+    }
+    
+## Adding Tables to Database
 
 ## Confluence Links
 ###### [Return to Top](#Malsim)
