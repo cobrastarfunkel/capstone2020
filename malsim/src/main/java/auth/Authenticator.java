@@ -55,7 +55,6 @@ public class Authenticator {
 					System.exit(0);
 				}
 			} catch (NoSuchAlgorithmException | NoSuchProviderException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return false;
 			}
@@ -105,19 +104,6 @@ public class Authenticator {
 		}
 		return false;
 	}
-
-	/*
-	 * public static void main(String[] args) throws NoSuchAlgorithmException,
-	 * NoSuchProviderException { String passwordToHash = "password"; byte[] salt =
-	 * getSalt();
-	 * 
-	 * String securePassword = getSecurePassword(passwordToHash, salt);
-	 * System.out.println(securePassword); //Prints 83ee5baeea20b6c21635e4ea67847f66
-	 * 
-	 * String regeneratedPassowrdToVerify = getSecurePassword(passwordToHash, salt);
-	 * System.out.println(regeneratedPassowrdToVerify); //Prints
-	 * 83ee5baeea20b6c21635e4ea67847f66 }
-	 */
 
 	public String getHashedPassword(String passwordToHash, byte[] salt) {
 		String securePassword = null;
