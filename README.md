@@ -3,6 +3,8 @@
 ## TOC
 * [Project Setup](#Project-Setup)
 * [Confluence Links](#Confluence-Links)
+* [Using the Database](#Using-the-Database)
+* [Adding Tables to the Database](#Adding-Tables-to-the-Database)
 
 ## Project Setup
 ###### Confluence Link [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/167084033/Project+Setup)
@@ -151,7 +153,7 @@ The following creates the database if it doesn’t exist, populates it with what
         printStackTrace();
     }
     
-## Adding Tables to Database
+## Adding Tables to the Database
 
 ## Confluence Links
 ###### [Return to Top](#Malsim)
