@@ -8,7 +8,8 @@
 
 ## Project Setup
 ###### [Return to Top](#Malsim)
-###### Confluence Link [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/167084033/Project+Setup)
+###### Confluence Link for this Section [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/167084033/Project+Setup)
+
 
 The following should give you a runnable copy of this project.
 ##### Requirements:
@@ -75,6 +76,7 @@ Feel free to delete the database if you want to reset progress.  It will be crea
 
 ## Using the Database
 ###### [Return to Top](#Malsim)
+###### Confluence Link for this Section [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/39845890/Using+the+Database)
 
 #### Current Process
 The process at the moment is a Scenario object is created using Jackson (A YAML Parser for Java).  The Scenarios are built using fields in a config file stored in **/src/main/resources/conifgFiles.**
@@ -158,6 +160,7 @@ The following creates the database if it doesn’t exist, populates it with what
     
 ## Adding Tables to the Database
 ###### [Return to Top](#Malsim)
+###### Confluence Link for this Section [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/71204865/Adding+Tables+to+Database)
 
 ### Create Schema
 Start by creating a new Schema(all files are under **/src/main/java/database**):
