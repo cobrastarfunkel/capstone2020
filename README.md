@@ -2,9 +2,9 @@
 
 ## TOC
 * [Project Setup](#Project-Setup)
-* [Confluence Links](#Confluence-Links)
 * [Using the Database](#Using-the-Database)
 * [Adding Tables to the Database](#Adding-Tables-to-the-Database)
+* [Confluence Links](#Confluence-Links)
 
 ## Project Setup
 ###### [Return to Top](#Malsim)
