@@ -170,7 +170,8 @@ Start by creating a new Schema(all files are under **/src/main/java/database**):
    1. The **NAME** value is the name of the table
    1. The cols are the columns of the table
       1. The values in ““ here are what you use to query the column in the database
-![Schema Code](blob:https://iancobia.atlassian.net/b99c26da-8fe0-449c-8c77-0c738a774935#media-blob-url=true&id=0c9e81a5-e145-4fbb-874e-84d1e3724ac4&collection=contentId-71204865&contextId=71204865&mimeType=image%2Fpng&name=db_schemas.PNG&size=27872&width=391&height=390) 
+      
+![Schema Code](https://iancobia.atlassian.net/b99c26da-8fe0-449c-8c77-0c738a774935#media-blob-url=true&id=0c9e81a5-e145-4fbb-874e-84d1e3724ac4&collection=contentId-71204865&contextId=71204865&mimeType=image%2Fpng&name=db_schemas.PNG&size=27872&width=391&height=390) 
       
       
 ## Confluence Links
