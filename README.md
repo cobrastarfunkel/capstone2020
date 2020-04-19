@@ -7,6 +7,7 @@
 * [Adding Tables to the Database](#Adding-Tables-to-the-Database)
 
 ## Project Setup
+###### [Return to Top](#Malsim)
 ###### Confluence Link [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/167084033/Project+Setup)
 
 The following should give you a runnable copy of this project.
@@ -73,6 +74,8 @@ Feel free to delete the database if you want to reset progress.  It will be crea
 
 
 ## Using the Database
+###### [Return to Top](#Malsim)
+
 #### Current Process
 The process at the moment is a Scenario object is created using Jackson (A YAML Parser for Java).  The Scenarios are built using fields in a config file stored in **/src/main/resources/conifgFiles.**
 
@@ -154,7 +157,22 @@ The following creates the database if it doesn’t exist, populates it with what
     }
     
 ## Adding Tables to the Database
+###### [Return to Top](#Malsim)
 
+### Create Schema
+Start by creating a new Schema(all files are under **/src/main/java/database**):
+
+1. Open AppSchemas.java
+1. In the **AppSchemas** class create a new static final class using the format “newtablenameTableSchema”
+   1. For example a table name User would be UserTableSchema
+1. Then copy the format used for other tables
+   1. All values will be Strings for this no matter what is being inserted into the table
+   1. The **NAME** value is the name of the table
+   1. The cols are the columns of the table
+      1. The values in ““ here are what you use to query the column in the database
+![Schema Code](blob:https://iancobia.atlassian.net/b99c26da-8fe0-449c-8c77-0c738a774935#media-blob-url=true&id=0c9e81a5-e145-4fbb-874e-84d1e3724ac4&collection=contentId-71204865&contextId=71204865&mimeType=image%2Fpng&name=db_schemas.PNG&size=27872&width=391&height=390) 
+      
+      
 ## Confluence Links
 ###### [Return to Top](#Malsim)
 All the information above can also be found on Confluence [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/39911440/How-to+articles)
