@@ -8,143 +8,77 @@
     <body>
 
         <div class="sim-console">            
-            <p id="demo"><span class="prompt">C:\></span> <a href="https://google.com">GOOGLE</a> is a link to another nifty site</p>
-            <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+            
 
-          <H1>This is a Header</H1>
-          <div style="text-align: left"><IMG SRC="unit_test1/clouds.jpg" ALIGN="BOTTOM" style="width:125px;height:100px;"></div>
-          <H2>This is a Medium Header</H2>
+          <H1>Key loggers</H1>
+          <div style="text-align: left"></div>
+          <H3>What are they?</H3>
           
-          Send me mail at <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>.
-          
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <P> Keyloggers are a type of spyware used to track the keyboard and mouse activities on a subject's computer.
+          These tools can be used legitimately or maliciously but the connotation of the term "Keylogger" carries is often negative.
+          Different types of malware, including the ones included in this training tool, can be disguised and delivered in different
+          ways. Trojans, viruses, and worms can all function as droppers by placing these malicious programs on the victim's machine.
+          Simple keyloggers like the one you are about to use can be planted on a victim machine and log keystrokes to a file to 
+          later be manually retrieved by an attacker. More advanced keyloggers can send this recorded information through email
+          or FTP without any user input making them far more dangerous in real world scenarios. 
         </P>
-        <P> <h4>This is a new paragraph!</h4>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <P> <h3>Will this key logger harm my computer?</h3>
+          The key logger presented in this exercise will function as a virus. Viruses on computers will not spread without human
+          interaction and will always require some form of action from the user. Your interaction with this virus will happen
+          in two distinct parts. First, when you launched this scenario the source code for the keylogger was compiled and
+          the executable was stored somewhere on your system without you knowing (sorry about that). You will then have to
+          launch the executable at which point the key logger will start recording your keystrokes. <B><I>In the event that
+          you cannot complete this exercise the key logger will terminate itself after two minutes and will not run again
+          unless you explicitly restart the program.</I></B>
+          <H2>Let's begin!</H2>
+       
+       	  <H3>Finding the malware</H3>
+          <P> Because viruses need human interaction to spread and infect different computers they are often disguised as something
+          enticing. Maybe you've won a bajillion dollars or you're just downloading a program you need for work. Here you've
+          opened the malware training tool. The enticing link or file should be easy to find so the user can infect their computer
+          without much hassle. Assuming MinGW is installed correctly and this malware simulator is being run with the correct
+          permissions you should be able to find the file "keylogger.exe" directly in your C drive.
+		  <br/><B>Open your file explorer now and navigate to C:\</B>
+          </P><br/>
+          <H3>Running the program</H3>
+          <P> Now that you have found C:\ on your file system identify the file named "keylogger.exe." Obviously this file could be
+          named something much more inconspicuous and raise no alarm. Perhaps it was included in a legitimate program and
+          is named something to indicate that it belongs there. Very rarely, if ever, will these files be so easy to detect.
+          The program could be hidden somewhere deep inside the file system and be very hard to find, but because it is located
+          directly in C:\ it will need administrator permissions to create the file it needs to begin logging key presses. You
+          will now launch the keylogger and it will record keystrokes for two minutes.
+          <br/><B>Right click keylogger.exe and select "Run as administrator."</B>
+          </P><br/>
+          <H3>Finding the running process</H3>
+          <P> While the keylogger is running it is now a terrible time to enter your full name, social security number, and
+          all banking information you can think of. Go ahead and type yourself some gibberish so you can see how the program works.
+          <br/><B>Press Ctrl+Shift+Esc to open the task manager</B>
+          </P><br/>
+          <H3>Terminating the process</H3>
+          <P> While the keylogger is running you should be able to scroll through this alphabetized list until you find "keylogger.exe"
+          As was pointed out before this is an incredibly stupid name for something trying to hide and you would have a much more
+          difficult time trying to find a program with a name that was more thoroughly hidden.<br/><B>To terminate the keylogger click
+          on the process name and select "End task" in the bottom right of the window.</B> Note: If you do not see the process in task
+           manager, it is likely the program terminated itself after two minutes.
+          </P><br/>
+          <H2>Cleaning up the Damage</H2>
+          <P> Now that the process has been killed you have nothing to worry about. Right? <I>Nope!</I> The file that recorded your
+          keystrokes is still on your computer. This means the attacker can regain access to your machine and recover the
+          key presses you made before the process was terminated. Once again, this file could be anywhere on your system in any
+          folder with any filename. It can be quite the challenge to find a small text file sitting silently somewhere on your system.
+          In this example we have made it simple.<br/><B>Return to C:\ where you found "keylogger.exe"</B>
+          </P><br/>
+          <P> Here you will find a super secret new file named "SavedKeyPresses.txt" and you will never believe what is inside. In 
+          this file you will see the keystrokes you made while the logger was reading your inputs. All you have to do to rid your
+          computer of this file is select it and press the delete key like any other file on your system. You may require administrator
+          permissions because the file is stored in C:\ but select "Continue" at the prompt to delete this file. <br/><B>Delete 
+          SavedKeyPresses.txt and keylogger.exe</B><br/>
           </P>
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <P>In conclusion, every action you took to launch this attack on yourself could be easily taken by someone trying to install 
+          a legitimate program. If the keylogger program and text file were located in a folder less sensitive than C:\ no administrator
+          permission would be required to begin logging your data. This is one of the easiest and therefore most common attacks you
+          are likely to see.
           </P>
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </P>
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </P>
-          <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </P>
-          <P> <h4>This is a new paragraph!</h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-            <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </P>
-            <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </P>
-            <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </P>
-            <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </P>
-            <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </P>
-            <P> <h4>This is a new paragraph!</h4>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-                <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </P>
-                <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </P>
-                <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </P>
-                <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </P>
-                <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </P>
-                <P> <h4>This is a new paragraph!</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  <BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-                    <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </P>
-                    <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </P>
-                    <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </P>
-                    <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </P>
-                    <P> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </P>
+            
         </body>
 </HTML>
