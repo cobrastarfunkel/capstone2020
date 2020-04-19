@@ -44,10 +44,13 @@ public class SimulatorController implements Initializable {
 	// These items are for the list of scenarios
 	@FXML
 	private Label scenarioLabel;
+	
 	@FXML
 	private ListView<String> listViewMain;
+	
 	@FXML
 	private Button openButton;
+	
 	@FXML
 	private ImageView scenarioDocImage;
 

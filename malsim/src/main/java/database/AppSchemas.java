@@ -58,4 +58,14 @@ public class AppSchemas {
 			public static final String scType = "scType";
 		}
 	}
+	
+	public static final class LoginTableSchema {
+		public static final String NAME = "logins";
+		
+		public static final class Cols {
+			public static final String username = "username";
+			public static final String password = "password";
+			public static final String salt = "salt";
+		}
+	}
 }
