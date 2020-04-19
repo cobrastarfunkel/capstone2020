@@ -173,7 +173,32 @@ Start by creating a new Schema(all files are under **/src/main/java/database**):
       
 ![Schema Code](db_schemas.PNG) 
       
-      
+### Create Table
+Next we have to write the code that handles the Table creation (all files are under **/src/main/java/tables**):
+
+1. Create a new java class named after your table
+   1. For example UserTable.java
+1. It needs a private DatabaseHelper
+   1. If you need to encrypt something it also needs a private ScenarioHelper
+1. The constructor needs to take a SqliteDatabase object
+   1. Assign the private DatabaseHelper you made to the SqlitDatabase
+   1. If you need a ScenarioHelper create a new one in the Constructor.
+1. Create two private methods
+   1. createTable and InsertIntoTable
+1. Follow the format of the other Tables
+
+![Table Creation](scenariosTable.PNG)
+
+The above image doesn’t encrypt any files, for an example of that look at the MalwareTable.  You can basically copy and paste the above but you need to change all of the values to match the values of your tables Schema in the sql Strings and in the PreparedStatement.
+
+#### Using Prepared Statement
+The prepared statement will need to reflect the actual values of the data you plan to insert.  For example a name in sqlite would be TEXT but when you use the prepared statement you need it to be a String.
+
+1. Change the pst.set statements to reflect your data.  The first one should always be an int and should be the Scenario Key
+
+     
+    ```The values pst uses are from whatever object you create, so all of these use the Scenario object but something new will need to     reflect that. So the DatabaseHelper will probably not be used to query information, just to establish a connection to the database.  I would suggest inserting objects into a HashTable and using that to loop through them and insert them into the database.```
+
 ## Confluence Links
 ###### [Return to Top](#Malsim)
 All the information above can also be found on Confluence [here](https://iancobia.atlassian.net/wiki/spaces/CC/pages/39911440/How-to+articles)
