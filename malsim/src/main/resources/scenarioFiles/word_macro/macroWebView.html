@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Malicious Microsoft Word Macros</h1>
+
+<h2>What are macros?</h2>
+
+<p>Microsoft Word provides the ability to record multiple actions by the user so that they can be automatically performed at a later date in the same sequence. This is called a "macro." They can also be created by creating a script of commands in the Visual Basic programming language natively within Word. These can be used to perform calculations, format documents, or even interact with other documents or other things on the user's computer.<p>
+
+<h2>What is a "Malicious" macro?</h2>
+
+<p>due to the fact that macros are very flexible and can interact with nearly anything on the system, they are at risk of being abused. The term "malicious" can mean many things, but typically it means there is a bad guy attempting to either steal, modify, or destroy data for their own gain. Malicious code within Microsoft document macros is typically used to either create a backdoor for the attacker to compromise the system with, or simply download other, more sophisticated malware for more complex purposes.<p>
+
+<h2>The Example Macro</h2>
+
+<p>The document provided as an example contains a macro that simply records the system information of the host computer into a file on your desktop. The Word document itself will also be dropped onto your desktop for you to open and run, as well as observe where the macro is located.</p>
+
+<p>The Word document containing the macro is titled "Malsim_Macro.docm". This is a macro-enabled Word document. Previous versions of Word documents simply allowed macros to be saved within normal .doc documents, but Microsoft has become increasingly wary of their malicious use and has since increased security surrounding document macros.</p>
+
+<p>The macro is set to run automatically upon opening the document. Simply double click on the document to open it, and you should receive two warnings after doing so. The first is a message notifying you that the document is currently in read-only mode, and there is a button to enable editing. Click it. Next there should be a message bar notifying you that there are macros contained in the document, and macros are currently disabled. It will offer you a button to click to enable them, please click it. Upon doing this the macro should now run, and another document called "Malsim_Report.txt" should appear on your desktop.</p>
+
+<p>Within the new text document you should see a list of technical specifications. This is the output of a simple windows command, but it represents what kind of information an attacker could easily gain from this kind of attack. The example was created to be a visible representation of a macro performing an action, but almost never are the actions of real world malicious macros visible to the untrained eye, so to speak. They typically perform all actions in the background, invisible to the user so as to not arouse suspicion.</p>  
+
+<p>To view the macro itself inside the Word document, navigate to the View tab at the top of the Word editor. Select the "Macros" button on the right end of the tool bar. This will open a small window with all of the macros contained in the document. Click the macro called "AutoExec" to highlight it, then click "Edit." This will allow you to see the code that created the text document you inspected earlier.</p>
+
+<h2>The Code</h2>
+
+<p>This particular macro was written in Visual Basic, a programming language created by Microsoft in 1991. It is quite outdated, and considered "legacy" (or "out of support/development") in 2008, though it is still used in some places today. This is the simplest method of writing executable code within a word document, though there are other more complex ways as well (most of which not intended by Microsoft). The simple script is two lines of code that run a command using the exact same syntax you normally would from a command prompt or in powershell.</p>
+
+<h2>The End</h2>
+
+<p>Now that you have observed a simple example of a macro in action, it is easy to see why this is a quite popular method of exploitation. The vast majority of normal users would never know to suspect their own trusty Microsoft Word to run custom code at all, let alone malicious code that could compromise their system in almost any way desired by an attacker. It is often just the first step to several more complex actions by an attacker, and is still a trustworthy tool for the bad guys to this day due to a lack of user training and the simplicity of the technique</p>
+
+</body>
+</html>

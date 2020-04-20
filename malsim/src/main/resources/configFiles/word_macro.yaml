@@ -1,0 +1,27 @@
+---
+# Don't remove this file, used for Unit tests
+
+# ID Number
+id: 0011
+
+# Name for the GUI screen
+scName: Malicious Microsoft Word Macro 
+
+# Relative path to the executable Scenario
+# Based from the java resources directory
+dMalware: word_macro/macroDeploy.ps1
+
+# Same as Deploy but for the reset script
+reset_file: word_macro/macroRemove.ps1
+
+# Language the Scenario is using
+language: VBA
+
+# Type of Scenario
+type: technique
+
+# Place documents in the docs directory inside the Scenarios directory
+# Then add them here as needed.
+documents: word_macro\macroWebView.html
+
+difficulty: Easy
