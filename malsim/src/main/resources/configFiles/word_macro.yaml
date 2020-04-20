@@ -9,7 +9,7 @@ scName: Malicious Microsoft Word Macro
 
 # Relative path to the executable Scenario
 # Based from the java resources directory
-dMalware: word_macro/Malsim_Macro.docm
+dMalware: word_macro/macroDeploy.ps1
 
 # Same as Deploy but for the reset script
 reset_file: word_macro/macroRemove.ps1
